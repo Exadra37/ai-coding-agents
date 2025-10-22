@@ -6,11 +6,13 @@ All modules inside a Resource Action can only be accessed through the Resource A
 
 Each Resource Action is unit tested and the Resource API it's only tested via its doc-tests to ensure docs examples are in sync with the code and that each function can be invoked.
 
-Any project following this ARCHITECTURE.md MUST strictly adhere to [1. Folder Structure](#1-folder-structure) and implement [2. Milliseconds Timestamps](#2-milliseconds-timestamps)] and [3. Binary IDs](#3-binary-ids) without making assumptions, in doubt always ask to the user for clarifications.
+Any project following this DOMAIN_RESOURCE_ACTION_ARCHITECTURE.md MUST strictly adhere to [1. Folder Structure](#1-folder-structure) and implement [2. Milliseconds Timestamps](#2-milliseconds-timestamps)] and [3. Binary IDs](#3-binary-ids) without making assumptions, in doubt always ask to the user for clarifications.
 
 ## 1. Folder Structure 
 
-### 1.1 Mockup Example for an Online Shop:
+### 1.1 Mockup Example for an Online Shop
+
+The below folder structure only contains the minimal number of Elixir files required to illustrate the Domain Resource Action pattern:
 
 ```text
 lib
@@ -96,13 +98,28 @@ As per the folder structure:
 - File: `<action_singular>_<domain_singular>_<resource_singular>_<module_type>.ex` (e.g., `lib/my_app/catalogs/products/update/update_catalog_product_handler.ex`)
 - Module: `MyApp.<DomainPlural>.<ResourcePlural>.<ActionSingular>.<ActionSingular><DomainSingular><ResourceSingular><ModuleType>` (e.g., `MyApp.Catalogs.Products.Update.UpdateCatalogProductHandler`). Catalogs is the Domain, Categories the Resource, Update the Action, and Handler the Type of module.
 
-### 1.3 Module Types 
+## 1.3 Module Types Added by the Domain Resource Action Pattern
 
 #### 1.3.1 Domain Folder
 
-#### 1.3.1 Domain Resource Folder
+The Domain folder is located at `lib/my_app/<domain_plural>`, e.g. `lib/my_app/catalogs`.
 
-#### 1.3.2 Domain Resource Action Folder
+Module types:
+
+- `API` - This files are the only way that Resources can be accessed, inclusive from inside the Resource itself. They define the public contract for each Resource on the Domain folder.
+
+#### 1.3.2 Domain Resource Folder
+
+The Domain Resource folder is located at `lib/my_app/<domain_plural>/<resource_plural>`, e.g. `lib/my_app/catalogs/products`:
+
+Module types:
+
+- `Schema` - This files are the same Ecto schemas generated in a normal Phoenix project but with the `DomainSingular` used as Prefix and `Schema` as suffix, e.g. Module `CatalogProductSchema` and file `catalog_product_schema.ex`. This name convention is more explicit then the one used by default in Phoenix.
+- `Contract` - This files are Elixir structs to pass data around, usually used for input data given to module functions. It's optional but strongly recommend that they some type checking library to make resilient, after all they are a contract, like for example the [ElixirScribe.Behaviour.TypedContract](https://github.com/Elixir-Scribe/elixir-scribe/blob/916778e1151963b1f8ca63108fdbadbca6b4e9bd/lib/elixir_scribe/behaviour_typed_contract.ex#L1). Module name looks like `CatalogProductContract` and file name like `catalog_product_contract', but they aren't illustrated in the folder structure example.
+
+#### 1.3.3 Domain Resource Action Folder
+
+Module Types:
 
 - `Handler` - The entry-point for handling the Action on the Domain Resource. It will be responsible to coordinate all the work required to perform the action to keep data handling and transformation, the business logic, separated from the infrastructure logic, the interactions with the external world (databases, pub-sub, queues, filesystem, third-parties, mailers, sms, etc.).
 - `Core` - This modules is where the business logic happens without any side effects. It's only allowed pure data transformations, something in something out. This means that this module receives from the `Handler` all the input it requires to perform its work and returns some output. No interactions with the external world are allowed (databases, pub-sub, queues, filesystem, third-parties, mailers, sms, etc.).
@@ -110,7 +127,7 @@ As per the folder structure:
 - `PubSub, Queue, Filesystem, ThirdParty, Mailer, SMS` and more - This are the modules where you interact with each specific external systems. This modules cannot interact with `Core` or `Storage`, instead they must receive as input from the `Handler` all they need to perform their work.
     
 
-### 1.4 Modules Examples
+### 1.4 Modules Examples for the Domain Resource Action Pattern
 
 #### 1.4.1 Domain Resource API 
 
