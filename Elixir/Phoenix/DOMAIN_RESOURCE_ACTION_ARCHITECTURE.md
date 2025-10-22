@@ -100,6 +100,8 @@ As per the folder structure:
 
 ## 1.3 Module Types Added by the Domain Resource Action Pattern
 
+The Module Types listed here are only the ones introduced by using the Domain Resource Action architecture pattern, not a list of all that can be found in an Elixir Phoenix project.
+
 #### 1.3.1 Domain Folder
 
 The Domain folder is located at `lib/my_app/<domain_plural>`, e.g. `lib/my_app/catalogs`.
@@ -164,7 +166,7 @@ end
 
 #### 1.4.2 Domain Resource Action Handler
 
-The Hanndler main goal is to decouple infrastructure logic from the Busines Core logic.
+The Handler main goal is to decouple infrastructure logic from the Busines Core logic.
 
 ```elixir
 # lib/my_app/catalogs/products/update/update_catalog_product_handler.ex
