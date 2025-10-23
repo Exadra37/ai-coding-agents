@@ -39,41 +39,41 @@ You MUST ask the user to approove the Intent and save it to `.intent/` directory
 ```markdown
 # 54 - Feature (Wharehoeuses-Stocks): Track Items with Low Stock
 
-> # The AI Coding Agent should be able to get the current Itent number `54` by incrementing by one the number of the last Intent created, the number `53`. If the request of the user isn't clear enough to detemine the type of Intent, the Domain and Resource it belongs to and the Intent title itself, then the AI Coding Agent **MUST** explicitely ask the user what they are.
+> The AI Coding Agent should be able to get the current Itent number `54` by incrementing by one the number of the last Intent created, the number `53`. If the request of the user isn't clear enough to detemine the type of Intent, the Domain and Resource it belongs to and the Intent title itself, then the AI Coding Agent **MUST** explicitely ask the user what they are.
 
-> # Context for the AI Coding Agent and LLM - This document represents a single Intent - a self-contained unit of work focused on implementing a specific piece of functionality. When working with an AI Coding Agent or LLM on this Intent, the user **MSUT** start by sharing this document to provide context about what needs to be done.
+> Context for the AI Coding Agent and LLM - This document represents a single Intent - a self-contained unit of work focused on implementing a specific piece of functionality. When working with an AI Coding Agent or LLM on this Intent, the user **MSUT** start by sharing this document to provide context about what needs to be done.
 
 ## Why
 
-> # If the request of the user isn't clear enough to detemine the **WHY** for the Intent, then the AI Coding Agent **MUST** explicitely ask the user this Intent objective alongside with some context and relevant background information.
+> If the request of the user isn't clear enough to detemine the **WHY** for the Intent, then the AI Coding Agent **MUST** explicitely ask the user this Intent objective alongside with some context and relevant background information.
 
 ### Objective
 
-> # REQUIRED - Provide a clear statement of what this steel thread aims to accomplish
+> REQUIRED - Provide a clear statement of what this steel thread aims to accomplish
 
 This feature adds support to track items with low stock accross all wharehouses.
 
 ### Context 
 
-> # REQUIRED - Provide the relevant background information and context for this Intent, including why it's needed and how it fits into the larger project
+> REQUIRED - Provide the relevant background information and context for this Intent, including why it's needed and how it fits into the larger project
 
 This feature is the foundation to later enable to build other features, like automations to keep stock under control, notifications for users, sales and management, business inteligence, analytics and metrics.
 
 ### Depends On Intents
 
-> # OPTIONAL - List here Intents this one depends on.
+> OPTIONAL - List here Intents this one depends on.
 
 * 50 - Feature (Wharehoeuses-Shelfes): Track items removed from shelfes
 
 ### Related to Intents
 
-> # OPTIONAL - List here other Intents that will depend on this one.
+> OPTIONAL - List here other Intents that will depend on this one.
 
 * 58 - Feature (Wharehoeuses-Analytics): Add dashboard  for lower stock items average
 
 ## What
 
-> # REQUIRED - Use an Event Modelling image or use the Gherkin language to describe WHAT we want to build. Ideally the AI Coding Agent should be able to infer **WHAT** needs to be done from the **WHY**, with miniaml or not input from the user.
+> REQUIRED - Use an Event Modelling image or use the Gherkin language to describe WHAT we want to build. Ideally the AI Coding Agent should be able to infer **WHAT** needs to be done from the **WHY**, with miniaml or not input from the user.
 
 Describing what to build with the Gherking language:
 
@@ -103,7 +103,7 @@ Describing what to build with the Gherking language:
 
 ## How
 
-> # REQUIRED - List here the Tasks and subtasks to complete this Intent. Ideally the AI Code Agent should be able to determin all the task needed.
+> REQUIRED - List here the Tasks and subtasks to complete this Intent. Ideally the AI Code Agent should be able to determin all the task needed.
 
 ### Tasks
 
