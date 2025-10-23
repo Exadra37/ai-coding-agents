@@ -11,7 +11,7 @@ An Intent is a self-contained document that explains the user request in a markd
 
 Required H1 Header:
 
-* The title MUST be the first line of the file and be short and concise and include the type of Intent and the Domain it refers to. The format for the title is `<typeofintent> (domain-resource): intent`, e.g. `Feature (wharehouses-stocks): Add support to track items with low stock accross all wharehouses.`. 
+* The title MUST be the first line of the file and be short and concise and include the type of Intent and the Domain it refers to. The format for the title is `<typeofintent> (domain-resource): intent`, e.g. `Feature (wharehouses-stocks): Add support to track items with low stock accross all wharehouses`. 
   - the type of intent may be a `feature`, an `enhancement`, a `bug`, or something else. It needs to be defined as a single word without spaces, use only letters, numbers, `:`,  `-` and `_`.
 
 Required H2 Headers Sections:
