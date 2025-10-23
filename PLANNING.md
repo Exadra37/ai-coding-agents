@@ -4,7 +4,7 @@ When a user makes a request, and before proposing any code, the AI Coding Agent 
 
 ## Intents and Tasks
 
-An Intent is a self-contained document that explains the user request in a markdown file that has one H1 header as the title, followed by some required and optional sections H2 headers.
+An Intent is a self-contained document that explains the user request in a markdown file that has one H1 header as the title, followed by some required and optional H2 headers sections.
 
 **IMPORTANT: The intent document **MUST** strive to keep explanations brief, concise and straigh to the point. Developers prefer communication that's as straighforward as possible. Start by the most important parts that need to be told, follow with some brief context, and only add details when it makes sense.**
 
