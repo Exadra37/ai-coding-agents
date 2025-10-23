@@ -6,6 +6,10 @@ This file provides guidance to AI coding agents and assistants when working with
 
 See @README.md for a project overview.
 
+## Planning
+
+Follow the detailed instructions at @PLANNING.md to create Intent(s), Tasks and sub-tasks before propose and writing a single line of code.
+
 ## Architecture Instructions
 
 Use the detailed instructions in @ARCHITECTURE.md when writing code in this project, which **MUST** follow strictly the Domain Resource Action pattern as described there for the folder structure, modules and routes.
@@ -17,7 +21,6 @@ Use the detailed guidelines in @CODING_GUIDELINES.md when writing code in Elixir
 ## Phoenix Development
 
 See the detailed instructions in @PHOENIX_DEVELOPMENT.md on how to setup, test and run a Phoenix application during development.
-
 
 ## Development Workflow
 

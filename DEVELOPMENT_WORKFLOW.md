@@ -1,28 +1,35 @@
 # Development Workflow
 
+##
+
 ## Incremental Code Generation Workflow
 
 **IMPORTANT: Before proposing any code for a user request, the AI Coding Agent **MUST** always use the detailed instructions from @PLANNING.md to create Intent(s) and Tasks and sub-tasks to have a  detailed and concise step-by-step plan to accomplish the user request.**
+
+**CRITICAL: You **MUST** never start working on an Intent, task or sub-task if you don't have a clean git working tree. Always check for uncommitted changes with `git status`, and if any exist ask user guidance on how to proceed. Uncommitted changes from your working shoudn't exist, unless you failed to follow the Task Completion Protocol enumerate in this document.**
 
 **CRITICAL: After completing each step below, you MUST STOP and WAIT for explicit user approval before proceeding to the next task. When you ask "Ready for task X?", you are NOT allowed to continue until the user responds. NEVER create code for the next task until the user says "yes", "proceed", "continue`, "ok" or similar.**
 
 Work on an Intent at a time, executing step-by-step each task and sub-task from it, with user feedback in between, following the Domain Resource Action pattern as per the detailed instructions at @ARCHITECTURE.md and a TDD approach **MUST** always be used, by writing first the tests, followed by writing the code to make it pass, as a senior engineer with more then a decade of experience would write. The code needs to easy to understand and reason about. For example: create a schema, create unit tests for the schema, create a Domain Resource Action module, create unit tests for it, create the Domain Resource API, create Elixir doctests for it, create the LiveView or Controller in the web layer, then create the integration test for them. When creating tests there is no need to use mocks for accessing the database or other modules the current module depends on. Only create mocks for tests that will reach the external world, third-party APIs.
 
-Repeat the process below for each Task and sub-task on an Intent:
+### Task Implementation Protocol
 
-1. **Always ask for user confirmation** before starting to work on an Intent, task or sub-task - this is MANDATORY.
-2. **One sub-task at a time:** Do **NOT** start the next sub‑task until you ask the user for permission - - this is MANDATORY.
-3. **If user says "continue", "proceed", "yes", "y" or "ok"**, start or continue to the next sub-task, task or Intent.
-4. **If user provides feedback**, adjust and re-present your solution
-5. **If user says "skip X"**, skip that task, sub-task or Intent.
-6. **If user says "edit/refine/refactor X" or similar**, stop and iterate with the user to refine the Intent, task or sub-task.
-7. **Keep focused** - don't jump ahead, don't create multiple Intnets, tasks or sub-tasks at once. Use baby-steps.
-8. **Brief and consise explanations** - what you did, not verbose details. Start by the most important things to be told, followed by some context, and if really necessary a few more specific details.
-. **Always run tests** - once you think you completed a sub-task, task or Intent you **MUST** run `mix test" before commiting you changes
+Repeat each step in the below process for each Task and sub-task on an Intent:
+
+1. **Clean Git Working Tree:** Run `git status` to ensure that doesn't exist uncommited changes. Before continuing to step 2, ask for user guidance if they exist.
+2. **Always ask for user confirmation** before starting to work on an Intent, task or sub-task - this is MANDATORY.
+3. **One sub-task at a time:** Do **NOT** start the next sub‑task until you ask the user for permission - - this is MANDATORY.
+4. **If user says "continue", "proceed", "yes", "y" or "ok"**, start or continue to the next sub-task, task or Intent.
+5. **If user provides feedback**, adjust and re-present your solution
+6. **If user says "skip X"**, skip that task, sub-task or Intent.
+7. **If user says "edit/refine/refactor X" or similar**, stop and iterate with the user to refine the Intent, task or sub-task.
+8. **Keep focused** - don't jump ahead, don't create multiple Intnets, tasks or sub-tasks at once. Use baby-steps.
+9. **Brief and consise explanations** - what you did, not verbose details. Start by the most important things to be told, followed by some context when it makes sense, and if only if stritcly necessary a few more specific details.
+10. **Task Completion** - once you think you completed a sub-task, you **MUST** follow the [Task Completion Protocol](#task-completion-protocol).
 
 This approach enables early validation, catches issues before coding, and allows mid-course adjustments.
 
-## Task Completion Protocol
+### Task Completion Protocol
 
 The following steps apply:
 
