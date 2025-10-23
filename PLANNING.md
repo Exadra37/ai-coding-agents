@@ -39,17 +39,17 @@ You MUST ask the user to approove the Intent and save it to `.intent/` directory
 ```markdown
 # 54 - Feature (Wharehoeuses-Stocks): Track Items with Low Stock
 
-    > **NOTE:** The AI Coding Agent should be able to get the current Itent number `54` by incrementing by one the number of the last Intent created, the number `53`. If the request of the user isn't clear enough to detemine the type of Intent, the Domain and Resource it belongs to and the Intent title itself, then the AI Coding Agent **MUST** explicitely ask the user what they are.
+> **NOTE:** The AI Coding Agent should be able to get the current Itent number `54` by incrementing by one the number of the last Intent created, the number `53`. If the request of the user isn't clear enough to detemine the type of Intent, the Domain and Resource it belongs to and the Intent title itself, then the AI Coding Agent **MUST** explicitely ask the user what they are.
   
-    > Context for the AI Coding Agent and LLM - This document represents a single Intent - a self-contained unit of work focused on implementing a specific piece of functionality. When working with an AI Coding Agent or LLM on this Intent, the user **MSUT** start by sharing this document to provide context about what needs to be done.
+> **NOTE:** Context for the AI Coding Agent and LLM - This document represents a single Intent - a self-contained unit of work focused on implementing a specific piece of functionality. When working with an AI Coding Agent or LLM on this Intent, the user **MSUT** start by sharing this document to provide context about what needs to be done.
 
 ## Why
 
-> If the request of the user isn't clear enough to detemine the **WHY** for the Intent, then the AI Coding Agent **MUST** explicitely ask the user this Intent objective alongside with some context and relevant background information.
+> **NOTE:** If the request of the user isn't clear enough to detemine the **WHY** for the Intent, then the AI Coding Agent **MUST** explicitely ask the user this Intent objective alongside with some context and relevant background information.
 
 ### Objective
 
-> REQUIRED - Provide a clear statement of what this steel thread aims to accomplish
+> **REQUIRED** - Provide a clear statement of what this steel thread aims to accomplish
 
 This feature adds support to track items with low stock accross all wharehouses.
 
