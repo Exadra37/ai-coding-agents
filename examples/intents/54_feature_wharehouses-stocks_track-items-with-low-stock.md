@@ -1,8 +1,8 @@
-# 54 - Feature (Wharehoeuses-Stocks): Track Items with Low Stock
+# 54 - Feature (Wharehoeuses-Stocks): Track Items Stock
 
 > **NOTE:** The AI Coding Agent should be able to get the current Intent number `54` by incrementing by one the number of the last Intent created, the number `53`. If the request of the user isn't clear enough to detemine the type of Intent, the Domain and Resource it belongs to and the Intent title itself, then the AI Coding Agent **MUST** explicitely ask the user what they are.
   
-> **NOTE:** Context for the AI Coding Agent and LLM - This document represents a single Intent - a self-contained unit of work focused on implementing a specific piece of functionality. When working with an AI Coding Agent or LLM on this Intent, the user **MSUT** start by sharing this document to provide context about what needs to be done.
+> **NOTE:** Context for the AI Coding Agent and LLM - This document represents a single Intent - a self-contained unit of work focused on implementing a specific piece of functionality. When working with an AI Coding Agent or LLM on this Intent, the user **MUST** start by sharing this document to provide context about what needs to be done.
 
 ## 1. Why
 
@@ -12,13 +12,13 @@
 
 > **REQUIRED** - Provide a clear statement of what this Intent needs to accomplish.
 
-This feature adds support to track items with low stock accross all wharehouses.
+This feature adds support to track items stock accross all wharehouses.
 
 ### 1.2 Context 
 
 > REQUIRED - Provide the relevant background information and context for this Intent, including why it's needed and how it fits into the larger project
 
-This feature is the foundation to later enable to build other features, like automations to keep stock under control, notifications for users, sales and management, business inteligence, analytics and metrics.
+This feature is the foundation that other features wil build on top. For example: to keep stock under control, to send notifications about low stock, out of stock or back in stock, for targets like customers, sales, management, business inteligence, analytics and metrics.
 
 ### 1.3 Depends On Intents
 
@@ -30,7 +30,7 @@ This feature is the foundation to later enable to build other features, like aut
 
 > OPTIONAL - List here other Intents that will depend on this one.
 
-* 58 - Feature (Wharehoeuses-Analytics): Add dashboard  for lower items stock average
+* 58 - Feature (Wharehoeuses-Analytics): Add dashboard to track items lower stock average
 
 ## 2.0 What
 
@@ -39,26 +39,33 @@ This feature is the foundation to later enable to build other features, like aut
 Describing what to build with the Gherking language:
 
     ```gherkin
-    Feature: Wharehouses Stocks - Track items with low stock
+    Feature: Wharehouses Stocks - Track Items Stock
     
-      A background process subscribes to pubsub notifications from items being removed from the storage shelfes and when receives a notification it verifies if the low stock threshold for the item, in the given Warehouse, was reached, and always emits a low stock pubsub notification for the item on that Warehouse, where one 
+      A background process subscribes to notifications from items being removed from the Wharehoeuses shelfes and when receives a notification it verifies the current stock and if the low stock threshold for the item was reached for the given Warehouse, and always emits a `wharehouse_stock_item_status` notification for the current item stock on that Warehouse with the current stock quantity and a item stock status in one of `in_stock`, `low_stock`, `out_of_stock`.
       
-      Scenario: Item below or equal to minimal stock threshold
-        Given a threshold of `10` for the minimal stock quantity of an item
-        When a notification `wharehouse_shelfes_item_removed` is received
-        Then check the current quantity in stock for the item on the given Wharehoeuse
-        Then subtract the quantity removed from the shelfes from the current quantity 
-        And if the quantiy is equal or less to the threshold of `10`
-        Then emit a notification `wharehouse_stock_item_status` with the `wharehouse_id`, `item_id`, `shelf_item_pickup_id`, `low_stock?`, `minimal_stock_threshold` and `current_quantity_stocked`.
+      The notification is required to always have the fields: `wharehouse_id`, `item_id`, `shelf_item_pickup_id`, `item_stock_status`, `minimal_stock_threshold` and `current_quantity_stocked`.
+      
+      
+      Scenario: Item current stock is `0`
+        Given a notification `wharehouse_shelfes_item_removed` is received
+        When the item current stock is `0`
+        Then emits a notification with all required fields and a `item_stock_status` of `out_of_stock`.
         
-      Scenario: Item above the minimal stock threshold
-        Given a threshold of `10` for the minimal stock quantity of an item
-        When a notification `wharehouse_shelfes_item_removed` is received
-        Then check the current quantity in stock for the item
-        Then subtract the quantity removed from the shelfes from the current quantity 
+      Scenario: Item current stock below or equal to minimal stock threshold
+        Given a notification `wharehouse_shelfes_item_removed` is received
+        When the threshold for the minimal stock quantity of an item is `10`
+        Then checks the current quantity in stock for the item on the given Wharehoeuse
+        Then subtracts the quantity removed from the shelfes from the current quantity 
+        And if the quantiy is equal or less to the threshold of `10`
+        Then emits a notification with all required fields and a `item_stock_status` of `low_stock`. 
+        
+      Scenario: Item current stock above the minimal stock threshold
+        Given a notification `wharehouse_shelfes_item_removed` is received
+        When the threshold for the minimal stock quantity of an item is `10`
+        Then checks the current quantity in stock for the item
+        Then subtracts the quantity removed from the shelfes from the current quantity 
         And if the quantiy is greater to the threshold of `10`
-        Then emit a notification `wharehouse_item_current_stock` with the `wharehouse_id`, `item_id`, `shelf_item_pickup_id`,  `low_stock?`, `minimal_stock_threshold`, `current_quantity_stocked` and `quantity_removed`.
-      
+        Then emits a notification with all required fields and a `item_stock_status` of `in_stock`. 
     ```
 
 ## 3.0 How
