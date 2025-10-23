@@ -1,28 +1,38 @@
-# AGENTS
+# CLAUDE.md
 
-This file provides guidance to AI coding agents and assistants when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Overview
+## Project overview
 
-See @README.md for a project overview.
+See @README.md for a project overview, and how to build, test and run the application.
 
-## Architecture Instructions
+## Coding guidelines
 
-Use the detailed instructions in @ARCHITECTURE.md when writing code in this project, which **MUST** follow strictly the Domain Resource Action pattern as described there for the folder structure, modules and routes.
+Use the detailed instructions in @AGENTS.md when writing Akka code.
 
-## Coding Guidelines
+Use the guidelines in @akka-context/java/ai-coding-assistant-guidelines.html.md when writing code in this project.
 
-Use the detailed guidelines in @CODING_GUIDELINES.md when writing code in Elixir with the Phoenix framework, but bear in mind that instructions in the @ARCHITECTURE.md have precende over @AGENTS.md.
+## Akka documentation
 
-## Phoenix Development
+You find the reference documentation of Akka in the akka-context directory and sub-directories.
+Read this documentation to answer questions about Akka.
 
-See the detailed instructions in @PHOENIX_DEVELOPMENT.md on how to setup, test and run a Phoenix application during development.
+## Incremental Generation Workflow
 
+**Work step-by-step with user approval between major phases. Keep explanations brief - developers prefer concise communication.**
 
-## Development Workflow
+**CRITICAL: After completing each step below, you MUST STOP and WAIT for explicit user approval before proceeding to the next step. When you ask "Ready for X?", you are NOT allowed to continue until the user responds. NEVER create code for the next step until the user says "yes", "proceed", or similar.**
 
-See the detailed instructions at @DEVELOPMENT_WORKFLOW.md to follow an **Incremental Code Generation Workflow** that adopts baby step-by-step to got through all Intents, their tasks and sub-tasks.
+Create one component and a corresponding test at a time, with user feedback in between. If there are several components involved in the task some steps below should be repeated for each component. For example: create an entity, create unit test for the entity, create view, create test for the view, create endpoint for the entity and view, create integration test for the endpoint.
 
+1. **Always wait** for user approval between major steps - this is MANDATORY
+2. **If user says "proceed"/"yes","y"**, continue to next step
+3. **If user provides feedback**, adjust and re-present
+4. **If user says "skip X"**, skip that step
+5. **Keep focused** - don't jump ahead, don't create multiple steps at once
+6. **Brief explanations** - what you did, not verbose details
+
+This approach enables early validation, catches issues before coding, and allows mid-course adjustments.
 
 ### Step 0: Documentation Check (complex components only)
 
