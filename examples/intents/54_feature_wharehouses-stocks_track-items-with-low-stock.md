@@ -30,7 +30,7 @@ This feature is the foundation to later enable to build other features, like aut
 
 > OPTIONAL - List here other Intents that will depend on this one.
 
-* 58 - Feature (Wharehoeuses-Analytics): Add dashboard  for lower stock items average
+* 58 - Feature (Wharehoeuses-Analytics): Add dashboard  for lower items stock average
 
 ## What
 
@@ -68,5 +68,26 @@ Describing what to build with the Gherking language:
 
 ### Tasks
 
-* [ ] 1.0 - Create the Domain Resource Action Skeleton for the `Wharehouses` Domain, `Stocks` Resource and `track_item_low_stock` Action:
-  - [ ] 1.1 - Create folder skeleton for the Business Logic at `lib`
+* [ ] 1.0 - Create the Domain Resource Action folder skeleton for the `Wharehouses` Domain, `Stocks` Resource and `track_item_low_stock` Action:
+  - [ ] 1.1 - Create the folder skeleton for the Business Logic at `lib/online_shop/wharehouses/stocks/track_item_low_stock`
+  - [ ] 1.2 - Create the folder skeleton for the Business Logic at `test/online_shop/wharehouses/stocks/track_item_low_stock`
+  - [ ] 1.3 - Add the Elixir modules placeholders (no business logic yet, just empty functions) to the action folder scheleton:
+  - [ ] 1.4 - Add the `track_item_low_stock` function to the Domain Resource API module `WarehousesStocksAPI`.
+* [ ] 2.0 - Use a TDD approach for writing tests for all scenarios and edge cases at `TrackItemLowStockStorageTest`, but implement one test at a time, followed by writing the minimal amount of clean code required for it to pass at `TrackItemLowStockStorage.item_stock_by_id/2`:
+  - [ ] 2.1 - Implement the first test for the database query to get the current stock Add the Business Logic for a given item by ID and wharehouse ID at `TrackItemLowStockStorageTest`.
+  - [ ] 2.2 - Run `mix test` to ensure the test is failing (query logic not implemented yet).
+  - [ ] 2.3 - Implement the logic to query the database to get the current stock for a given item by ID and wharehouse ID at `TrackItemLowStockStorage.item_stock_by_id/2`.
+  - [ ] 2.4 - Run `mix test` to ensure the test passes. If it fails, fix and repeat until it succeeds. 
+  - [ ] 2.5 - Implement the remaing tests, one by one, at `TrackItemLowStockStorageTest` to cover all scenarios and edge cases. After each test implementation run `mix test` and only procced to the next test whne the current test passes.
+* [ ] 3.0 - Use a TDD approach for writing tests for all scenarios and edge cases at `TrackItemLowStockCoreTest`, but implement one test at a time, followed by writing the minimal amount of clean code required for it to pass at `TrackItemLowStockCore.low_stock?/2`:
+- [ ] 3.1 - Implement the first test for the database query to get the current stock Add the Business Logic for a given item by ID and wharehouse ID at `TrackItemLowStockCoreTest`.
+- [ ] 3.2 - Run `mix test` to ensure the test is failing (core business logic not implemented yet).
+- [ ] 3.3 - Implement the busines logic to verify if the current stock is below the minimal low stock threshold at `TrackItemLowStockCore.low_stock?/2`.
+- [ ] 3.4 - Run `mix test` to ensure the test passes. If it fails, fix and repeat until it succeeds. 
+- [ ] 3.5 - Implement the remaing tests, one by one, at `TrackItemLowStockCoreTest` to cover all scenarios and edge cases. After each test implementation run `mix test` and only procced to the next test whne the current test passes.
+* [ ] 4.0 - Use a TDD approach for writing tests for all scenarios and edge cases at `TrackItemLowStockHandlerTest`, but implement one test at a time, followed by writing the minimal amount of clean code required for it to pass at `TrackItemLowStockCore.low_stock?/2`:
+- [ ] 4.1 - Implement the first test for the database query to get the current stock Add the Business Logic withfor a given item by ID and wharehouse ID at `TrackItemLowStockHandlerTest`.
+- [ ] 4.2 - Run `mix test` to ensure the test is failing (core business logic not implemented yet).
+- [ ] 4.3 - Implement the busines logic to verify if the current stock is below the minimal low stock threshold at `TrackItemLowStockCore.low_stock?/2`.
+- [ ] 4.4 - Run `mix test` to ensure the test passes. If it fails, fix and repeat until it succeeds. 
+- [ ] 4.5 - Implement the remaing tests, one by one, at `TrackItemLowStockHandlerTest` to cover all scenarios and edge cases. After each test implementation run `mix test` and only procced to the next test whne the current test passes.
