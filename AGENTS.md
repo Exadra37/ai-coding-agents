@@ -20,7 +20,9 @@ Use the detailed guidelines in @CODE_GUIDELINES.md when writing code in Elixir w
 
 ## 5. Dependencies Usage Rules
 
-Use the detailed instructions in @DEPENDENCIES_USAGE_RULES.md to enable AI Coding Agents, assistants and LLMs to better understand how to work with dependencies that include a `usage-rules.md` file.
+Use the detailed instructions in @DEPENDENCIES_USAGE_RULES.md to enable AI Coding Agents, assistants and LLMs to better understand how to work with dependencies that include a `usage-rules.md` file. 
+
+**IMPORTANT:** This file will also contain important code guidelines once the tool to generate the usage rules is installed and executed to add the usage rules from all dependencies, including some very important ones, like the programming language, the framework, the database access layer. For example: Elixir, Phoenix and Ecto.
 
 ## 6. MCP Servers
 
