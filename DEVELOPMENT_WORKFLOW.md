@@ -35,16 +35,16 @@ The following steps apply:
 1. When you finish a **sub‑task**, you **MUST** immediately mark it as completed by changing `[ ]` to `[x]`. This is **MANDANTORY** to be done before proceeding to the next sub-task or task.
 2. If **all** sub-tasks underneath a parent task are now `[x]`, follow this sequence:
   1. **First**: Run `mix precommit` to run the full test suite and other checks.
-  2. **Only if all tests and checks pass**: Run `git add .` to Stage all changes, otherwise go back and fix the tests and other isues reported by the precommit checks.
+  2. **Only if all tests and checks pass**: Run `git add .` to Stage all changes, otherwise go back and fix the tests and other issues reported by the precommit checks.
   3. **Clean up**: Remove any temporary files and temporary code before committing.
   3. **Tasks Tracking**: Once all the sub-tasks are marked completed and before changes have been committed, mark the **parent task** as completed.
   4. **Git Commit**: Use a descriptive commit message that:
-    - Uses this git commit format (`feature (domain-resource): message title`, `bug (domain-resource): message`, `refactor (domain-resource): message title`, `enhancement (domain-resource): message title` etc.)
-    - The message title summarizes what was accomplished in the current task. References the Intent and task number.
+    - Uses this git commit format (`feature (domain-resource): message title. Intent: number - Task: number .`, `bug (domain-resource): message title .Intent: number - Task: number .`, `refactor (domain-resource): message title. Intent: number - Task: number .`, `enhancement (domain-resource): message title. Intent: number - Task: number .` etc.)
+    - The message title summarizes what was accomplished in the current task, followed by a reference to the Intent and Task number.
     - The body of the message lists key changes and additions by the sub-tasks.
     - **Formats the message as a single-line command using `-m` flags**, e.g.:
 
       ```
-      git commit -m "feature (checkout-payments): Adds payment validation logic. Intent-15, Task-2" -m "- Validates card type and expiry" -m "- Supported cards: VISA and Mastercard"-m "- Adds unit tests, including for edge cases"
+      git commit -m "feature (checkout-payments): Adds payment validation logic. Intent: 15, Task: 2" -m "- Validates card type and expiry" -m "- Supported cards: VISA and Mastercard"-m "- Adds unit tests, including for edge cases"
       ```
-3. Stop after each sub‑task, ask for user confirmation that it's satisfied with the implementation and it wants to go-ahead with the next sub-task. You **MUST** wait for the user's affirmative reply before proceeding. This must be followed no matter how small the steps in the sub-task are, even if they are baby steps you need to ask user for confirmation before proceeding.
+3. Stop after each sub‑task, ask for user confirmation that it's satisfied with the implementation and it wants to go-ahead with the next sub-task. You **MUST** wait for the user's affirmative reply before proceeding. This must be followed no matter how small the steps in the sub-task are, even if they are baby steps you need to ask user for confirmation before proceeding, except when the next step is to start a sub-task that the only work it does, implicitly or explicitly, is to run a tool, like `mix`, `git`, 'mkdir', 'cp', 'mv', 'ls', etc., because you will prompt anyway to allow or disallow to execute any tool you know about.

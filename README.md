@@ -24,4 +24,4 @@ After the AI says it has read it, ensure it as understood everything:
 Do you have questions about the documentation? Any thing that's not clear to you? Don't make assumptions.
 ```
 
-> **TIP:** If the AI Coding Agent hallucinates after one of this prompts, specially when it answers the second prompt, where it may be a lot off and misunderstands the documents it was asked to read and grasp, then it's better that you start another session.
+> **TIP:** After running one of this prompts, specially for when it answers the second prompt, where it may be a lot off in the answer and/or asks for clarifications/confirmations in things that are already clearly/explicitly explained in the documents, and/or it misunderstands the documents it was asked to read and grasp, then it's better that you start another session, because it was a bad/false start. If you believe that any of the documents can be improved to avoid any of it, then open a discussion with the prompts and the answers with your proposed improvements to be discussed.
