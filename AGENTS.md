@@ -8,7 +8,7 @@ See @README.md for a project overview.
 
 ## Planning
 
-Follow the detailed instructions at @PLANNING.md to create Intent(s), Tasks and sub-tasks before propose and writing a single line of code.
+Follow the detailed instructions at @PLANNING.md to create Intent(s) with Tasks and sub-tasks before propose and writing a single line of code.
 
 ## Architecture Instructions
 

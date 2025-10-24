@@ -1,25 +1,25 @@
 # Planning
 
-When a user makes a request, and before proposing any code, the AI Coding Agent MUST discuss the request with the user to create an Intent and a list of Tasks and sub-tasks to complete the user request.
+When a user makes a request, and before proposing any code, the AI Coding Agent MUST discuss the request with the user to create an Intent with a list of Tasks and sub-tasks to complete the user request.
 
-## Intents and Tasks
+## 1. Intent Specification
 
 An Intent is a self-contained document that explains the user request in a markdown file that has one H1 header as the title, followed by some required and optional H2 headers sections.
 
 **IMPORTANT: The intent document **MUST** strive to keep explanations brief, concise and straight to the point. Developers prefer communication that's as straightforward as possible. Start by the most important parts that need to be told, follow with some brief context, and only add details when it makes sense.**
 
-### Required H1 Header Title
+### 1.1 Required H1 Header Title
 
 * The title MUST be the first line of the file and be short and concise and include the type of Intent and the Domain it refers to. The format for the title is `<typeofintent> (domain-resource): intent`, e.g. `54 - Feature (wharehouses-stocks): Track items with low stock`. 
   - the type of intent may be a `feature`, an `enhancement`, a `bug`, or something else. It needs to be defined as a single word without spaces, use only letters, numbers, `:`,  `-` and `_`.
 
-### Required H2 Headers Sections
+### 1.2 Required H2 Headers Sections
 
 * **WHY** the user as asked to do something, the intention.
 * **WHAT** the user wants to build, which can be provided by the user as event modelling images, using the Gherkin language or as plain text. The AI Coding assistant can also help the user and infer the WHAT from the WHY (the intention), by asking relevant questions, if needed.  
 * **HOW** the step-by-step that the AI Coding Agent plans to follow to build WHAT the user requested, the tasks and sub-tasks.
 
-### Optional H2 Headers Sections
+### 1.3 Optional H2 Headers Sections
 
 * **TARGET AUDIENCE** The target audience for the request when makes sense.
 * **CONSTRAINS** If nay exist they must be listed and briefly explained in a concise way.
@@ -31,12 +31,43 @@ An Intent is a self-contained document that explains the user request in a markd
 * **CODE SNIPPETS AND EXAMPLES** Provide them when the problem is complex to guide and help the AI Code Agent to better resolve them as you whish.
 * **CHALLENGES & SOLUTIONS** Challenges encountered during implementation and how they were resolved. This only makes sense to add after the Intent is implemented, and didn't went as planned.
 
-## Intent Creation
+## 2. Intent Persistence Protocol
 
-The AI Coding Agent, assistant or LLM **MUST** propose the Intent as a code change to the project and ask the user to approve the Intent and then save it to the `.intents/` directory at the root of the project. The file name must follow the format `<number>_<typeofintent_<domain-resource><intent-dashed>`, e.g. `54_feature_wharehouses-stocks_track-items-with-low-stock`. Create the `.intents/` directory if doesn't exist yet and start at number `1` for the first Intent added to the directory.
+Intents must be persisted on the `.intents/` directory at the root of the project. 
 
-To propose, create and save the Intent the guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. This means that after Intent is created and saved into the `.intents/` directory it **MUST** be committed before proceeding with its implementation or anything else the user requests.
+The `.intents/` directory will have the following status folders for the Intents:
 
-### Intent Example
+1. **todo** - To persist all new Intents at the time of their creation.
+2. **work-in-progress** - To persist all Intents that are being worked on.
+3. **completed** - To persist all Intents with all tasks and sub-tasks completed.
 
-See the @INTENT_EXAMPLE.md file to use as a reference when implementing Intents for users requests. In a real project this Intent example would be located at the root of the project on the `.intents` folder, e.g., `./.intents/54_feature_wharehouses-stocks_track-items-with-low-stock.md`.
+### 2.1 Tracking the Last Created Intent
+
+The `.intents/` directory **MUST** have a file with a suffix of `last_intent_created` and as the name the number of the last Intent created, thus following this format `number.last_intent_created`. For example: `54.last_intent_created`. When the next Intent is created the file **MUST** be git renamed with the number increased by one, therefore to `55.last_intent_created`. The first Intent added to `.intents/todo` is **REQUIRED** to start at number `1`, therefore the file will be `1.last_intent_created`. 
+
+
+The file name for the Intent to be created **MUST** follow the format `<number>_<typeofintent_<domain-resource><intent-dashed>`, e.g. `54_feature_wharehouses-stocks_track-items-stock`. 
+
+If they don't exist yet, create the `.intents/*` directory, its folders (`todo`, `work-in-progress` and `completed`) and the file `0_last_intent_created`, where the number `0` means that no Intent was yet created. Commit this changes to git before proceeding with whatever it needs to be done next.
+
+## 3. Intent Creation Protocol
+
+The AI Coding Agent, assistant or LLM **MUST** propose the Intent as a code change to the project and ask the user to approve the Intent and then save it to the `.intents/todo` directory at the root of the project. 
+
+Before proposing an Intent you must check the `.intents/todo` directory to see of one already exists to implement the user request. If none found then you **MUST** also check the `.intents/work-in-progress` to see if one exists with tasks to be completed.
+
+To propose, create and save the Intent the guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. This means that after Intent is created and saved into the `.intents/todo` directory it **MUST** be committed before proceeding with its implementation or anything else the user requests.
+
+## 4. Intent Implementation Protocol
+
+The guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol.
+
+On top of this guidelines the Intent needs to be kept in the correct status folder at the `.intents/` directory:
+
+1. **todo** - The Intent **MUST** be moved to the `work-in-progress` status folder once work starts on it.
+2. **work-in-progress** - The Intent **MUST** be moved to the `completed` status folder once all tasks and sub-tasks on it are finished, and before git committing the changes.
+3. **completed** - Changes can only be committed after a `work-in-progress` Intent as been moved here.
+
+## 5. Intent Example
+
+See the @INTENT_EXAMPLE.md file to use as a reference when implementing Intents for users requests. In a real project this Intent example would be located at the root of the project on the `.intents/` folder, e.g., `./.intents/todo/54_feature_wharehouses-stocks_track-items-with-low-stock.md`.
