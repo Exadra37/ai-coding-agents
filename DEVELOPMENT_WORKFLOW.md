@@ -24,7 +24,7 @@ Repeat each step in the below process for each Task and sub-task on an Intent:
 6. **If user says "skip X"**, skip that task, sub-task or Intent.
 7. **If user says "edit/refine/refactor X" or similar**, stop and iterate with the user to refine the Intent, task or sub-task.
 8. **Keep focused** - don't jump ahead, don't create multiple Intnets, tasks or sub-tasks at once. Use baby-steps.
-9. **Brief and consise explanations** - what you did, not verbose details. Start by the most important things to be told, followed by some context when it makes sense, and if only if stritcly necessary a few more specific details.
+9. **Brief and concise explanations** - what you did, not verbose details. Start by the most important things to be told, followed by some context when it makes sense, and if only if stritcly necessary a few more specific details.
 10. **Task Completion** - once you think you completed a sub-task, you **MUST** follow the [Task Completion Protocol](#task-completion-protocol).
 
 This approach enables early validation, catches issues before coding, and allows mid-course adjustments.
@@ -48,4 +48,4 @@ The following steps apply:
       ```
       git commit -m "feature (checkout-payments): Adds payment validation logic. Intent-15, Task-2" -m "- Validates card type and expiry" -m "- Supported cards: VISA and Mastercard"-m "- Adds unit tests, including for edge cases"
       ```
-3. Stop after each sub‑task, ask for user confirmation that it's satisfied with the implemetation and it wants to go-ahead with the next sub-task. You **MUST** wait for the user's affirmative reply before proceeding.
+3. Stop after each sub‑task, ask for user confirmation that it's satisfied with the implementation and it wants to go-ahead with the next sub-task. You **MUST** wait for the user's affirmative reply before proceeding. This must be followed no matter how small the steps in the sub-task are, even if they are baby steps you need to ask user for confirmation before proceeding.
