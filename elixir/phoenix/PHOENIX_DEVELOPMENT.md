@@ -8,7 +8,7 @@ Required before starting the Phoenix server for the first time:
 
 * Run `mix setup` to install, setup dependencies, assets and database.
 
-Bear in mind that since Phoenix 1.8 TailwindCSS direct use was replaced by DaisyUI.
+Bear in mind that since Phoenix 1.8  also uses DaisyUI on top of TailwindCSS, therefore some differences exist on how things work now. Refer to @CODE_GUIDELINES for more detailed information on this.
 
 ## Phoenix Server
 
