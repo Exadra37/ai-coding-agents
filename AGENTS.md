@@ -22,6 +22,10 @@ Use the detailed guidelines in @CODE_GUIDELINES.md when writing code in Elixir w
 
 Use the detailed instructions in @DEPENDENCIES_USAGE_RULES.md to enable AI Coding Agents, assistants and LLMs to better understand how to work with dependencies that include a `usage-rules.md` file.
 
+## MCP Servers
+
+Use the detailed instructions in @MCP_SERVERS.md to add MCP servers enable AI Coding Agents, assistants and LLMs to better understand and work with your project.
+
 ## Phoenix Development
 
 See the detailed instructions in @PHOENIX_DEVELOPMENT.md on how to setup, test and run a Phoenix application during development.

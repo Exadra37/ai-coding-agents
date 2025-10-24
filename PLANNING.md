@@ -31,8 +31,11 @@ An Intent is a self-contained document that explains the user request in a markd
 * **CODE SNIPPETS AND EXAMPLES** Provide them when the problem is complex to guide and help the AI Code Agent to better resolve them as you whish.
 * **CHALLENGES & SOLUTIONS** Challenges encountered during implementation and how they were resolved. This only makes sense to add after the Intent is implemented, and didn't went as planned.
 
-You **MUST** propose the Intent as a code change to the project and ask the user to approve the Intent and then save it to the `.intents/` directory at the root of the project. The file name must follow the format `<number>_<typeofintent_<domain-resource><intent-dashed>`, e.g. `54_feature_wharehouses-stocks_track-items-with-low-stock`. Create the `.intents/` directory if doesn't exist yet and start at number `1` for the first Intent added to the directory.
+## Intent Creation
 
+The AI Coding Agent, assistant or LLM **MUST** propose the Intent as a code change to the project and ask the user to approve the Intent and then save it to the `.intents/` directory at the root of the project. The file name must follow the format `<number>_<typeofintent_<domain-resource><intent-dashed>`, e.g. `54_feature_wharehouses-stocks_track-items-with-low-stock`. Create the `.intents/` directory if doesn't exist yet and start at number `1` for the first Intent added to the directory.
+
+To propose, create and save the Intent the guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. This means that after Intent is created and saved into the `.intents/` directory it **MUST** be committed before proceeding with its implementation or anything else the user requests.
 
 ### Intent Example
 

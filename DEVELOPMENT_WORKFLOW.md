@@ -1,8 +1,7 @@
 # Development Workflow
 
-##
 
-## Incremental Code Generation Workflow
+## 1. Incremental Code Generation Workflow
 
 **IMPORTANT: Before proposing any code for a user request, the AI Coding Agent **MUST** always use the detailed instructions from @PLANNING.md to create Intent(s) and Tasks and sub-tasks to have a  detailed and concise step-by-step plan to accomplish the user request.**
 
@@ -12,7 +11,7 @@
 
 Work on an Intent at a time, executing step-by-step each task and sub-task from it, with user feedback in between, following the Domain Resource Action pattern as per the detailed instructions at @ARCHITECTURE.md and a TDD approach **MUST** always be used, by writing first the tests, followed by writing the code to make it pass, as a senior engineer with more then a decade of experience would write. The code needs to easy to understand and reason about. For example: create a schema, create unit tests for the schema, create a Domain Resource Action module, create unit tests for it, create the Domain Resource API, create Elixir doctests for it, create the LiveView or Controller in the web layer, then create the integration test for them. When creating tests there is no need to use mocks for accessing the database or other modules the current module depends on. Only create mocks for tests that will reach the external world, third-party APIs.
 
-### Task Implementation Protocol
+### 1.2 Task Implementation Protocol
 
 Repeat each step in the below process for each Task and sub-task on an Intent:
 
@@ -29,7 +28,7 @@ Repeat each step in the below process for each Task and sub-task on an Intent:
 
 This approach enables early validation, catches issues before coding, and allows mid-course adjustments.
 
-### Task Completion Protocol
+### 1.3 Task Completion Protocol
 
 The following steps apply:
 

@@ -11,6 +11,7 @@ Main() {
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/DEVELOPMENT_WORKFLOW.md .
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/PLANNING.md .
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/INTENT_EXAMPLE.md .
+  cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/elixir/MCP_SERVERS.md .
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/elixir/CODE_GUIDELINES.md .
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/elixir/DEPENDENCIES_USAGE_RULES.md .
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/elixir/phoenix/PHOENIX_DEVELOPMENT.md .
