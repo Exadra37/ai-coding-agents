@@ -1,12 +1,14 @@
 # Phoenix Development
 
-This file goal ist to instruct AI Coding Agents on how to setup, test and run a Phoenix application during development.
+This file goal is to instruct AI Coding Agents on how to setup, test and run a Phoenix application during development.
 
 ## Setup 
 
 Required before starting the Phoenix server for the first time:
 
 * Run `mix setup` to install, setup dependencies, assets and database.
+
+Bear in mind that since Phoenix 1.8 TailwindCSS direct use was replaced by DaisyUI.
 
 ## Phoenix Server
 
