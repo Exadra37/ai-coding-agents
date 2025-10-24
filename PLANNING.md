@@ -31,7 +31,7 @@ An Intent is a self-contained document that explains the user request in a markd
 * **CODE SNIPPETS AND EXAMPLES** Provide them when the problem is complex to guide and help the AI Code Agent to better resolve them as you whish.
 * **CHALLENGES & SOLUTIONS** Challenges encountered during implementation and how they were resolved. This only makes sense to add after the Intent is implemented, and didn't went as planned.
 
-You MUST ask the user to approve the Intent and save it to `.intents/` directory at the root of the project. The file name must follow the format `<number>_<typeofintent_<domain-resource><intent-dashed>`, e.g. `54_feature_wharehouses-stocks_track-items-with-low-stock`. Create the `.intents/` directory if doesn't exist yet and start at number `1` for the first Intent added to the directory.
+You **MUST** propose the Intent as a code change to the project and ask the user to approve the Intent and then save it to the `.intents/` directory at the root of the project. The file name must follow the format `<number>_<typeofintent_<domain-resource><intent-dashed>`, e.g. `54_feature_wharehouses-stocks_track-items-with-low-stock`. Create the `.intents/` directory if doesn't exist yet and start at number `1` for the first Intent added to the directory.
 
 
 ### Intent Example

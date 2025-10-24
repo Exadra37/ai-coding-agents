@@ -6,10 +6,11 @@ This project will be a collection of files to guide and instruct AI Coding Agent
 ## How to Use
 
 
-### Prompts
+### First Two Prompts to use on All AI Sessions
 
+To ensure that the AI is on the same page as you we strongly recommend to execute the below prompts. If you are worried about tokens usage, then at least execute the second prompt.
 
-Start by instructing the AI to read the Agents file:
+First, start by instructing the AI to read the Agents file:
 
 ```
 Read the @AGENTS.md in full and also read in full all the documents it links to, and do the same for links included in any of this files. 

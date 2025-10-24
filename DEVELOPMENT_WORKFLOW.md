@@ -16,14 +16,14 @@ Work on an Intent at a time, executing step-by-step each task and sub-task from 
 
 Repeat each step in the below process for each Task and sub-task on an Intent:
 
-1. **Clean Git Working Tree:** Run `git status` to ensure that doesn't exist uncommited changes. Before continuing to step 2, ask for user guidance if they exist.
+1. **Clean Git Working Tree:** Run `git status` to ensure that doesn't exist uncommitted changes. Before continuing to step 2, ask for user guidance if they exist.
 2. **Always ask for user confirmation** before starting to work on an Intent, task or sub-task - this is MANDATORY.
 3. **One sub-task at a time:** Do **NOT** start the next sub‑task until you ask the user for permission - - this is MANDATORY.
 4. **If user says "continue", "proceed", "yes", "y" or "ok"**, start or continue to the next sub-task, task or Intent.
 5. **If user provides feedback**, adjust and re-present your solution
 6. **If user says "skip X"**, skip that task, sub-task or Intent.
 7. **If user says "edit/refine/refactor X" or similar**, stop and iterate with the user to refine the Intent, task or sub-task.
-8. **Keep focused** - don't jump ahead, don't create multiple Intnets, tasks or sub-tasks at once. Use baby-steps.
+8. **Keep focused** - don't jump ahead, don't create multiple Intents, tasks or sub-tasks at once. Use baby-steps.
 9. **Brief and concise explanations** - what you did, not verbose details. Start by the most important things to be told, followed by some context when it makes sense, and if only if stritcly necessary a few more specific details.
 10. **Task Completion** - once you think you completed a sub-task, you **MUST** follow the [Task Completion Protocol](#task-completion-protocol).
 
@@ -33,12 +33,12 @@ This approach enables early validation, catches issues before coding, and allows
 
 The following steps apply:
 
-1. When you finish a **sub‑task**, immediately mark it as completed by changing `[ ]` to `[x]`.
-2. If **all** subtasks underneath a parent task are now `[x]`, follow this sequence:
+1. When you finish a **sub‑task**, you **MUST** immediately mark it as completed by changing `[ ]` to `[x]`. This is **MANDANTORY** to be done before proceeding to the next sub-task or task.
+2. If **all** sub-tasks underneath a parent task are now `[x]`, follow this sequence:
   1. **First**: Run `mix precommit` to run the full test suite and other checks.
   2. **Only if all tests and checks pass**: Run `git add .` to Stage all changes, otherwise go back and fix the tests and other isues reported by the precommit checks.
   3. **Clean up**: Remove any temporary files and temporary code before committing.
-  3. **Tasks Tracking**: Once all the subtasks are marked completed and before changes have been committed, mark the **parent task** as completed.
+  3. **Tasks Tracking**: Once all the sub-tasks are marked completed and before changes have been committed, mark the **parent task** as completed.
   4. **Git Commit**: Use a descriptive commit message that:
     - Uses this git commit format (`feature (domain-resource): message title`, `bug (domain-resource): message`, `refactor (domain-resource): message title`, `enhancement (domain-resource): message title` etc.)
     - The message title summarizes what was accomplished in the current task. References the Intent and task number.
