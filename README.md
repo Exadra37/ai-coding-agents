@@ -2,7 +2,6 @@
 
 This project will be a collection of files to guide and instruct AI Coding Agents (Claude, Gemini, Cursor, CoPilot, etc.) to assist developers coding applications that run on the BEAM, when using Elixir, Erlang and Gleam programming languages and their main frameworks.
 
-
 ## How to Use
 
 You **MUST** start a new session with your AI Coding agent, assistant, LLM When adding this collection of guidelines to your project, otherwise the current context on it may interfere.

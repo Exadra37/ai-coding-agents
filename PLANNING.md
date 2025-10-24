@@ -52,21 +52,27 @@ If they don't exist yet, create the `.intents/*` directory, its folders (`todo`,
 
 ## 3. Intent Creation Protocol
 
-The AI Coding Agent, assistant or LLM **MUST** propose the Intent as a code change to the project and ask the user to approve the Intent and then save it to the `.intents/todo` directory at the root of the project. 
+**CRITICAL:** To propose, create or update and save the Intent the guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. 
 
-Before proposing an Intent you must check the `.intents/todo` directory to see of one already exists to implement the user request. If none found then you **MUST** also check the `.intents/work-in-progress` to see if one exists with tasks to be completed.
+1. Before proposing an Intent you must check the `.intents/todo` directory to see of one already exists to implement the user request. 
+2. If no Intent is found then you **MUST** also check the `.intents/work-in-progress` status folder to see if one exists with tasks to be completed for the user request.
+3. If an Intent is found in either of the status folders, then you **MUST** read it and see if needs to be updated to better align with the user request and the current project documentation guidelines. 
+4. If the Intent needs to be updated then you **MUST** propose such changes to the user for approval and save it to the `.intents/work-in-progress` status folder. 
+5. If the Intent is to be created then you **MUST** propose it as a code change for user approval and then you **MUST** save it to the `.intents/todo` status folder. 
+6. After the Intent is created or updated and saved into the respective status folder it **MUST** be committed before proceeding with its implementation or anything else the user requests.
 
-To propose, create and save the Intent the guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. This means that after Intent is created and saved into the `.intents/todo` directory it **MUST** be committed before proceeding with its implementation or anything else the user requests.
 
 ## 4. Intent Implementation Protocol
 
-The guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol.
+**CRITICAL:** The guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. 
 
-On top of this guidelines the Intent needs to be kept in the correct status folder at the `.intents/` directory:
+On top of this critical guidelines to be followed, the Intent **MUST** be kept in the correct status folder on the `.intents/` directory:
 
 1. **todo** - The Intent **MUST** be moved to the `work-in-progress` status folder once work starts on it.
 2. **work-in-progress** - The Intent **MUST** be moved to the `completed` status folder once all tasks and sub-tasks on it are finished, and before git committing the changes.
 3. **completed** - Changes can only be committed after a `work-in-progress` Intent as been moved here.
+
+**CRITICAL:** When an Intent is created/updated/moved in any of the status folders, with the the user approval, it **MUST** be committed before proceeding with its implementation or anything else the user requests.
 
 ## 5. Intent Example
 
