@@ -8,7 +8,7 @@ Required before starting the Phoenix server for the first time:
 
 * Run `mix setup` to install, setup dependencies, assets and database.
 
-Bear in mind that since Phoenix 1.8 also uses DaisyUI on top of TailwindCSS, therefore some differences exist on how things work now. Refer to @CODE_GUIDELINES for more detailed information on this.
+Since Phoenix 1.8 also uses DaisyUI on top of TailwindCSS, therefore some differences exist on how things work now. Refer to @CODE_GUIDELINES for more detailed information on this, but bear in mind that DaisyUI is indeed used on the Phoenix project, contraty to what you may infer from reading the code guidelines. It just happens that on the code guidelines some bits of functionality from DaisyUI aren't encouraged, like for the use of built-in components and to not use @apply, but this is only to encourage unique UIs across Phoenix projects. Heroicons is also used, the code guidelines only say that they need to be used via the `.icon` Phoenix core components.
 
 ## Phoenix Server
 
