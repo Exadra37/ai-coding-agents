@@ -3,7 +3,7 @@
 List of MCP Servers that may be installed to enhance coding with the help of AI coding agents, assistants and LLMs.
 
 
-## Tidewave Phoenix
+## 1. Tidewave Phoenix
 
 [Tidewave Phoenix](https://github.com/tidewave-ai/tidewave_phoenix) can be used as a standalone MCP server or as an AI Coding Agent for full-stack web development with the Phoenix framework. It's deeply integrated with the framework, including database and UI.
 
