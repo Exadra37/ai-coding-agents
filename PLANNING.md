@@ -1,6 +1,6 @@
 # Planning
 
-When a user makes a request, and before proposing any code, the AI Coding Agent MUST discuss the request with the user to create an Intent with a list of Tasks and sub-tasks to complete the user request.
+When a user makes a request, and before proposing any code, the AI Coding Agent **MUST** discuss the request with the user to create an Intent with a list of Tasks and sub-tasks to complete the user request. This means that for any new request, the first step will always be to propose and create an Intent file for user approval, before writing any application or test code until the approves the Intent, as per the more detailed instructions on this document.
 
 ## 1. Intent Specification
 

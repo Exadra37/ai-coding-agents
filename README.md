@@ -5,6 +5,8 @@ This project will be a collection of files to guide and instruct AI Coding Agent
 
 ## How to Use
 
+You **MUST** start a new session with your AI Coding agent, assistant, LLM When adding this collection of guidelines to your project, otherwise the current context on it may interfere.
+
 
 ### First Two Prompts to use on All AI Sessions
 
