@@ -19,5 +19,5 @@ Make sure you understand every bit on them, otherwise we will waste our time whe
 After the AI says it has read it, ensure it as understood everything:
 
 ```
-Do you have questions about the documentation. Any thing that's not clear to you? Don't make assumptions.
+Do you have questions about the documentation? Any thing that's not clear to you? Don't make assumptions.
 ```

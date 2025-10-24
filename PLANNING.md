@@ -36,4 +36,4 @@ You MUST ask the user to approove the Intent and save it to `.intent/` directory
 
 ### Intent Example
 
-See Intent example at `./examples/intents/54_feature_wharehouses-stocks_track-items-with-low-stock.md`.
+See Intent the example at @INTENT_EXAMPLE.md. In a real project this Intent example would be locatec at the root of the project on the `.intents` folder, e.g., `./.intents/54_feature_wharehouses-stocks_track-items-with-low-stock.md`.
