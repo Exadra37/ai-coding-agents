@@ -8,6 +8,7 @@ This project will be a collection of files to guide and instruct AI Coding Agent
 
 ### Prompts
 
+
 Start by instructing the AI to read the Agents file:
 
 ```
@@ -15,9 +16,10 @@ Read the @AGENTS.md in full and also read in full all the documents it links to,
 Make sure you understand every bit on them, otherwise we will waste our time when working together, because we will not have the same understanding of whats in the documentation.
 ```
 
-
 After the AI says it has read it, ensure it as understood everything:
 
 ```
 Do you have questions about the documentation? Any thing that's not clear to you? Don't make assumptions.
 ```
+
+> **TIP:** If the AI Coding Agent hallucinates after one of this prompts, specially when it answers the second prompt, where it may be a lot off and misunderstands the documents it was asked to read and grasp, then it's better that you start another session.

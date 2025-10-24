@@ -293,7 +293,7 @@ Both a live view and a controller must only have logic to deal with web layer co
 
 The use of atomized attributes its not required to be introduced to existing code, but its recommend that at some point to refactor the existing code to use them, if not already done.
 
-When this Architecture pattern is analyzed for the first time by an AI Coding Agent its recommended to check if the project is already using atomized parameters to call the Business Logic layer, and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** follow the format of the @INTENT_EXAMPLE.md. 
+When this Architecture pattern is analyzed for the first time by an AI Coding Agent its recommended for it to check if the project is already using atomized parameters to call the Business Logic layer, and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** follow the format of the @INTENT_EXAMPLE.md. 
 
 
 ##### 1.5.3.2 Example of calling the a Domain Resource API from LiveView
@@ -347,7 +347,7 @@ end
 The below function `atomize_params_map/2` is only a simple example how to 
 achieve this, but the project may already have another approach to do it. 
 
-```
+```elixir
 
 # lib/my_app.ex
 defmodule MyApp do
@@ -404,7 +404,7 @@ The solution is to modify in `config/config.exs`, the `generators` configuration
 
 If migrations or schemas are being created without the use of the code generator they also must use the `:utc_datetime_usec` timestamp.
 
-When this Architecture pattern is analyzed for the first time by an AI Coding Agent its recommended to check if the project is already using binary IDs and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** follow the format of the @INTENT_EXAMPLE.md.
+When this Architecture pattern is analyzed for the first time by an AI Coding Agent its recommended for it to check if the project is already using binary IDs and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** follow the format of the @INTENT_EXAMPLE.md.
 
 
 ## 3. Binary IDs
@@ -413,7 +413,7 @@ For security reasons this architecture requires that all migrations and schemas 
 
 UUIDV7 as binary IDS are strongly recommended because they can be sorted in database queries, once they are time based.
 
-When this Architecture pattern is analyzed for the first by an AI Coding Agent its recommended to check if the project is already using binary IDs and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself.
+When this Architecture pattern is analyzed for the first by an AI Coding Agent its recommended for it to check if the project is already using binary IDs and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself.
 
 
 To add support for UUIDV7 we need to follow this steps:
