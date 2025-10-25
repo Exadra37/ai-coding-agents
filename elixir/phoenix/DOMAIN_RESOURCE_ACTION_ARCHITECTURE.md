@@ -280,7 +280,7 @@ Some examples:
   - `mix phx.gen.auth Accounts.Users User users --live --web Accounts.Users` 
   - `mix phx.gen.live Catalogs.Products Product products name:string desc:string --web Catalogs.Products`
 
-The removed files should have already been created or need to be created by following [1.2 Patterns to Create Files and Directories](#1-2-patterns-to-create-files-and-directories). 
+The removed files should have already been created or need to be created by following **1.2 Patterns to Create Files and Directories**.
 
 #### 1.5.2.1 Removing Generated Files in the Business Logic Layer
 
