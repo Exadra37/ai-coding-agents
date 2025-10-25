@@ -312,7 +312,7 @@ Both a live view and a controller must only have logic to deal with web layer co
 
 The use of atomized attributes its not required to be introduced to existing code, but its recommend that at some point to refactor the existing code to use them, if not already done.
 
-When this Architecture pattern is analyzed for the first time by an AI Coding Agent its recommended for it to check if the project is already using atomized parameters to call the Business Logic layer, and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** follow the format of the @INTENT_EXAMPLE.md. 
+When this Architecture pattern is analyzed for the first time by an AI Coding Agent its recommended for it to check if the project is already using atomized parameters to call the Business Logic layer, and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** be created as specified by the @INTENT_SPECIFICATION.md and exemplified by the @INTENT_EXAMPLE.md.
 
 
 ##### 1.5.3.2 Example of calling the a Domain Resource API from LiveView

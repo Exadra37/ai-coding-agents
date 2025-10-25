@@ -16,6 +16,7 @@ Main() {
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/elixir/CODE_GUIDELINES.md .
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/elixir/DEPENDENCIES_USAGE_RULES.md .
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/elixir/phoenix/PHOENIX_DEVELOPMENT.md .
+  cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/elixir/phoenix/AUTHENTICATION.md .
   cp ${AI_CODING_AGENTS_INSTALL_DIR}/ai-coding-agents/elixir/phoenix/DOMAIN_RESOURCE_ACTION_ARCHITECTURE.md ARCHITECTURE.md
 
 }
