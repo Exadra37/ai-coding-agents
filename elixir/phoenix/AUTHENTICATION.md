@@ -2,7 +2,7 @@
 
 Phoenix ships with an [Authentication code generator](https://hexdocs.pm/phoenix/mix_phx_gen_auth.html), which will be the preferred to use in any project that requires authentication unless the user or the project README says otherwise.
 
-**IMPORTANT:** Before adding Authentication as instructed here, an Intent needs to be create with user approval. The Intent **MUST** be created as specified by the @INTENT_SPECIFICATION.md and exemplified by the @INTENT_EXAMPLE.md.
+**IMPORTANT:** Before adding Authentication as instructed here, an Intent needs to be created with instruction from points 2. and 3. of this document, with user approval. The Intent **MUST** be created as specified by the @INTENT_SPECIFICATION.md and exemplified by the @INTENT_EXAMPLE.md.
 
 ## 1. Overview
 
