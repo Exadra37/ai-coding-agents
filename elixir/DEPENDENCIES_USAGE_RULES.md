@@ -4,7 +4,7 @@ Some Elixir packages are now including an `usage-rules.md` to guide AI coding ag
 
 The Elixir package [`:usage_rules`](https://hexdocs.pm/usage_rules/readme.html) helps to fetch and consolidate all usage rules from dependencies into a file of our choice, that in this case will be this file.
 
-When this file is analyzed for the first time by an AI Coding Agent its recommended for it to check if the project is already using the `:usage_rules` dependency, and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** follow the format of the @INTENT_EXAMPLE.md.
+When this file is analyzed for the first time by an AI Coding Agent it **MUST** check `mix.exs` to see if the project is already using the `:usage_rules` dependency, and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** be created as specified by the @INTENT_SPECIFICATION.md and exemplified by the @INTENT_EXAMPLE.md.
 
 Steps to add the usage rules dependency and collect the usage rules into this same file:
 

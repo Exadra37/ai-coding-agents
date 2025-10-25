@@ -2,12 +2,11 @@
 
 List of MCP Servers that may be installed to enhance coding with the help of AI coding agents, assistants and LLMs.
 
-
 ## 1. Tidewave Phoenix
 
-[Tidewave Phoenix](https://github.com/tidewave-ai/tidewave_phoenix) can be used as a standalone MCP server or as an AI Coding Agent for full-stack web development with the Phoenix framework. It's deeply integrated with the framework, including database and UI.
+[Tidewave](https://github.com/tidewave-ai/tidewave_phoenix) can be used as a standalone MCP server or as an AI Coding Agent for full-stack web development with the Phoenix framework. It's deeply integrated with the framework, including database and UI.
 
-When this file is analyzed for the first time by an AI Coding Agent its recommended for it to check if the project is already using Tidewave, and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to add it, or if he wants to do it himself. The Intent **MUST** follow the format of the @INTENT_EXAMPLE.md.
+When this file is analyzed for the first time by an AI Coding Agent it **MUST** check `mix.exs` to see if the project is already using Tidewave, and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to add it, or if he wants to do it himself. The Intent **MUST** be created as specified by the @INTENT_SPECIFICATION.md and exemplified by the @INTENT_EXAMPLE.md.
 
 Steps to install can be found at the README for the project in the [Installation](https://github.com/tidewave-ai/tidewave_phoenix?tab=readme-ov-file#installation) section. Id problems arise with the installation of Tidewave then the [Troubleshooting](https://github.com/tidewave-ai/tidewave_phoenix?tab=readme-ov-file#troubleshooting) section of the README must be used.
 

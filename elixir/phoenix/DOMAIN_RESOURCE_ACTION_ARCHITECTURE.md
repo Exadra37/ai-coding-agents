@@ -423,7 +423,7 @@ The solution is to modify in `config/config.exs`, the `generators` configuration
 
 If migrations or schemas are being created without the use of the code generator they also must use the `:utc_datetime_usec` timestamp.
 
-When this Architecture pattern is analyzed for the first time by an AI Coding Agent its recommended for it to check if the project is already using binary IDs and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** follow the format of the @INTENT_EXAMPLE.md.
+When this Architecture pattern is analyzed for the first time by an AI Coding Agent it **MUST** check `config/config.exs` to see if the project is already using binary IDs and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** be created as specified by the @INTENT_SPECIFICATION.md and exemplified by the @INTENT_EXAMPLE.md.
 
 
 ## 3. Binary IDs
@@ -432,7 +432,7 @@ For security reasons this architecture requires that all migrations and schemas 
 
 UUIDV7 as binary IDS are strongly recommended because they can be sorted in database queries, once they are time based.
 
-When this Architecture pattern is analyzed for the first by an AI Coding Agent its recommended for it to check if the project is already using binary IDs and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself.
+When this Architecture pattern is analyzed for the first by an AI Coding Agent it **MUST** check `config/config.exs` to see if the project is already using binary IDs and if not then ask the developer if he wants to use @PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** be created as specified by the @INTENT_SPECIFICATION.md and exemplified by the @INTENT_EXAMPLE.md.
 
 
 To add support for UUIDV7 we need to follow this steps:
@@ -447,4 +447,4 @@ To add support for UUIDV7 we need to follow this steps:
 4. in any shema generated without the code generators always ensure that it uses `@primary_key {:id, UUIDv7, autogenerate: true}` instead of the default `@primary_key {:id, :binary_id, autogenerate: true}`.
 
 
-The above steps can be easily translated to tasks and sub-task when creating an Intent during the planning phase, that **MUST** follow the format of the @INTENT_EXAMPLE.md.
+The above steps can be easily translated to tasks and sub-task when creating an Intent during the planning phase, that **MUST** be created as specified by the @INTENT_SPECIFICATION.md and exemplified by the @INTENT_EXAMPLE.md.
