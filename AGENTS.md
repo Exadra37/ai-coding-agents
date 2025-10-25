@@ -4,9 +4,13 @@ This file provides guidance to AI coding agents, AI assistants and LLMs when wor
 
 **CRITICAL:** In case of questions about the documentation, something isn't clear or seems contradictory then you **MUST** not make guesses and/or assumptions, instead you need to ask the user for clarification, before proceeding to the next step.
 
+**IMPORTANT:** For instructions that may conflict across the different files referenced by each point on this file, then each point as precedence over a point further down in the file. For example, architecture guidelines in point **1. Project Overview** will take precedence over the ones defined in point **3. Architecture Instructions**, likewise code guidelines from point **4. Coding Guidelines** will take precedence over the ones defined in **5. Dependencies Usage Rules**.
+
+**ALERT:** When an AI coding agent, assistant or LLM reads this file and tries to concatenate/merge all referenced files into one single document it **MUST** ensure that it doesn't include the same file twice, because some files are referenced more then once across the included documents. 
+
 ## 1. Project Overview
 
-See @README.md for a project overview.
+See @README.md for a project overview, features, roadmap and specific guidelines.
 
 ## 2. Planning
 
