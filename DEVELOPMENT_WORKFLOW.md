@@ -4,7 +4,39 @@
 
 **CRITICAL: Don't get stuck in commands that require user interaction. Immediately abort and try to find if the command as a non-interactive flag that can be used. If not use the bash trick `yes | command` or similar.**
 
-## 2. Incremental Code Generation Workflow
+
+## 2. TDD First
+
+**CRITICAL: First, you **MUST** write the tests, then you can write the application code to make them pass, as a senior engineer with more then a decade of experience would write.**
+
+**IMPORTANT: When creating tests there is no need to use mocks for accessing the database or other modules the current module depends on. Only create mocks for tests that will reach the external world, third-party APIs.**
+
+### 2.1 TDD Steps 
+
+This TDD steps **MUST** be used always:
+
+1. First, write one test for the main success scenario.
+2. Run `mix test` to ensure it fails, because the application code to make it pass wasn't written yet.
+3. Now write the application code to make the test pass.
+4. Repeat this steps by going back to 1. This **MUST** be repeated until the test suite covers:
+  - all success scenarios.
+  - all failure scenarios.
+  - all edge cases. 
+  - all code paths.
+
+The code needs to easy to understand and reason about, as a senior engineer with more then a decade of experience would write.
+
+### 2.2 TDD Examples
+
+TDD approach examples: 
+
+- Schema: create unit tests for the schema first and then create the schema module.
+- Domain Resource Action (DRA): first create unit tests for the DRA module, then create the DRA module.
+- Domain Resource (DR) API: first create the Elixir doctests for it, then creat the DR API module.
+- Phoenix LiveView: first create the integration test for it, then create the LiveView module. 
+
+
+## 3. Incremental Code Generation Workflow
 
 **IMPORTANT: Before proposing any code for a user request, the AI Coding Agent **MUST** always use the detailed instructions from @PLANNING.md to create Intent(s) and Tasks and sub-tasks to have a detailed and concise step-by-step plan to accomplish the user request.**
 
@@ -12,9 +44,12 @@
 
 **CRITICAL: After completing each step below, you MUST STOP and WAIT for explicit user approval before proceeding to the next task. When you ask "Ready for task X?", you are NOT allowed to continue until the user responds. NEVER create code for the next task until the user says "yes", "proceed", "continue`, "ok" or similar.**
 
-Work on an Intent at a time, executing step-by-step each task and sub-task from it, with user feedback in between, following the Domain Resource Action pattern as per the detailed instructions at @ARCHITECTURE.md and a TDD approach **MUST** always be used, by writing first the tests, followed by writing the code to make it pass, as a senior engineer with more then a decade of experience would write. The code needs to easy to understand and reason about. For example: create a schema, create unit tests for the schema, create a Domain Resource Action module, create unit tests for it, create the Domain Resource API, create Elixir doctests for it, create the LiveView or Controller in the web layer, then create the integration test for them. When creating tests there is no need to use mocks for accessing the database or other modules the current module depends on. Only create mocks for tests that will reach the external world, third-party APIs.
+Work on an Intent at a time, executing step-by-step each task and sub-task from it, with user feedback in between, following the Domain Resource Action pattern as per the detailed instructions at @ARCHITECTURE.md.
 
-### 2.1 Task Implementation Protocol
+You **MUST** not try to propose code changes for multiple task or sub-tasks in one go. Always keep code changes focused on the sub-task being executed.
+
+
+## 4. Task Implementation Protocol
 
 Repeat each step in the below process for each Task and sub-task on an Intent:
 
@@ -31,7 +66,7 @@ Repeat each step in the below process for each Task and sub-task on an Intent:
 
 This approach enables early validation, catches issues before coding, and allows mid-course adjustments.
 
-### 2.2 Task Completion Protocol
+## 5. Task Completion Protocol
 
 The following steps apply:
 
@@ -53,7 +88,7 @@ The following steps apply:
       ```
 
       - To commit features, enhancement, bug, docs, chore, etc.:
-      
+
       ```
       git commit -m "feature (checkout-payments): Adds payment validation logic. Intent: 15, Task: 2" -m "- Validates card type and expiry" -m "- Adds unit tests, including for edge cases"
       ```
