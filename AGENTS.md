@@ -2,6 +2,8 @@
 
 This file provides guidance to AI coding agents, AI assistants and LLMs when working with code in this repository.
 
+**CRITICAL:** In case of questions about the documentation, something isn't clear or seems contradictory then you **MUST** not make guesses and/or assumptions, instead you need to ask the user for clarification, before proceeding to the next step.
+
 ## 1. Project Overview
 
 See @README.md for a project overview.
