@@ -1,6 +1,6 @@
 # AGENTS
 
-This file provides guidance to AI coding agents, AI assistants and LLMs when working with code in this repository.
+This file provides guidance to AI coding agents, AI assistants and LLMs when working  in this project.
 
 **CRITICAL:** In case of questions about the documentation, something isn't clear or seems contradictory then you **MUST** not make guesses and/or assumptions, instead you need to ask the user for clarification, before proceeding to the next step.
 
@@ -12,32 +12,36 @@ This file provides guidance to AI coding agents, AI assistants and LLMs when wor
 
 See @README.md for a project overview, features, roadmap and specific guidelines.
 
-## 2. Planning
+## 2. Architecture Instructions
+
+Use the detailed instructions in @ARCHITECTURE.md when **Planning** and creating **Intents** for writing code in this project. 
+
+Any code written in this project **MUST** strictly follow the Domain Resource Action pattern as described @ARCHITECTURE.md for the folder structure, modules, tests and routes.
+
+## 3. Planning
 
 Follow the detailed instructions at @PLANNING.md to create Intent(s) with Tasks and sub-tasks before propose and writing a single line of code.
 
-## 3. Architecture Instructions
+## 4. Development Workflow
 
-Use the detailed instructions in @ARCHITECTURE.md when writing code in this project, which **MUST** follow strictly the Domain Resource Action pattern as described there for the folder structure, modules and routes.
+See the detailed instructions at @DEVELOPMENT_WORKFLOW.md to follow an **Incremental Code Generation Workflow** that adopts baby step-by-step to got through all Intents, their tasks and sub-tasks.
 
-## 4. Coding Guidelines
+## 5. Phoenix Development
+
+See the detailed instructions in @PHOENIX_DEVELOPMENT.md on how to setup, test and run a Phoenix application during development.
+
+## 6. Coding Guidelines
 
 Use the detailed guidelines in @CODE_GUIDELINES.md when writing code in Elixir with the Phoenix framework, but bear in mind that instructions in the @ARCHITECTURE.md have precedence over @AGENTS.md.
 
-## 5. Dependencies Usage Rules
+## 7. Dependencies Usage Rules
 
 Use the detailed instructions in @DEPENDENCIES_USAGE_RULES.md to enable AI Coding Agents, assistants and LLMs to better understand how to work with dependencies that include a `usage-rules.md` file. 
 
 **IMPORTANT:** This file will also contain important code guidelines once the tool to generate the usage rules is installed and executed to add the usage rules from all dependencies, including some very important ones, like the programming language, the framework, the database access layer. For example: Elixir, Phoenix and Ecto.
 
-## 6. MCP Servers
+## 8. MCP Servers
 
 Use the detailed instructions in @MCP_SERVERS.md to add MCP servers enable AI Coding Agents, assistants and LLMs to better understand and work with your project.
 
-## 7. Phoenix Development
 
-See the detailed instructions in @PHOENIX_DEVELOPMENT.md on how to setup, test and run a Phoenix application during development.
-
-## 8. Development Workflow
-
-See the detailed instructions at @DEVELOPMENT_WORKFLOW.md to follow an **Incremental Code Generation Workflow** that adopts baby step-by-step to got through all Intents, their tasks and sub-tasks.
