@@ -2,13 +2,13 @@
 
 ## 1. Running Commands
 
-**CRITICAL:** Don't get stuck in commands that require user interaction. Immediately abort and try to find if the command as a non-interactive flag that can be used. If not use the bash trick `yes | command` or similar.
+**CRITICAL: Don't get stuck in commands that require user interaction. Immediately abort and try to find if the command as a non-interactive flag that can be used. If not use the bash trick `yes | command` or similar.**
 
 ## 2. Incremental Code Generation Workflow
 
-**IMPORTANT: Before proposing any code for a user request, the AI Coding Agent **MUST** always use the detailed instructions from @PLANNING.md to create Intent(s) and Tasks and sub-tasks to have a  detailed and concise step-by-step plan to accomplish the user request.**
+**IMPORTANT: Before proposing any code for a user request, the AI Coding Agent **MUST** always use the detailed instructions from @PLANNING.md to create Intent(s) and Tasks and sub-tasks to have a detailed and concise step-by-step plan to accomplish the user request.**
 
-**CRITICAL: You **MUST** never start working on an Intent, task or sub-task if you don't have a clean git working tree. Always check for uncommitted changes with `git status`, and if any exist ask user guidance on how to proceed. Uncommitted changes from your working shoudn't exist, unless you failed to follow the Task Completion Protocol enumerate in this document.**
+**CRITICAL: You **MUST** never start working on an Intent, task or sub-task if you don't have a clean git working tree. Always check for uncommitted changes with `git status`, and if any exist ask user guidance on how to proceed. Uncommitted changes from your working shouldn't exist, unless you failed to follow the Task Completion Protocol enumerate in this document.**
 
 **CRITICAL: After completing each step below, you MUST STOP and WAIT for explicit user approval before proceeding to the next task. When you ask "Ready for task X?", you are NOT allowed to continue until the user responds. NEVER create code for the next task until the user says "yes", "proceed", "continue`, "ok" or similar.**
 
@@ -19,10 +19,10 @@ Work on an Intent at a time, executing step-by-step each task and sub-task from 
 Repeat each step in the below process for each Task and sub-task on an Intent:
 
 1. **Clean Git Working Tree:** Run `git status` to ensure that doesn't exist uncommitted changes. Before continuing to step 2, ask for user guidance if they exist.
-2. **Always ask for user confirmation** before starting to work on an Intent, task or sub-task - this is MANDATORY.
-3. **One sub-task at a time:** Do **NOT** start the next sub‑task until you ask the user for permission - - this is MANDATORY.
-4. **If user says "continue", "proceed", "yes", "y" or "ok"**, start or continue to the next sub-task, task or Intent.
-5. **If user provides feedback**, adjust and re-present your solution
+2. **Always ask for user confirmation** before starting to work on an Intent task - this is MANDATORY. Sub-tasks don't require user confirmation before proceeding to the next one.
+3. **If user says "continue", "proceed", "yes", "y" or "ok"**, start or continue to work on the Intent Task.
+4. **One sub-task at a time:** You **MUST** only propose code changes for one single sub-task. Do **NOT** try to add code changes to accomplish more then one sub-task. This is MANDATORY.
+5. **If user provides feedback**, adjust and re-present your solution.
 6. **If user says "skip X"**, skip that task, sub-task or Intent.
 7. **If user says "edit/refine/refactor X" or similar**, stop and iterate with the user to refine the Intent, task or sub-task.
 8. **Keep focused** - don't jump ahead, don't create multiple Intents, tasks or sub-tasks at once. Use baby-steps.
@@ -42,12 +42,19 @@ The following steps apply:
   3. **Clean up**: Remove any temporary files and temporary code before committing.
   3. **Tasks Tracking**: Once all the sub-tasks are marked completed and before changes have been committed, mark the **parent task** as completed.
   4. **Git Commit**: Use a descriptive commit message that:
-    - Uses this git commit format (`feature (domain-resource): message title. Intent: number - Task: number .`, `bug (domain-resource): message title .Intent: number - Task: number .`, `refactor (domain-resource): message title. Intent: number - Task: number .`, `enhancement (domain-resource): message title. Intent: number - Task: number .` etc.)
-    - The message title summarizes what was accomplished in the current task, followed by a reference to the Intent and Task number.
+    - Uses this type of git commit format: `Intent (domain-resource): Intent number - Intent title.`, `feature (domain-resource): message title. Intent: number - Task: number .`, `bug (domain-resource): message title .Intent: number - Task: number .`, `refactor (domain-resource): message title. Intent: number - Task: number .`, `enhancement (domain-resource): message title. Intent: number - Task: number .` etc.
+    - Except for when committing an Intent, the message title summarizes what was accomplished in the current task, followed by a reference to the Intent and Task number.
     - The body of the message lists key changes and additions by the sub-tasks.
-    - **Formats the message as a single-line command using `-m` flags**, e.g.:
+    - **Formats the message as a single-line command using `-m` flags**, examples:
+      - To commit an Intent creation:
 
       ```
-      git commit -m "feature (checkout-payments): Adds payment validation logic. Intent: 15, Task: 2" -m "- Validates card type and expiry" -m "- Supported cards: VISA and Mastercard"-m "- Adds unit tests, including for edge cases"
+      git commit -m "intent (checkout-payments): Intent 15 - Adds  Visa Card payment." -m "- List one task per -m flag without mentioning sub-tasks"
+      ```
+
+      - To commit features, enhancement, bug, docs, chore, etc.:
+      
+      ```
+      git commit -m "feature (checkout-payments): Adds payment validation logic. Intent: 15, Task: 2" -m "- Validates card type and expiry" -m "- Adds unit tests, including for edge cases"
       ```
 3. Stop after each sub‑task, ask for user confirmation that it's satisfied with the implementation and it wants to go-ahead with the next sub-task. You **MUST** wait for the user's affirmative reply before proceeding. This must be followed no matter how small the steps in the sub-task are, even if they are baby steps you need to ask user for confirmation before proceeding, except when the next step is to start a sub-task that the only work it does, implicitly or explicitly, is to run a tool, like `mix`, `git`, 'mkdir', 'cp', 'mv', 'ls', etc., because you will prompt anyway to allow or disallow to execute any tool you know about.
