@@ -2,13 +2,15 @@
 
 This file goal is to instruct AI Coding Agents on how to setup, test and run a Phoenix application during development.
 
+**IMPORTANT:** This is a Phoenix 1.8 project using DaisyUI on top of TailwindCSS, and it doesn't contradict @CODE_GUIDELINES.md when it advises/recommends to write custom Tailwind CSS components instead of using DaisyUI components, and to not use `@apply`.  Each project can still opt-in to use DaisyUI components and `apply` if they desire so by explicitly say so in the README of the project. To be crystal clear this aren't conflicting instructions and guidance.
+
+**IMPORTANT:** Regarding the Heroicons guidelines in @CODE_GUIDELINES.md they mean that you **MUST** always use Heroicons via the `<.icon ...>` Phoenix core components not via `<Heroicons ...>`, so this explicit guidance, therefore it's not conflicting or contradictory instructions.
+
 ## 1. Setup 
 
 Required before starting the Phoenix server for the first time:
 
 * Run `mix setup` to install, setup dependencies, assets and database.
-
-**IMPORTANT:** Since Phoenix 1.8 also uses DaisyUI on top of TailwindCSS. While @CODE_GUIDELINES.md advises writing custom Tailwind CSS components instead of using DaisyUI components, and to not use `@apply`, this doesn't mean that DaisyUI isn't being used in the Phoenix project, just means that this functionalities aren't recommended to be used, unless the project READEM explicit says to use DaisyUI components and `@apply`. Heroicons is also used, but the code guidelines say that they **MUST** be used via the `.icon` Phoenix core components.
 
 ## 2. Phoenix Server
 
