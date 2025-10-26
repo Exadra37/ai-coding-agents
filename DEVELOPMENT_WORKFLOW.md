@@ -27,15 +27,6 @@ This TDD steps **MUST** be used always:
 
 The code needs to easy to understand and reason about, as a senior engineer with more then a decade of experience would write.
 
-### 2.2 TDD Examples
-
-TDD approach examples: 
-
-- Schema: create unit tests for the schema first and then create the schema module.
-- Domain Resource Action (DRA): first create unit tests for the DRA module, then create the DRA module.
-- Domain Resource (DR) API: first create the Elixir doctests for it, then creat the DR API module.
-- Phoenix LiveView: first create the integration test for it, then create the LiveView module. 
-
 
 ## 3. Incremental Code Generation Workflow
 
