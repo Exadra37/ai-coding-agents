@@ -31,18 +31,33 @@ An Intent is a self-contained document that explains the user request in a markd
 
 ## 2. Intent Persistence Protocol
 
-Intents must be persisted on the `.intents/` directory at the root of the project. 
+Intents must be persisted on the `.intents/` directory at the root of the project.
 
-The `.intents/` directory will have the following status folders for the Intents:
+**CRITICAL:** The guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. 
+
+### 2.1 Intents Folder Structure
+
+The `.intents/` directory will have the following folder structure to enable tracking the Intent progress status:
 
 1. **todo** - To persist all new Intents at the time of their creation.
 2. **work-in-progress** - To persist all Intents that are being worked on.
 3. **completed** - To persist all Intents with all tasks and sub-tasks completed.
 
-### 2.1 Tracking the Last Created Intent
+This folders **MUST** be created if they don't exist yet.
+
+### 2.2 Tracking Intent Progress Status
+
+The Intent **MUST** be kept in the correct status folder on the `.intents/` directory as we progress from creating it, working on it, to complete it:
+
+1. **todo** - The Intent **MUST** be moved to the `work-in-progress` status folder once work starts on it.
+2. **work-in-progress** - The Intent **MUST** be moved to the `completed` status folder once all tasks and sub-tasks on it are finished, and before git committing the changes.
+3. **completed** - Changes can only be committed after a `work-in-progress` Intent as been moved here.
+
+**CRITICAL:** When an Intent is created/updated/moved in any of the status folders, with the the user approval, it **MUST** be committed before proceeding with its implementation or anything else the user requests.
+
+### 2.3 Tracking the Last Created Intent
 
 The `.intents/` directory **MUST** have a file with a suffix of `last_intent_created` and as the name the number of the last Intent created, thus following this format `number.last_intent_created`. For example: `54.last_intent_created`. When the next Intent is created the file **MUST** be git renamed with the number increased by one, therefore to `55.last_intent_created`. The first Intent added to `.intents/todo` is **REQUIRED** to start at number `1`, therefore the file will be `1.last_intent_created`. 
-
 
 The file name for the Intent to be created **MUST** follow the format `<number>_<typeofintent_<domain-resource><intent-dashed>`, e.g. `54_feature_wharehouses-stocks_track-items-stock`. 
 
@@ -59,19 +74,23 @@ If they don't exist yet, create the `.intents/*` directory, its folders (`todo`,
 5. If the Intent is to be created then you **MUST** propose it as a code change for user approval and then you **MUST** save it to the `.intents/todo` status folder. 
 6. After the Intent is created or updated and saved into the respective status folder it **MUST** be committed before proceeding with its implementation or anything else the user requests.
 
-## 4. Intent Implementation Protocol
+## 4. Intent Implementation
 
-**CRITICAL:** The guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. 
+**CRITICAL:** The guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol.
 
-On top of this critical guidelines to be followed, the Intent **MUST** be kept in the correct status folder on the `.intents/` directory:
+In addition to Task implementation and completion protocols you **MUST** perform this steps to implement an Intent:
 
-1. **todo** - The Intent **MUST** be moved to the `work-in-progress` status folder once work starts on it.
-2. **work-in-progress** - The Intent **MUST** be moved to the `completed` status folder once all tasks and sub-tasks on it are finished, and before git committing the changes.
-3. **completed** - Changes can only be committed after a `work-in-progress` Intent as been moved here.
+1. You **MUST** check if the Intent already as Tasks marked as completed `[x]`, and id so then you **MUST**:
+  1. Ensure it's in the correct status folder:
+    - All tasks and sub-tasks not marked as completed yet `[ ]`, the Intent **MUST** be in the `todo` folder.
+    - Some tasks or sub-tasks marked as completed `[x]`, the Intent **MUST** be in the `work-in-progress` folder.
+    - All tasks marked as completed `[x]`, the Intent **MUST** be in the `completed` folder.
+  2. Ensure they are indeed done by checking the git history with `git log --stat`. In case the git history isn't conclusive search the project files for the expected modules with the implementation code. If a task or sub-task isn't implemented yet, then confirm with the user and uncheck `[ ]` it if the user says isn't implemented yet.
+  3. Resume working on the Intent from the last confirmed completed task or sub-task, and ignore the next step.
+2. In the case you aren't resuming work on an Intent, then you **MUST** now move the Intent from the `todo` folder to the `work-in-progress` folder, but only commit this change when you complete the first task in the Intent.
+3. When you complete all tasks and tasks in an Intent `[x]`, then the Intent **MUST** be moved from the folder `work-in-progress` to `completed` folder, and changes committed as defined by the Task completion protocol.
 
-**CRITICAL:** When an Intent is created/updated/moved in any of the status folders, with the the user approval, it **MUST** be committed before proceeding with its implementation or anything else the user requests.
-
-**IMPORTANT:** When working on an Intent task or sub-task and the instructions aren't correct, you **MUST** fix the Intent once you sort out the correct way of doing it.
+**CRITICAL:** When working on an Intent task or sub-task and the instructions aren't correct, you **MUST** fix the Intent once you sort out the correct way of doing it.
 
 ## 5. Intent Example
 
