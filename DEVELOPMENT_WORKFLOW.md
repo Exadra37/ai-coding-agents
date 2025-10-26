@@ -15,9 +15,10 @@
 
 This TDD steps **MUST** be used always:
 
-1. First, write one test for the main success scenario.
-2. Run `mix test` to ensure it fails, because the application code to make it pass wasn't written yet.
-3. Now write the application code to make the test pass.
+1. First, create the Module for the application code with the public function, but no logic on it.
+2. Next, create the test Module with only one test for the main success scenario.
+2. Then run `mix test` and the test **MUST** fail only because the application code logic to make it pass wasn't written yet. If the test fails because of any other reason (e.g. syntax errors, missing imports, compilation warnings or errors, etc.) then you **MUST** fix them before proceeding to the next step.
+3. Now, write the application code to make the test pass.
 4. Repeat this steps by going back to 1. This **MUST** be repeated until the test suite covers:
   - all success scenarios.
   - all failure scenarios.
@@ -61,7 +62,7 @@ Repeat each step in the below process for each Task and sub-task on an Intent:
 6. **If user says "skip X"**, skip that task, sub-task or Intent.
 7. **If user says "edit/refine/refactor X" or similar**, stop and iterate with the user to refine the Intent, task or sub-task.
 8. **Keep focused** - don't jump ahead, don't create multiple Intents, tasks or sub-tasks at once. Use baby-steps.
-9. **Brief and concise explanations** - what you did, not verbose details. Start by the most important things to be told, followed by some context when it makes sense, and if only if stritcly necessary a few more specific details.
+9. **Brief and concise explanations** - what you did, not verbose details. Start by the most important things to be told, followed by some context when it makes sense, and if only if strictly necessary a few more specific details.
 10. **Task Completion** - once you think you completed a sub-task, you **MUST** follow the [Task Completion Protocol](#task-completion-protocol).
 
 This approach enables early validation, catches issues before coding, and allows mid-course adjustments.
@@ -70,7 +71,7 @@ This approach enables early validation, catches issues before coding, and allows
 
 The following steps apply:
 
-1. When you finish a **sub‑task**, you **MUST** immediately mark it as completed by changing `[ ]` to `[x]`. This is **MANDANTORY** to be done before proceeding to the next sub-task or task.
+1. When you finish a **sub‑task**, you **MUST** immediately mark it as completed by changing `[ ]` to `[x]`. This is **MANDANTORY** to be done before proceeding to the next sub-task or task. You **MUST** run `mix test` to confirm that all tests are passing without warnings or errors during the compilation, otherwise you need to fix them.
 2. If **all** sub-tasks underneath a parent task are now `[x]`, follow this sequence:
   1. **First**: Run `mix precommit` to run the full test suite and other checks.
   2. **Only if all tests and checks pass**: Run `git add .` to Stage all changes, otherwise go back and fix the tests and other issues reported by the precommit checks.
@@ -84,13 +85,13 @@ The following steps apply:
       - To commit an Intent creation:
 
       ```
-      git commit -m "intent (checkout-payments): Intent 15 - Adds  Visa Card payment." -m "- List one task per -m flag without mentioning sub-tasks"
+      git commit -m "intent (checkout-payments): Intent 15 Planning - Add support for Visa Card payments." -m "Intent planned tasks:" -m "- List one task per -m flag without mentioning sub-tasks"
       ```
 
       - To commit features, enhancement, bug, docs, chore, etc.:
 
       ```
-      git commit -m "feature (checkout-payments): Adds payment validation logic. Intent: 15, Task: 2" -m "- Validates card type and expiry" -m "- Adds unit tests, including for edge cases"
+      git commit -m "feature (checkout-payments): Implemented payment validation logic. Intent: 15, Task: 2" -m "- Validates card type and expiry" -m "- Adds unit tests, including for edge cases"
       ```
 3. Stop after each task, ask for user confirmation that it's satisfied with the implementation of all sub-tasks and that it wants to go-ahead with the next task. You **MUST** wait for the user's affirmative reply before proceeding. This **MUST** be followed no matter how many sub-tasks are in the task, except when the only work to be executed by the sub-tasks are to, implicitly or explicitly, run tools, like `mix`, `git`, 'mkdir', 'cp', 'mv', 'ls', etc., because you always prompt the user to allow or disallow to execute any tool you know about.
 
