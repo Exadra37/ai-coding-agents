@@ -28,7 +28,7 @@ Any code written in this project **MUST** strictly follow the Domain Resource Ac
 
 ## 3. Planning
 
-Follow the detailed instructions at @./PLANNING.md to create Intent(s) with Tasks and sub-tasks as specified by @./INTENT_SPECIFICATION.md and exemplified by @./INTENT_EXAMPLE.md. This **MUST** be done before proposing and writing a single line of code.
+Follow the detailed instructions at @./PLANNING.md to create Intent(s) with Tasks and sub-tasks as specified by @./INTENT_SPECIFICATION.md and exemplified by @./INTENT_EXAMPLE.md . This **MUST** be done before proposing and writing a single line of code.
 
 ## 4. Authentication
 
