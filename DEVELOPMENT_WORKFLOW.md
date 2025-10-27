@@ -30,13 +30,13 @@ The code needs to easy to understand and reason about, as a senior engineer with
 
 ## 3. Incremental Code Generation Workflow
 
-**IMPORTANT: Before proposing any code for a user request, the AI Coding Agent **MUST** always use the detailed instructions from @PLANNING.md to create Intent(s) and Tasks and sub-tasks to have a detailed and concise step-by-step plan to accomplish the user request.**
+**IMPORTANT: Before proposing any code for a user request, the AI Coding Agent **MUST** always use the detailed instructions from PLANNING.md to create Intent(s) and Tasks and sub-tasks to have a detailed and concise step-by-step plan to accomplish the user request.**
 
 **CRITICAL: You **MUST** never start working on an Intent, task or sub-task if you don't have a clean git working tree. Always check for uncommitted changes with `git status`, and if any exist ask user guidance on how to proceed. Uncommitted changes from your working shouldn't exist, unless you failed to follow the Task Completion Protocol enumerate in this document.**
 
 **CRITICAL: After completing each step below, you MUST STOP and WAIT for explicit user approval before proceeding to the next task. When you ask "Ready for task X?", you are NOT allowed to continue until the user responds. NEVER create code for the next task until the user says "yes", "proceed", "continue`, "ok" or similar.**
 
-Work on an Intent at a time, executing step-by-step each task and sub-task from it, with user feedback in between, following the Domain Resource Action pattern as per the detailed instructions at @ARCHITECTURE.md.
+Work on an Intent at a time, executing step-by-step each task and sub-task from it, with user feedback in between, following the Domain Resource Action pattern as per the detailed instructions at ARCHITECTURE.md.
 
 You **MUST** not try to propose code changes for multiple task or sub-tasks in one go. Always keep code changes focused on the sub-task being executed.
 

@@ -23,7 +23,7 @@ An Intent is a self-contained document that explains the user request in a markd
 * **CONSTRAINS** If nay exist they must be listed and briefly explained in a concise way.
 * **DESIGN DECISIONS** The key design decisions, their rationale and trade-offs.
 * **ALTERNATIVES CONSIDERED** Other approaches that were considered and why they weren't chosen.
-* **ARCHITECTURE** Architecture decisions, considerations and diagrams if applicable. By default the Domain Resource Action architecture pattern is used as per @ARCHITECTURE.md.
+* **ARCHITECTURE** Architecture decisions, considerations and diagrams if applicable. By default the Domain Resource Action architecture pattern is used as per ARCHITECTURE.md.
 * **IMPLEMENTATION** Notes on expected implementation details, key decisions, the expected challenges, and their possible resolutions.
 * **TECHNICAL DETAILS** Specific technical details and considerations. For example what packages to use, and why they were chosen over other alternatives.
 * **CODE SNIPPETS AND EXAMPLES** Provide them when the problem is complex to guide and help the AI Code Agent to better resolve them as you whish.
@@ -33,7 +33,7 @@ An Intent is a self-contained document that explains the user request in a markd
 
 Intents must be persisted on the `.intents/` directory at the root of the project.
 
-**CRITICAL:** The guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. 
+**CRITICAL:** The guidelines defined in the DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. 
 
 ### 2.1 Intents Folder Structure
 
@@ -65,7 +65,7 @@ If they don't exist yet, create the `.intents/*` directory, its folders (`todo`,
 
 ## 3. Intent Creation Protocol
 
-**CRITICAL:** To propose, create or update and save the Intent the guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. 
+**CRITICAL:** To propose, create or update and save the Intent the guidelines defined in the DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. 
 
 1. Before proposing an Intent you must check the `.intents/todo` directory to see of one already exists to implement the user request. 
 2. If no Intent is found then you **MUST** also check the `.intents/work-in-progress` status folder to see if one exists with tasks to be completed for the user request.
@@ -76,7 +76,7 @@ If they don't exist yet, create the `.intents/*` directory, its folders (`todo`,
 
 ## 4. Intent Implementation
 
-**CRITICAL:** The guidelines defined in the @DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol.
+**CRITICAL:** The guidelines defined in the DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol.
 
 In addition to Task implementation and completion protocols you **MUST** perform this steps to implement an Intent:
 
@@ -94,4 +94,4 @@ In addition to Task implementation and completion protocols you **MUST** perform
 
 ## 5. Intent Example
 
-See the @INTENT_EXAMPLE.md file to use as a reference when implementing Intents for users requests. In a real project this Intent example would be located at the root of the project on the `.intents/` folder, e.g., `./.intents/todo/54_feature_wharehouses-stocks_track-items-with-low-stock.md`.
+See the INTENT_EXAMPLE.md file to use as a reference when implementing Intents for users requests. In a real project this Intent example would be located at the root of the project on the `.intents/` folder, e.g., `./.intents/todo/54_feature_wharehouses-stocks_track-items-with-low-stock.md`.
