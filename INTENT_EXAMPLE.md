@@ -158,43 +158,4 @@ The task to implement the Catalog Product CRUD actions will use a TDD first appr
 
 
 
-
-
-
-  - [ ] 1.2 - Create the folder skeleton to test the Business Logic at `test/online_shop/warehouses/stocks/track_item_stock`
-  - [ ] 1.3 - Add the function for the action `track_item_stock` to the Domain Resource API module `WarehousesStocksAPI` to invoke the Domain Resource Action `TrackItemStockBackgroundProcess.track/0`.
-  - [ ] 1.4 - Add the first test `find_item_stock_status` to the Domain Resource API module `WarehousesStocksAPI` to invoke the `FindItemStockStatusHandler.find/2`.
-
-
-
-
-
-
-
-
-
-* [ ] 2.0 - Use a TDD approach for writing tests for all scenarios and edge cases at `FindItemStockStatusStorageTest`, but implement one test at a time, followed by writing the minimal amount of code (easy to read and reason about) required for it to pass at `FindItemStockStatusStorage.item_stock_by_id/2`:
-  - [ ] 2.1 - Implement the first test for the database query to get the current stock for a given item by ID and warehouse ID at `FindItemStockStatusStorageTest`.
-  - [ ] 2.2 - Run `mix test` to ensure the test is failing (query logic not implemented yet).
-  - [ ] 2.3 - Implement the logic to query the database to get the current stock for a given item by ID and warehouse ID at `FindItemStockStatusStorage.item_stock_by_id/2`.
-  - [ ] 2.4 - Run `mix test` to ensure the test passes. If it fails, fix and repeat until it succeeds.
-  - [ ] 2.5 - Implement the remaining tests, one by one, at `FindItemStockStatusStorageTest` to cover all scenarios and edge cases. After each test implementation run `mix test` and only proceed to the next test when the current test passes.
-* [ ] 3.0 - Use a TDD approach for writing tests for all scenarios and edge cases at `FindItemStockStatusCoreTest`, but implement one test at a time, followed by writing the minimal amount of code (easy to read and reason about) required for it to pass at `FindItemStockStatusCore.find/2`:
-  - [ ] 3.1 - Implement the first test for the database query to get the current stock for a given item by ID and warehouse ID at `FindItemStockStatusCoreTest`.
-  - [ ] 3.2 - Run `mix test` to ensure the test is failing (core business logic not implemented yet).
-  - [ ] 3.3 - Implement the business logic to verify if the current stock is below the minimal low stock threshold at `FindItemStockStatusCore.find/2`.
-  - [ ] 3.4 - Run `mix test` to ensure the test passes. If it fails, fix and repeat until it succeeds.
-  - [ ] 3.5 - Implement the remain g tests, one by one, at `FindItemStockStatusCoreTest` to cover all scenarios and edge cases. After each test implementation run `mix test` and only proceed to the next test when the current test passes.
-* [ ] 4.0 - Use a TDD approach for writing tests for all scenarios and edge cases at `FindItemStockStatusHandlerTest`, but implement one test at a time, followed by writing the minimal amount of code (easy to read and reason about) required for it to pass at `FindItemStockStatusHandler.find/2`:
-  - [ ] 4.1 - Implement the first test for the database query to get the current stock for a given item by ID and warehouse ID at `FindItemStockStatusHandlerTest`.
-  - [ ] 4.2 - Run `mix test` to ensure the test is failing (core business logic not implemented yet).
-  - [ ] 4.3 - Implement the logic to call `FindItemStockStatusStorage.item_stock_by_id/2` and `WarehousesStocksAPI.item_minimal_stock_threshold/2` to then be able to call `FindItemStockStatusHandler.find/2`. This call`WarehousesStocksAPI.item_minimal_stock_threshold/2` is already implemented in the code base.
-  - [ ] 4.4 - If the item is low in stock then emit the notifications
-  - [ ] 4.5 - Run `mix test` to ensure the test passes. If it fails, fix and repeat until it succeeds.
-  - [ ] 4.6 - Implement the remaining tests, one by one, at `FindItemStockStatusHandlerTest` to cover all scenarios and edge cases. After each test implementation run `mix test` and only proceed to the next test when the current test passes.
-* [ ] 5.0 - Use a TDD approach for writing tests for all scenarios and edge cases at `TrackItemStockBackgroundProcessTest`, but implement one test at a time, followed by writing the minimal amount of code (easy to read and reason about) required for it to pass at `TrackItemStockBackgroundProcess.start_link/1`:
-- [ ] 5.1 - Implement the first test to ensure the background process can be started when the application boots, at `TrackItemStockBackgroundProcessTest`.
-- [ ] 5.2 - Run `mix test` to ensure the test is failing (logic not implemented yet).
-- [ ] 5.3 - Implement the logic for `TrackItemStockBackgroundProcess.start_link/1`.
-- [ ] 5.4 - Run `mix test` to ensure the test passes. If it fails, fix and repeat until it succeeds.
-- [ ] 5.5 - Implement the remaining tests, one by one, at `TrackItemStockBackgroundProcessTest` to cover all scenarios and edge cases. After each test implementation run `mix test` and only proceed to the next test when the current test passes.
+* [ ] 1.0 - Web Logic layer - Catalog Product CRUD Actions
