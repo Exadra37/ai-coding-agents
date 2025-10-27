@@ -60,6 +60,8 @@ This approach enables early validation, catches issues before coding, and allows
 
 ## 5. Task Completion Protocol
 
+**INFO:** The `mix precommit` alias can be checked in the `mix.exs` file aliases section.
+
 The following steps apply:
 
 1. When you finish a **sub‑task**, you **MUST** immediately mark it as completed by changing `[ ]` to `[x]`. This is **MANDANTORY** to be done before proceeding to the next sub-task or task. You **MUST** run `mix test` to confirm that all tests are passing without warnings or errors during the compilation, otherwise you need to fix them.
