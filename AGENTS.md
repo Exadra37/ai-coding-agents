@@ -18,42 +18,43 @@ This instructions are **CRITICAL** and you **MUST** follow them without any exce
 
 ## 1. Project Overview
 
-See @./README.md for a project overview, features, roadmap and specific guidelines.
+You **MUST** use the @./README.md for a project overview, features, roadmap and specific guidelines.
 
 ## 2. Architecture Instructions
 
-Use the detailed instructions in @./ARCHITECTURE.md when **Planning** and creating **Intents** for writing code in this project. 
+You **MUST** use the detailed instructions in @./ARCHITECTURE.md when:
 
-Any code written in this project **MUST** strictly follow the Domain Resource Action pattern as described @./ARCHITECTURE.md for the folder structure, modules, tests and routes.
+- **Planning** - For creating **Intents** with tasks and sub-tasks.
+- **Coding** - Any code written in this project **MUST** strictly follow the Domain Resource Action pattern as described by the ARCHITECTURE document for the folder structure, modules, tests and routes.
 
 ## 3. Planning
 
-Follow the detailed instructions at @./PLANNING.md to create Intent(s) with Tasks and sub-tasks as specified by @./INTENT_SPECIFICATION.md and exemplified by @./INTENT_EXAMPLE.md . This **MUST** be done before proposing and writing a single line of code.
+You **MUST** follow the detailed instructions at @./PLANNING.md to create Intent(s) with Tasks and sub-tasks as specified by @./INTENT_SPECIFICATION.md and exemplified by @./INTENT_EXAMPLE.md . This **MUST** be done before proposing and writing a single line of code.
 
 ## 4. Authentication
 
-Use the detailed instructions in @./AUTHENTICATION.md when the user asks to add authentication.
+You **MUST** use the detailed instructions in @./AUTHENTICATION.md when the user asks to add authentication.
 
 ## 5. Development Workflow
 
-See the detailed instructions at @./DEVELOPMENT_WORKFLOW.md to follow an **Incremental Code Generation Workflow** that adopts baby step-by-step to got through all Intents, their tasks and sub-tasks.
+You **MUST** use the detailed instructions at @./DEVELOPMENT_WORKFLOW.md to follow an **Incremental Code Generation Workflow** that adopts baby step-by-step to got through all Intents, their tasks and sub-tasks.
 
 ## 6. Phoenix Development
 
-See the detailed instructions in @./PHOENIX_DEVELOPMENT.md on how to setup, test and run a Phoenix application during development.
+You **MUST** use the detailed instructions in @./PHOENIX_DEVELOPMENT.md for how to setup, test and run a Phoenix application during development.
 
 ## 7. Coding Guidelines
 
-Use the detailed guidelines in @./CODE_GUIDELINES.md when writing code in Elixir with the Phoenix framework, but bear in mind that instructions in the @./ARCHITECTURE.md have precedence over @./AGENTS.md.
+You **MUST** use the detailed guidelines in @./CODE_GUIDELINES.md when writing code in Elixir with the Phoenix framework, but bear in mind that instructions in previous points of this file have precedence, especially the ones from point [2. Architecture Instructions](#2-architecture-instructions).
 
 ## 8. Dependencies Usage Rules
 
-Use the detailed instructions in @./DEPENDENCIES_USAGE_RULES.md to enable AI Coding Agents, assistants and LLMs to better understand how to work with dependencies that include a `usage-rules.md` file. 
+You **MUST** use the detailed instructions in @./DEPENDENCIES_USAGE_RULES.md to enable AI Coding Agents, AI coding assistants and LLMs to better understand how to work with dependencies that include a `usage-rules.md` file. 
 
 **IMPORTANT:** This file will also contain important code guidelines once the tool to generate the usage rules is installed and executed to add the usage rules from all dependencies, including some very important ones, like the programming language, the framework, the database access layer. For example: Elixir, Phoenix and Ecto.
 
 ## 9. MCP Servers
 
-Use the detailed instructions in @./MCP_SERVERS.md to add MCP servers enable AI Coding Agents, assistants and LLMs to better understand and work with your project.
+You **MUST** use the detailed instructions in @./MCP_SERVERS.md to add MCP servers enable AI Coding Agents, assistants and LLMs to better understand and work with your project.
 
 
