@@ -86,13 +86,13 @@ The `find_item_stock_status/2` action will be used by the background process to 
 
 > REQUIRED - List here the Tasks and sub-tasks to complete this Intent.
 
-* [ ] 1.0 - Create the Domain Resource Action folder skeleton for the `Warehouses` Domain, `Stocks` Resource and `track_item_stock` Action:
+* [ ] 1.0 - Create the Domain Resource Action folder skeleton, with their respective modules, for the `Warehouses` Domain, `Stocks` Resource and `track_item_stock` Action:
   - [ ] 1.1 - Create the folder skeleton for the Business Logic at `lib/online_shop/warehouses/stocks/track_item_stock`
   - [ ] 1.2 - Create the folder skeleton to test the Business Logic at `test/online_shop/warehouses/stocks/track_item_stock`
   - [ ] 1.3 - Add the function for the action `track_item_stock` to the Domain Resource API module `WarehousesStocksAPI` to invoke the Domain Resource Action `TrackItemStockBackgroundProcess.track/0`.
   - [ ] 1.4 - Add the function for the action `find_item_stock_status` to the Domain Resource API module `WarehousesStocksAPI` to invoke the `FindItemStockStatusHandler.find/2`.
 * [ ] 2.0 - Use a TDD approach for writing tests for all scenarios and edge cases at `FindItemStockStatusStorageTest`, but implement one test at a time, followed by writing the minimal amount of code (easy to read and reason about) required for it to pass at `FindItemStockStatusStorage.item_stock_by_id/2`:
-- [ ] 2.1 - Implement the first test for the database query to get the current stock for a given item by ID and warehouse ID at `FindItemStockStatusStorageTest`.
+  - [ ] 2.1 - Implement the first test for the database query to get the current stock for a given item by ID and warehouse ID at `FindItemStockStatusStorageTest`.
   - [ ] 2.2 - Run `mix test` to ensure the test is failing (query logic not implemented yet).
   - [ ] 2.3 - Implement the logic to query the database to get the current stock for a given item by ID and warehouse ID at `FindItemStockStatusStorage.item_stock_by_id/2`.
   - [ ] 2.4 - Run `mix test` to ensure the test passes. If it fails, fix and repeat until it succeeds. 

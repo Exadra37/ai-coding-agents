@@ -25,7 +25,7 @@ This TDD steps **MUST** be used always:
   - all edge cases. 
   - all code paths.
 
-The code needs to easy to understand and reason about, as a senior engineer with more then a decade of experience would write.
+The code needs to be easy to understand, reason about, and change, just as a senior engineer with more then a decade of experience would write.
 
 
 ## 3. Incremental Code Generation Workflow
