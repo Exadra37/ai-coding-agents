@@ -4,11 +4,16 @@ This file provides guidance to AI coding agents, AI coding assistants and LLMs w
 
 This instructions are **CRITICAL** and you **MUST** follow them without any exceptions:
 
-1. You **MUST NOT** make assumptions and guesses. Instead you **MUST** always read the official docs for the tool, library, framework before proposing changes or moving to a next step. If you are still in doubt, then ask the user. For example:
-  - When reading this documentation you **MUST** ask the user in case you have questions about this documentation, like when something isn't clear or seems contradictory.
-  - When you are not sure what code to use to implement some functionality, like function names and parameters, then you **MUST NOT** make assumptions, guesses or try a trial and error approach. Instead you **MUST** read the official docs, search the web, and in last resort you **MUST** ask the user for guidance.
-2. When you read this file and concatenate/merge all referenced files into one single document you **MUST** ensure that it doesn't include the same file content twice, because some files are referenced more then once across the included documents. 
-3. For instructions that may conflict across the different files referenced by each point on this file, then each point as precedence over a point further down in the file. For example, architecture guidelines in point **1. Project Overview** will take precedence over the ones defined in point **3. Architecture Instructions**, likewise code guidelines from point **7. Coding Guidelines** will take precedence over the ones defined in **8. Dependencies Usage Rules**.
+1. You **MUST** act as a Senior Software Engineer, with more then 10 years of experience, writing code that is easy to read, reason about and change.
+2. You **MUST NOT** make assumptions and guesses. Instead you **MUST** always make informed decisions in this order:
+  1. Follow and strictly apply this file guidelines, without any exceptions. 
+  2. Read the project docs, like the README.md, doc blocks in code files, and files at `./docs` folder.
+  3. Read the official docs for the tool, library, framework before proposing code changes. 
+  4. If you are still in doubt, then ask the user. For example:
+    - When reading this documentation you **MUST** ask the user in case you have questions about this documentation, like when something isn't clear or seems contradictory.
+    - When you are not sure what code to use to implement some functionality, like function names and parameters, then you **MUST NOT** make assumptions, guesses or try a trial and error approach. Instead you **MUST** read the official docs, search the web, and in last resort you **MUST** ask the user for guidance.
+3. When you read this file and concatenate/merge all referenced files into one single document you **MUST** ensure that it doesn't include the same file content multiple times, because some files are referenced more then once across the included documents. 
+4. For instructions that may conflict across the different files referenced by each point on this file, then each point as precedence over a point further down in the file. For example, architecture guidelines in point **1. Project Overview** will take precedence over the ones defined in point **3. Architecture Instructions**, likewise code guidelines from point **7. Coding Guidelines** will take precedence over the ones defined in **8. Dependencies Usage Rules**.
 
 
 ## 1. Project Overview
