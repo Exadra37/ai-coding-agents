@@ -10,7 +10,7 @@ Any project following this DOMAIN_RESOURCE_ACTION_ARCHITECTURE.md MUST strictly 
 
 ## 1. Folder Structure 
 
-### 1.1 Mockup Example for an Online Shop
+### 1.1 Mock-up Example for an Online Shop
 
 The below folder structure only contains the minimal number of Elixir files required to illustrate the Domain Resource Action pattern:
 
@@ -117,7 +117,7 @@ The Domain Resource folder is located at `lib/my_app/<domain_plural>/<resource_p
 Module types:
 
 - `Schema` - This files are the same Ecto schemas generated in a normal Phoenix project but with the `DomainSingular` used as Prefix and `Schema` as suffix, e.g. Module `CatalogProductSchema` and file `catalog_product_schema.ex`. This name convention is more explicit then the one used by default in Phoenix.
-- `Contract` - This files are Elixir structs to pass data around, usually used for input data given to module functions. It's optional but strongly recommend that they some type checking library to make resilient, after all they are a contract, like for example the [ElixirScribe.Behaviour.TypedContract](https://github.com/Elixir-Scribe/elixir-scribe/blob/916778e1151963b1f8ca63108fdbadbca6b4e9bd/lib/elixir_scribe/behaviour_typed_contract.ex#L1). Module name looks like `CatalogProductContract` and file name like `catalog_product_contract', but they aren't illustrated in the folder structure example.
+- `Contract` - This files are Elixir structs to pass data around, usually used for input data given to module functions. It's optional but strongly recommend that they some type checking library to make resilient, after all they are a contract, like for example the [ElixirScribe.Behavior.TypedContract](https://github.com/Elixir-Scribe/elixir-scribe/blob/916778e1151963b1f8ca63108fdbadbca6b4e9bd/lib/elixir_scribe/behaviour_typed_contract.ex#L1). Module name looks like `CatalogProductContract` and file name like `catalog_product_contract', but they aren't illustrated in the folder structure example.
 
 #### 1.3.3 Domain Resource Action Folder
 
@@ -226,7 +226,7 @@ with {:ok, _scope} <- CatalogsProductsAPI.allowed(scope, :update_catalog_product
 end
 ```
 
-This split in several Core modules is useful in complex Business Domains, that have complex rules and data transformations/enrichments and whatever else. When the Business Domain is straightforward and simple, then we want to only use one single Core module, probably to validate the Business Rules. It's also ok to not even use a Core module if it doesn't make sense for the current Resource Action being handled.
+This split in several Core modules is useful in complex Business Domains, that have complex rules and data transformations/enrichment's and whatever else. When the Business Domain is straightforward and simple, then we want to only use one single Core module, probably to validate the Business Rules. It's also ok to not even use a Core module if it doesn't make sense for the current Resource Action being handled.
 
 #### 1.4.3 Domain Resource Action Core Module Example
 
@@ -317,7 +317,7 @@ When this Architecture pattern is analyzed for the first time by an AI Coding Ag
 
 ##### 1.5.3.2 Example of calling the a Domain Resource API from LiveView
 
-LiveVew mode trimmed to show only the code for the `edit` handle event, that's enough to illustrate the call to the Domain Resour API with atomized attributes:
+LiveVew mode trimmed to show only the code for the `edit` handle event, that's enough to illustrate the call to the Domain Resource API with atomized attributes:
 
 
 ```elixir
@@ -444,7 +444,7 @@ To add support for UUIDV7 we need to follow this steps:
   - modify `priv/templates/phx.gen.schema/schema.ex` line with `@primary_key {:id, :binary_id, autogenerate: true}` to `@primary_key {:id, UUIDv7, autogenerate: true}`.
   - `cp deps/phoenix/priv/templates/phx.gen.auth/schema.ex priv/templates/phx.gen.auth/schema.ex`.
   - modify `priv/templates/phx.gen.auth/schema.ex` line with `@primary_key {:id, :binary_id, autogenerate: true}` to `@primary_key {:id, UUIDv7, autogenerate: true}`.
-4. in any shema generated without the code generators always ensure that it uses `@primary_key {:id, UUIDv7, autogenerate: true}` instead of the default `@primary_key {:id, :binary_id, autogenerate: true}`.
+4. in any schema generated without the code generators always ensure that it uses `@primary_key {:id, UUIDv7, autogenerate: true}` instead of the default `@primary_key {:id, :binary_id, autogenerate: true}`.
 
 
 The above steps can be easily translated to tasks and sub-task when creating an Intent during the planning phase, that **MUST** be created as specified by the INTENT_SPECIFICATION.md and exemplified by the INTENT_EXAMPLE.md.

@@ -25,11 +25,11 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 * Run `mix test` to run the entire test suite of tests.
 * Run `mix test /path/to/file_tests.exs` to test a single file.
 * Run `mix test /path/to/file_tests.exs:line_number` to test a single test in file by line number. 
-* Run `MIX_ENV=test mix ecto.reset` when database or migrations seem to be corrupt or mishbeaving. This can occur when swithcting between git branches with different database migrations.
+* Run `MIX_ENV=test mix ecto.reset` when database or migrations seem to be corrupt or misbehaving. This can occur when switching between git branches with different database migrations.
 
 ## 4. Mix Available Tools
 
-* Run `mix help` to find all avaialble tools and aliases.
+* Run `mix help` to find all available tools and aliases.
 * Run `mix help <tool_or_alias>` to get help for them.
 
 ## 5. Elixir and Phoenix Documentation
