@@ -176,12 +176,12 @@ defmodule MyApp.Catalogs.Products.Update.UpdateCatalogProductHandler do
   alias MyApp.Accounts.Scope
   alias MyApp.Catalogs.CatalogProduct
   alias MyApp.Catalogs.CatalogsProductsAPI
-  alias MyApp.Catalogs.Products.Update.UpdateCatalogProductCore
   alias MyApp.Catalogs.Products.Update.UpdateCatalogProductStorage
+  alias MyApp.Catalogs.Products.Update.UpdateCatalogProductBusinessRulesCore
 
   def update(%Scope{} = scope, %CatalogProduct{} = current_product, %{} = attrs) do
     with {:ok, _scope} <- CatalogsProductsAPI.allowed(scope, :update_catalog_product),
-         {:ok, %{} = attrs} <- UpdateCatalogProductCore.execute(current_product, attrs), # <-- USE WHEN MAKES SENSE
+         {:ok, %{} = attrs} <- UpdateCatalogProductBusinessRulesCore.enforce(scope, current_product, attrs), # <-- USE WHEN MAKES SENSE
          {:ok, catalogs_product = %CatalogProduct{}} <- UpdateCatalogProductStorage.update(catalogs_product, attrs) do
            
       # Ideally we want to broadcast the product update and let other parts of the system react to it:
@@ -193,7 +193,7 @@ defmodule MyApp.Catalogs.Products.Update.UpdateCatalogProductHandler do
       
       # An alternative is to trigger the reactions to this update with cross boundary calls via the Domain Resource API.
       # Using a cross boundary call to the Domain Resource API avoids direct coupling to the internal of the Domain.
-      # This is soft couplig, which reduces accidental coupling and complexity.
+      # This is soft coupling, which reduces accidental coupling and complexity.
       MailerNotifierAPI.notify_users(scope, {:catalog_product_updated, catalogs_product}) # <-- MIDDLE GROUNG RECOMMENDATION
       
       # Bear in mind that by doing this approach of direct cross boundary calls we are coupling this module with anything we interact with.
@@ -217,16 +217,15 @@ For example, the width clause on the above example would have some more calls to
 
 ```elixir
 with {:ok, _scope} <- CatalogsProductsAPI.allowed(scope, :update_catalog_product),
-     {:ok, %{} = attrs} <- BusinessRulesUpdateCatalogProductCore.enforce(business_rules, current_product, attrs), # <-- USE WHEN MAKES SENSE
-     {:ok, %{} = attrs} <- TransformUpdateCatalogProductCore.transform(current_product, attrs), # <-- USE WHEN MAKES SENSE
-     {:ok, %{} = attrs} <- EnrichUpdateCatalogProductCore.enrich(current_product, attrs), # <-- USE WHEN MAKES SENSE
-     {:ok, %{} = attrs} <- UpdateCatalogProductCore.execute(current_product, attrs), # <-- USE WHEN MAKES SENSE and use a proper function name
+     {:ok, %{} = attrs} <- UpdateCatalogProductBusinessRulesCore.enforce(scope, current_product, attrs), # <-- USE WHEN MAKES SENSE
+     {:ok, %{} = attrs} <- UpdateCatalogProductTransformCore.transform(current_product, attrs), # <-- USE WHEN MAKES SENSE
+     {:ok, %{} = attrs} <- UpdateCatalogProductEnrichCore.enrich(current_product, attrs), # <-- USE WHEN MAKES SENSE
      {:ok, catalogs_product = %CatalogProduct{}} <- UpdateCatalogProductStorage.update(catalogs_product, attrs) do
   ...
 end
 ```
 
-This split in several Core modules is useful in complex Business Domains, that have complex rules and data transformations/enrichment's and whatever else. When the Business Domain is straightforward and simple, then we want to only use one single Core module, probably to validate the Business Rules. It's also ok to not even use a Core module if it doesn't make sense for the current Resource Action being handled.
+This split in several Core modules is useful in complex Business Domains, that have complex rules and data transformations/enrichment's and whatever else. When the Business Domain is straightforward and simple, then we may not even use a Core module if it doesn't make sense for the current Resource Action being handled.
 
 #### 1.4.3 Domain Resource Action Core Module Example
 
@@ -238,7 +237,7 @@ defmodule MyApp.Catalogs.Products.Update.UpdateCatalogProductCore do
   @moduledoc false
   
   # This must be a pure function. No side effects allowed.
-  def execute(%CatalogProduct{} = current_product, %{} = attrs)) do
+  def execute(%Scope{} = scope, %{} = attrs, %CatalogProduct{} = current_product \\ nil) do
     # Your Business Logic goes here
     attrs
   end
