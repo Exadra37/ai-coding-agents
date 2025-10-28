@@ -1,6 +1,6 @@
 # AGENTS
 
-This file provides guidance to AI coding agents, AI coding assistants and LLMs when working in this project. Often referred to as **you**.
+This document provides guidance to AI coding agents, AI coding assistants and LLMs, often referred to as **you**, for when working in this project.
 
 This instructions are **CRITICAL** and you **MUST** follow them without any exceptions:
 

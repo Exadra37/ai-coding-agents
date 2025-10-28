@@ -110,9 +110,9 @@ The task to implement the Catalog Product CRUD actions will use a TDD first appr
   - [ ] 1.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/create/create_catalog_product_storage_test.exs` and only proceed to the next test when the current test passes.
 * [ ] 2.0 - Bussiness Logic layer - **Core** module for the Catalog Product Action: Create
   - [ ] 2.1 - Create the application code module at `lib/my_app/catalogs/products/create/create_catalog_product_business_rules_core.ex` with a public function `enforce(%Scope{} = scope, %{} = attrs)` and the body of the function should return `:todo` for now.
-  - [ ] 2.2 - Create the test code module at `test/my_app/catalogs/products/create/create_catalog_product_business_rules_core_test.exs` with the first test to assert the catalog product complies with the business rules successfully.
+  - [ ] 2.2 - Create the test code module at `test/my_app/catalogs/products/create/create_catalog_product_business_rules_core_test.exs` with the first test to assert that the Scope as a user that is allowed to perform the `:create` action.
   - [ ] 2.3 - Run `mix test test/my_app/catalogs/products/create/create_catalog_product_business_rules_core_test.exs` and ensure the test fails, because the application code is returning `:todo`.
-  - [ ] 2.4 - Implement the minimal amount of appliction code to make the test pass.
+  - [ ] 2.4 - Implement the minimal amount of appliction code to make the test pass, that will be to at least check that the Scope as a user that is allowed to perform the `:create` action.
   - [ ] 2.5 - Run `mix test test/my_app/catalogs/products/create/create_catalog_product_business_rules_core_test.exs` and ensure the test passes. If it fails, fix and repeat until it succeeds.
   - [ ] 2.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/create/create_catalog_product_business_rules_core_test.exs` and only proceed to the next test when the current test passes.
 * [ ] 3.0 - Bussiness Logic layer - **Handler** module for the Catalog Product Action: Create
@@ -132,9 +132,9 @@ The task to implement the Catalog Product CRUD actions will use a TDD first appr
   - [ ] 4.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/read/read_catalog_product_storage_test.exs` and only proceed to the next test when the current test passes.
 * [ ] 5.0 - Bussiness Logic layer - **Core** module for the Catalog Product Action: Read
 - [ ] 5.1 - Create the application code module at `lib/my_app/catalogs/products/read/read_catalog_product_business_rules_core.ex` with a public function `enforce(%Scope{} = scope, uuid)` and the body of the function should return `:todo` for now.
-- [ ] 5.2 - Create the test code module at `test/my_app/catalogs/products/read/read_catalog_product_business_rules_core_test.exs` with the first test to assert that the business rules allow the product to be readed.
+- [ ] 5.2 - Create the test code module at `test/my_app/catalogs/products/read/read_catalog_product_business_rules_core_test.exs` with the first test to assert that the Scope as a user that is allowed to perform the `:read` action.
 - [ ] 5.3 - Run `mix test test/my_app/catalogs/products/read/read_catalog_product_business_rules_core_test.exs` and ensure the test fails, because the application code is returning `:todo`.
-- [ ] 5.4 - Implement the minimal amount of appliction code to make the test pass.
+- [ ] 5.4 - Implement the minimal amount of appliction code to make the test pass, that will be to at least check that the Scope as a user that is allowed to perform the `:read` action.
 - [ ] 5.5 - Run `mix test test/my_app/catalogs/products/read/read_catalog_product_business_rules_core_test.exs` and ensure the test passes. If it fails, fix and repeat until it succeeds.
 - [ ] 5.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/read/read_catalog_product_business_rules_core_test.exs` and only proceed to the next test when the current test passes.
 * [ ] 6.0 - Bussiness Logic layer - **Handler** module for the Catalog Product Action: Read
@@ -145,17 +145,51 @@ The task to implement the Catalog Product CRUD actions will use a TDD first appr
   - [ ] 6.5 - Run `mix test test/my_app/catalogs/products/read/read_catalog_product_handler_test.exs` and ensure the test passes. If it fails, fix and repeat until it succeeds.
   - [ ] 6.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/read/read_catalog_product_handler_test.exs` and only proceed to the next test when the current test passes.
 
+* [ ] 7.0 - Bussiness Logic layer - **Storage** module for the Catalog Product Action: Update
+  - [ ] 7.1 - Create the application code module at `lib/my_app/catalogs/products/update/update_catalog_product_storage.ex` with a public function `update(%Scope{} = scope, %CatalogProduct{} = current_product, %{} = attrs)` and the body of the function should return `:todo` for now.
+  - [ ] 7.2 - Create the test code module at `test/my_app/catalogs/products/update/update_catalog_product_storage_test.exs` with the first test to assert a product can be successfully updated in the database.
+  - [ ] 7.3 - Run `mix test test/my_app/catalogs/products/update/update_catalog_product_storage_test.exs` and ensure the test fails, because the application code is returning `:todo`.
+  - [ ] 7.4 - Implement the minimal amount of appliction code to make the test pass.
+  - [ ] 7.5 - Run `mix test test/my_app/catalogs/products/update/update_catalog_product_storage_test.exs` and ensure the test passes. If it fails, fix and repeat until it succeeds.
+  - [ ] 7.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/update/update_catalog_product_storage_test.exs` and only proceed to the next test when the current test passes.
+* [ ] 8.0 - Bussiness Logic layer - **Core** module for the Catalog Product Action: Update
+- [ ] 8.1 - Create the application code module at `lib/my_app/catalogs/products/update/update_catalog_product_business_rules_core.ex` with a public function `enforce(%Scope{} = scope, %CatalogProduct{} = current_product, %{} = attrs)` and the body of the function should return `:todo` for now.
+- [ ] 8.2 - Create the test code module at `test/my_app/catalogs/products/update/update_catalog_product_business_rules_core_test.exs` with the first test to assert that the Scope as a user that is allowed to perform the `:update` action.
+- [ ] 8.3 - Run `mix test test/my_app/catalogs/products/update/update_catalog_product_business_rules_core_test.exs` and ensure the test fails, because the application code is returning `:todo`.
+- [ ] 8.4 - Implement the minimal amount of appliction code to make the test pass, that will be to at least check that the Scope as user that is allowed to perform the `:update` action.
+- [ ] 8.5 - Run `mix test test/my_app/catalogs/products/update/update_catalog_product_business_rules_core_test.exs` and ensure the test passes. If it fails, fix and repeat until it succeeds.
+- [ ] 8.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/update/update_catalog_product_business_rules_core_test.exs` and only proceed to the next test when the current test passes.
+* [ ] 9.0 - Bussiness Logic layer - **Handler** module for the Catalog Product Action: Update
+  - [ ] 9.1 - Create the application code module at `lib/my_app/catalogs/products/update/update_catalog_product_handler.ex` with a public function `update(%Scope{} = scope, %CatalogProduct{} = current_product, %{} = attrs)` and the body of the function should return `:todo` for now.
+  - [ ] 9.2 - Create the test code module at `test/my_app/catalogs/products/update/update_catalog_product_handler_test.exs` with the first test to assert a product its updated successfully.
+  - [ ] 9.3 - Run `mix test test/my_app/catalogs/products/update/update_catalog_product_handler_test.exs` and ensure the test fails, because the application code is returning `:todo`.
+  - [ ] 9.4 - Implement the minimal amount of appliction code to make the test pass, which first calls the core module to enforce business rules and then the storage module to update the product.
+  - [ ] 9.5 - Run `mix test test/my_app/catalogs/products/update/update_catalog_product_handler_test.exs` and ensure the test passes. If it fails, fix and repeat until it succeeds.
+  - [ ] 9.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/update/update_catalog_product_handler_test.exs` and only proceed to the next test when the current test passes.
 
+* [ ] 10.0 - Bussiness Logic layer - **Storage** module for the Catalog Product Action: Delete
+  - [ ] 10.1 - Create the application code module at `lib/my_app/catalogs/products/delete/delete_catalog_product_storage.ex` with a public function `delete(%Scope{} = scope, uuid)` and the body of the function should return `:todo` for now.
+  - [ ] 10.2 - Create the test code module at `test/my_app/catalogs/products/delete/delete_catalog_product_storage_test.exs` with the first test to assert a product can be successfully deleted from the database.
+  - [ ] 10.3 - Run `mix test test/my_app/catalogs/products/delete/delete_catalog_product_storage_test.exs` and ensure the test fails, because the application code is returning `:todo`.
+  - [ ] 10.4 - Implement the minimal amount of appliction code to make the test pass.
+  - [ ] 10.5 - Run `mix test test/my_app/catalogs/products/delete/delete_catalog_product_storage_test.exs` and ensure the test passes. If it fails, fix and repeat until it succeeds.
+  - [ ] 10.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/delete/delete_catalog_product_storage_test.exs` and only proceed to the next test when the current test passes.
+* [ ] 11.0 - Bussiness Logic layer - **Core** module for the Catalog Product Action: Delete
+- [ ] 11.1 - Create the application code module at `lib/my_app/catalogs/products/delete/delete_catalog_product_business_rules_core.ex` with a public function `enforce(%Scope{} = scope, uuid)` and the body of the function should return `:todo` for now.
+- [ ] 11.2 - Create the test code module at `test/my_app/catalogs/products/delete/delete_catalog_product_business_rules_core_test.exs` with the first test to assert that the Scope as a user that is allowed to perform the `:delete` action.
+- [ ] 11.3 - Run `mix test test/my_app/catalogs/products/delete/delete_catalog_product_business_rules_core_test.exs` and ensure the test fails, because the application code is returning `:todo`.
+- [ ] 11.4 - Implement the minimal amount of appliction code to make the test pass, that will be to at least check that the Scope as a user that is allowed to perform the `:delete` action.
+- [ ] 11.5 - Run `mix test test/my_app/catalogs/products/delete/delete_catalog_product_business_rules_core_test.exs` and ensure the test passes. If it fails, fix and repeat until it succeeds.
+- [ ] 11.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/delete/delete_catalog_product_business_rules_core_test.exs` and only proceed to the next test when the current test passes.
+* [ ] 12.0 - Bussiness Logic layer - **Handler** module for the Catalog Product Action: Delete
+  - [ ] 12.1 - Create the application code module at `lib/my_app/catalogs/products/delete/delete_catalog_product_handler.ex` with a public function `delete(%Scope{} = scope, uuid)` and the body of the function should return `:todo` for now.
+  - [ ] 12.2 - Create the test code module at `test/my_app/catalogs/products/delete/delete_catalog_product_handler_test.exs` with the first test to assert a product its created successfully.
+  - [ ] 12.3 - Run `mix test test/my_app/catalogs/products/delete/delete_catalog_product_handler_test.exs` and ensure the test fails, because the application code is returning `:todo`.
+  - [ ] 12.4 - Implement the minimal amount of appliction code to make the test pass, which calls the core module to enforce business rules and then the storage module to fetch the product by UUID.
+  - [ ] 12.5 - Run `mix test test/my_app/catalogs/products/delete/delete_catalog_product_handler_test.exs` and ensure the test passes. If it fails, fix and repeat until it succeeds.
+  - [ ] 12.6 - Implement the remaining tests, one by one, to cover all scenarios and edge cases. After each test implementation run `mix test test/my_app/catalogs/products/delete/delete_catalog_product_handler_test.exs` and only proceed to the next test when the current test passes.
 
-
-
-
-
-
-
-
-
-
-
-
-* [ ] 1.0 - Web Logic layer - Catalog Product CRUD Actions
+* [ ] 14.0 - Web Logic layer - Catalog Product CRUD Actions
+  - [ ] - 13.1 Run `mix phx.gen.live Catalogs.Products Product products name:string desc:string --web Catalogs.Products` to create all application and test modulea foe the CRUD actions.
+  - [ ] - 13.2 Remove the file `lib/my_app/catalogs/products.ex` once the web layer is required to call instead the Catalogs Products API when it needs to access the web layer.
+  - [ ] - 13.3 Remove the file `lib/my_app/catalogs/products/product.ex` once it was already create

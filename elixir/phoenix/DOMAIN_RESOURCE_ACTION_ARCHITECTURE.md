@@ -237,7 +237,7 @@ defmodule MyApp.Catalogs.Products.Update.UpdateCatalogProductCore do
   @moduledoc false
   
   # This must be a pure function. No side effects allowed.
-  def execute(%Scope{} = scope, %{} = attrs, %CatalogProduct{} = current_product \\ nil) do
+  def execute(%Scope{} = scope, %{} = attrs, %CatalogProduct{} = current_product) do
     # Your Business Logic goes here
     attrs
   end
@@ -279,8 +279,6 @@ Some examples:
   - `mix phx.gen.auth Accounts.Users User users --live --web Accounts.Users` 
   - `mix phx.gen.live Catalogs.Products Product products name:string desc:string --web Catalogs.Products`
 
-The removed files should have already been created or need to be created by following **1.2 Patterns to Create Files and Directories**.
-
 #### 1.5.2.1 Removing Generated Files in the Business Logic Layer
 
 **CRITICAL:** This step **MUST NOT** be applied to the `mix phx.gen.auth` generator.
@@ -291,6 +289,8 @@ For example, for the command `mix phx.gen.live Catalogs.Products Product product
 
 * `lib/my_app/catalogs/products.ex`
 * `lib/my_app/catalogs/products/product.ex`
+
+The removed files are replaced by the DOmain Resource Action ones, that should have been already created or need to be created by following **1.2 Patterns to Create Files and Directories**.
 
 #### 1.5.2 Routes with Domain and Resource
 

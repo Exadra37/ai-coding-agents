@@ -1,5 +1,8 @@
 # Development Workflow
 
+This document provides guidance to AI coding agents, AI coding assistants and LLMs, often referred to as **you**, for the development workflow to use when working in this project. 
+
+
 ## 1. Running Commands
 
 **CRITICAL: Don't get stuck in commands that require user interaction. Immediately abort and try to find if the command as a non-interactive flag that can be used. If not use the bash trick `yes | command` or similar.**
@@ -11,22 +14,20 @@
 
 **IMPORTANT: When creating tests there is no need to use mocks for accessing the database or other modules the current module depends on. Only create mocks for tests that will reach the external world, third-party APIs.**
 
-### 2.1 TDD Steps 
-
 This TDD steps **MUST** be used always:
 
-1. First, create the Module for the application code with the public function, but no logic on it.
+1. First, create the Module for the application code with the public function, but no logic on it, only returning `:todo`.
 2. Next, create the test Module with only one test for the main success scenario.
-2. Then run `mix test` and the test **MUST** fail only because the application code logic to make it pass wasn't written yet. If the test fails because of any other reason (e.g. syntax errors, missing imports, compilation warnings or errors, etc.) then you **MUST** fix them before proceeding to the next step.
-3. Now, write the application code to make the test pass.
-4. Repeat this steps by going back to 1. This **MUST** be repeated until the test suite covers:
+2. Then run `mix test module_test_file` and the test **MUST** fail, because the application code is returning `:todo`, as the application code logic to make it pass wasn't written yet. If the test fails because of any other reason (e.g. syntax errors, missing imports, compilation warnings or errors, etc.) then you **MUST** fix them before proceeding to the next step.
+3. Now, implement the minimal amount of application code to make the test pass. 
+The code needs to be easy to understand, reason about, and change, just as a senior engineer with more then a decade of experience would write.
+4. Repeat this steps by going back to step 1. again. This **MUST** be repeated until the test suite covers:
   - all success scenarios.
   - all failure scenarios.
   - all edge cases. 
   - all code paths.
 
-The code needs to be easy to understand, reason about, and change, just as a senior engineer with more then a decade of experience would write.
-
+**IMPORTANT:** To translate this TDD first approach to tasks and sub-task see the INTENT_EXAMPLE.md file to implement the CRUD actions for a Domain Resource in the business logic and web logic layers.
 
 ## 3. Incremental Code Generation Workflow
 
