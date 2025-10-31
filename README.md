@@ -231,7 +231,7 @@ Before proposing the Intent with the tasks, ask questions, propose solutions, to
 
 > **NOTE:** If using Claude then you may want to use the planning mode for better results.
 
-After you have an Intent, it should resemble [this example](10_feature_cms-articles_add-crud-actions-with-markdown-real-time-editor.md).
+After you have an Intent, it should resemble [this example](/examples/intents/todo/10_feature_cms-articles_add-crud-actions-with-markdown-real-time-editor.md).
 
 
 #### Executing all Intent Tasks
