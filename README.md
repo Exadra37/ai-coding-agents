@@ -19,6 +19,10 @@ An Intent is a self-contained document that describes a user request. It is comp
   * [Copy as Individual Markdown Files](#copy-as-individual-markdown-files)
 * [How to Use with AI Coding Agents](#how-to-use-with-ai-coding-agents)
   * [Prompts](#prompts)
+* [How to Contribute](#how-to-contribute)
+  * [Guidelines](#guidelines)
+  * [Development](#development)
+  * [Testing](#testing)
 
 
 ## Overview
@@ -145,44 +149,86 @@ Follow the below steps use this project guidelines for AI Coding Agents, AI Codi
 
 ### New Agent File From Scratch
 
-For the default `AGENTS.md` file:
+For language agnostic guidelines to the default `AGENTS.md` file:
 
 ```shell
 ai-coding-agents.sh from-scratch
 ```
 
-For a specific agents file:
+For language agnostic guidelines to a specific agents file:
 
 ```shell
 ai-coding-agents.sh from-scratch CLAUDE.md
 ```
 
+For Elixir guidelines to the default `AGENTS.md` file:
+
+```shell
+ai-coding-agents.sh from-scratch elixir
+```
+
+For Elixir guidelines to a specific agent file:
+
+```shell
+ai-coding-agents.sh from-scratch CLAUDE.md elixir
+```
+
+For Elixir and Phoenix guidelines to a specific agent file:
+
+```shell
+ai-coding-agents.sh from-scratch CLAUDE.md elixir phoenix
+```
+
 ### Add to Existing Agent File
 
-For the default `AGENTS.md` file:
+For language agnostic guidelines to the default `AGENTS.md` file:
 
 ```shell
 ai-coding-agents.sh add
 ```
 
-For a specific agents file:
+For language agnostic guidelines to a specific agents file:
 
 ```shell
 ai-coding-agents.sh add CLAUDE.md
 ```
 
+For Elixir guidelines to the default `AGENTS.md` file:
+
+```shell
+ai-coding-agents.sh add elixir
+```
+
+For Elixir guidelines to a specific agent file:
+
+```shell
+ai-coding-agents.sh add CLAUDE.md elixir
+```
+
+For Elixir and Phoenix guidelines to a specific agent file:
+
+```shell
+ai-coding-agents.sh add CLAUDE.md elixir phoenix
+```
+
 ### Copy as Individual Markdown Files
 
-For the default `AGENTS.md` file:
+For language agnostic guidelines:
 
 ```shell
 ai-coding-agents.sh copy
 ```
 
-For a specific agents file:
+For Elixir guidelines:
 
 ```shell
-ai-coding-agents.sh copy CLAUDE.md
+ai-coding-agents.sh copy elixir
+```
+
+For Elixir and Phoenix guidelines:
+
+```shell
+ai-coding-agents.sh copy elixir phoenix
 ```
 
 [Back to TOC](#toc)
@@ -247,6 +293,43 @@ or
 
 ```text
 Resume work on Intent 10.
+```
+
+[Back to TOC](#toc)
+
+## How to Contribute
+
+### Guidelines
+
+Before contributing, please open a [new discussion](https://github.com/Exadra37/ai-coding-agents/discussions/new?category=ideas) to propose your changes and ensure they align with the project's goals.
+
+If you make changes to `/bin` then they need to come with tests for all scnearios.
+
+### Development
+
+To contribute to this project, you first need to clone the repository:
+
+```shell
+git clone git@github.com:Exadra37/ai-coding-agents.git
+```
+
+Once you have cloned the repository, you need to initialize the submodules:
+
+```shell
+cd ai-coding-agents
+git submodule update --init --recursive
+```
+
+Then follow the instructions to add the bash script of this project to the path of for your operating system at [How to Install](#how-to-install).
+
+### Testing
+
+This project uses [Bats-Core](https://github.com/bats-core/bats-core) for testing. Test files are located in the `test/` directory.
+
+To run the tests, first make sure you have initialized the submodules as described in the Development section. Then, execute the following command:
+
+```shell
+test/libs/bats-core/bin/bats test/ai-coding-agents.sh.bats
 ```
 
 [Back to TOC](#toc)
