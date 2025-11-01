@@ -145,44 +145,86 @@ Follow the below steps use this project guidelines for AI Coding Agents, AI Codi
 
 ### New Agent File From Scratch
 
-For the default `AGENTS.md` file:
+For language agnostic guidelines to the default `AGENTS.md` file:
 
 ```shell
 ai-coding-agents.sh from-scratch
 ```
 
-For a specific agents file:
+For language agnostic guidelines to a specific agents file:
 
 ```shell
 ai-coding-agents.sh from-scratch CLAUDE.md
 ```
 
+For Elixir guidelines to the default `AGENTS.md` file:
+
+```shell
+ai-coding-agents.sh from-scratch elixir
+```
+
+For Elixir guidelines to a specific agent file:
+
+```shell
+ai-coding-agents.sh from-scratch CLAUDE.md elixir
+```
+
+For Elixir and Phoenix guidelines to a specific agent file:
+
+```shell
+ai-coding-agents.sh from-scratch CLAUDE.md elixir phoenix
+```
+
 ### Add to Existing Agent File
 
-For the default `AGENTS.md` file:
+For language agnostic guidelines to the default `AGENTS.md` file:
 
 ```shell
 ai-coding-agents.sh add
 ```
 
-For a specific agents file:
+For language agnostic guidelines to a specific agents file:
 
 ```shell
 ai-coding-agents.sh add CLAUDE.md
 ```
 
+For Elixir guidelines to the default `AGENTS.md` file:
+
+```shell
+ai-coding-agents.sh add elixir
+```
+
+For Elixir guidelines to a specific agent file:
+
+```shell
+ai-coding-agents.sh add CLAUDE.md elixir
+```
+
+For Elixir and Phoenix guidelines to a specific agent file:
+
+```shell
+ai-coding-agents.sh add CLAUDE.md elixir phoenix
+```
+
 ### Copy as Individual Markdown Files
 
-For the default `AGENTS.md` file:
+For language agnostic guidelines:
 
 ```shell
 ai-coding-agents.sh copy
 ```
 
-For a specific agents file:
+For Elixir guidelines:
 
 ```shell
-ai-coding-agents.sh copy CLAUDE.md
+ai-coding-agents.sh copy elixir
+```
+
+For Elixir and Phoenix guidelines:
+
+```shell
+ai-coding-agents.sh copy elixir phoenix
 ```
 
 [Back to TOC](#toc)
