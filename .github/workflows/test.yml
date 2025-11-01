@@ -1,0 +1,15 @@
+name: Test
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main", "dev", "ci"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Initialize submodules
+        run: git submodule update --init --recursive
+      - name: Run tests
+        run: bash test/libs/bats-core/bin/bats test/ai-coding-agents.sh.bats
