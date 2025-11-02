@@ -4,17 +4,17 @@ set -eu
 
 Help() {
   echo ""
-  echo "Usage: ./ai-coding-agents.sh [command] [optional_agent_file] [optional_language] [optional_framework]"
+  echo "Usage: ai-intent-driven-development.sh [command] [optional_agent_file] [optional_language] [optional_framework]"
   echo ""
   echo "This script helps to set up the AGENTS.md file for the AI coding agent."
   echo "The default is the AGENTS.md file that you can override to suite your needs."
   echo ""
   echo "Examples:"
-  echo "  $ ./ai-coding-agents.sh add"
-  echo "  $ ./ai-coding-agents.sh add CLAUDE.md"
-  echo "  $ ./ai-coding-agents.sh add elixir"
-  echo "  $ ./ai-coding-agents.sh add elixir phoenix"
-  echo "  $ ./ai-coding-agents.sh add CLAUDE.md elixir phoenix"
+  echo "  $ ai-intent-driven-development.sh add"
+  echo "  $ ai-intent-driven-development.sh add CLAUDE.md"
+  echo "  $ ai-intent-driven-development.sh add elixir"
+  echo "  $ ai-intent-driven-development.sh add elixir phoenix"
+  echo "  $ ai-intent-driven-development.sh add CLAUDE.md elixir phoenix"
   echo ""
   echo "Commands:"
   echo "  from-scratch [agent] [lang] [framework]    Creates the agent file from scratch, removing the existing one."
@@ -171,7 +171,7 @@ Copy_All() {
 
 Main() {
 
-  local INSTALL_DIR="${AI_CODING_AGENTS_INSTALL_DIR:-~/.local/share/ai-coding-agents}"
+  local INSTALL_DIR="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR:-~/.local/share/ai-coding-agents}"
   local AGENT_FILE="${AI_CODING_AGENTS_FILE:-AGENTS.md}"
   local command=""
   local agent_file=""

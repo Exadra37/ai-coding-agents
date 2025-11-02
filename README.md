@@ -49,7 +49,7 @@ The project defines a Domain Resource Action architecture pattern. This pattern 
 
 ## How to Install
 
-For all operating systems we recommend you to clone this repo to the usual place where installed applications go. For example in Linux this repo could be installed at `~/.local/share/ai-coding-agents`.
+For all operating systems we recommend you to clone this repo to the usual place where installed applications go. For example in Linux this repo could be installed at `~/.local/share/ai-intent-driven-development`.
 
 ### Linux
 
@@ -58,24 +58,24 @@ We recommend you to perform a global installation, but we also provide instructi
 On your terminal execute:
 
 ```shell
-git clone https://github.com/BEAM-Devs/ai-coding-agents.git ~/.local/share/ai-coding-agents
+git clone https://github.com/BEAM-Devs/ai-intent-driven-development.git ~/.local/share/ai-intent-driven-development
 ```
 
 Go inside the installation directory:
 
 ```shell
-cd ai-coding-agents
+cd ai-intent-driven-development
 ```
 
 Add the `bin` folder to your path permanently. Replace `~/.bashrc` with the file for your shell, for example `~/.zshrc`:
 
 ```shell
-echo 'export AI_CODING_AGENTS_INSTALL_DIR=~/$(pwd)' >> ~/.bashrc
-echo 'export PATH=$PATH:${AI_CODING_AGENTS_INSTALL_DIR}/bin' >> ~/.bashrc
-echo 'alias aica="${AI_CODING_AGENTS_INSTALL_DIR}/bin/ai-coding-agents.sh"'
+echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=~/$(pwd)' >> ~/.bashrc
+echo 'export PATH=$PATH:${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin' >> ~/.bashrc
+echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driven-development.sh"'
 ```
 
-> **IMPORTANT:** The environment variable `AI_CODING_AGENTS_INSTALL_DIR` is required for the script to work properly.
+> **IMPORTANT:** The environment variable `AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR` is required for the script to work properly.
 
 Now, you need to reload your shell file:
 
@@ -88,13 +88,13 @@ source ~/.bashrc
 Check help with:
 
 ```shell
-ai-coding-agents.sh help
+ai-intent-driven-development.sh help
 ```
 
 Or with:
 
 ```shell
-aica help
+aidd help
 ```
 
 #### Project Specific Installation
@@ -103,7 +103,7 @@ On your terminal execute:
 
 ```shell
 mkdir .local
-git clone https://github.com/BEAM-Devs/ai-coding-agents.git .local/ai-coding-agents
+git clone https://github.com/BEAM-Devs/ai-intent-driven-development.git .local/ai-intent-driven-development
 ```
 
 If you don't have a `.gitignore_global` yet, you can create one with:
@@ -113,16 +113,16 @@ echo ".local/" >> ~/.gitignore_global
 git config --global core.excludesFile '~/.gitignore_global'
 ```
 
-Next, add `./bin/ai-coding-agents.sh` to your path:
+Next, add `./bin/ai-intent-driven-development.sh` to your path:
 
 ```shell
-export PATH="$PATH:$(pwd)/.local/ai-coding-agents/bin"
+export PATH="$PATH:$(pwd)/.local/ai-intent-driven-development/bin"
 ```
 
 Or add an alias for your current shell if you prefer a shorter name:
 
 ```shell
-alias aica=".local/ai-coding-agents/bin/ai-coding-agents.sh"
+alias aidd=".local/ai-intent-driven-development/bin/ai-intent-driven-development.sh"
 ```
 
 > NOTE: Both are only valid for your current shell session.
@@ -130,13 +130,13 @@ alias aica=".local/ai-coding-agents/bin/ai-coding-agents.sh"
 Check help with:
 
 ```shell
-ai-coding-agents.sh help
+ai-intent-driven-development.sh help
 ```
 
 Or with:
 
 ```shell
-aica help
+aidd help
 ```
 
 [Back to TOC](#toc)
@@ -150,31 +150,31 @@ Follow the steps below to use these project guidelines for AI Coding Agents, AI 
 For language agnostic guidelines to the default `AGENTS.md` file:
 
 ```shell
-ai-coding-agents.sh from-scratch
+ai-intent-driven-development.sh from-scratch
 ```
 
 For language agnostic guidelines to a specific agents file:
 
 ```shell
-ai-coding-agents.sh from-scratch CLAUDE.md
+ai-intent-driven-development.sh from-scratch CLAUDE.md
 ```
 
 For Elixir guidelines to the default `AGENTS.md` file:
 
 ```shell
-ai-coding-agents.sh from-scratch elixir
+ai-intent-driven-development.sh from-scratch elixir
 ```
 
 For Elixir guidelines to a specific agent file:
 
 ```shell
-ai-coding-agents.sh from-scratch CLAUDE.md elixir
+ai-intent-driven-development.sh from-scratch CLAUDE.md elixir
 ```
 
 For Elixir and Phoenix guidelines to a specific agent file:
 
 ```shell
-ai-coding-agents.sh from-scratch CLAUDE.md elixir phoenix
+ai-intent-driven-development.sh from-scratch CLAUDE.md elixir phoenix
 ```
 
 ### Add to Existing Agent File
@@ -182,31 +182,31 @@ ai-coding-agents.sh from-scratch CLAUDE.md elixir phoenix
 For language agnostic guidelines to the default `AGENTS.md` file:
 
 ```shell
-ai-coding-agents.sh add
+ai-intent-driven-development.sh add
 ```
 
 For language agnostic guidelines to a specific agents file:
 
 ```shell
-ai-coding-agents.sh add CLAUDE.md
+ai-intent-driven-development.sh add CLAUDE.md
 ```
 
 For Elixir guidelines to the default `AGENTS.md` file:
 
 ```shell
-ai-coding-agents.sh add elixir
+ai-intent-driven-development.sh add elixir
 ```
 
 For Elixir guidelines to a specific agent file:
 
 ```shell
-ai-coding-agents.sh add CLAUDE.md elixir
+ai-intent-driven-development.sh add CLAUDE.md elixir
 ```
 
 For Elixir and Phoenix guidelines to a specific agent file:
 
 ```shell
-ai-coding-agents.sh add CLAUDE.md elixir phoenix
+ai-intent-driven-development.sh add CLAUDE.md elixir phoenix
 ```
 
 ### Copy as Individual Markdown Files
@@ -214,19 +214,19 @@ ai-coding-agents.sh add CLAUDE.md elixir phoenix
 For language agnostic guidelines:
 
 ```shell
-ai-coding-agents.sh copy
+ai-intent-driven-development.sh copy
 ```
 
 For Elixir guidelines:
 
 ```shell
-ai-coding-agents.sh copy elixir
+ai-intent-driven-development.sh copy elixir
 ```
 
 For Elixir and Phoenix guidelines:
 
 ```shell
-ai-coding-agents.sh copy elixir phoenix
+ai-intent-driven-development.sh copy elixir phoenix
 ```
 
 [Back to TOC](#toc)
@@ -299,7 +299,7 @@ Resume work on Intent 10.
 
 ### Guidelines
 
-Before contributing, please open a [new discussion](https://github.com/Exadra37/ai-coding-agents/discussions/new?category=ideas) to propose your changes and ensure they align with the project's goals.
+Before contributing, please open a [new discussion](https://github.com/Exadra37/ai-intent-driven-development/discussions/new?category=ideas) to propose your changes and ensure they align with the project's goals.
 
 If you make changes to `/bin` then they need to come with tests for all scenarios.
 
@@ -308,13 +308,13 @@ If you make changes to `/bin` then they need to come with tests for all scenario
 To contribute to this project, you first need to clone the repository:
 
 ```shell
-git clone git@github.com:Exadra37/ai-coding-agents.git
+git clone git@github.com:Exadra37/ai-intent-driven-development.git
 ```
 
 Once you have cloned the repository, you need to initialize the submodules:
 
 ```shell
-cd ai-coding-agents
+cd ai-intent-driven-development
 git submodule update --init --recursive
 ```
 
@@ -327,7 +327,7 @@ This project uses [Bats-Core](https://github.com/bats-core/bats-core) for testin
 To run the tests, first make sure you have initialized the submodules as described in the Development section. Then, execute the following command:
 
 ```shell
-test/libs/bats-core/bin/bats test/ai-coding-agents.sh.bats
+test/libs/bats-core/bin/bats test/ai-intent-driven-development.sh.bats
 ```
 
 [Back to TOC](#toc)

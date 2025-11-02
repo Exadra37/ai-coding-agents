@@ -8,16 +8,16 @@ setup() {
   BATS_TMPDIR="$(mktemp -d -t bats-test-XXXXXX)"
 
   # Define the path for our isolated project clone.
-  PROJECT_COPY_TEST_DIR="${BATS_TMPDIR}/ai-coding-agents-copy-test"
+  PROJECT_COPY_TEST_DIR="${BATS_TMPDIR}/ai-intent-driven-development-copy-test"
 
   # Copy the current state of the repository to the clone directory.
   cp -r "$PWD/" "$PROJECT_COPY_TEST_DIR"
 
   # Set the INSTALL_DIR to our new clone. The script will use this as its root.
-  export AI_CODING_AGENTS_INSTALL_DIR="$PROJECT_COPY_TEST_DIR"
+  export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR="$PROJECT_COPY_TEST_DIR"
 
   # Define the path to the script we will be testing.
-  SCRIPT_PATH="${PROJECT_COPY_TEST_DIR}/bin/ai-coding-agents.sh"
+  SCRIPT_PATH="${PROJECT_COPY_TEST_DIR}/bin/ai-intent-driven-development.sh"
 
   # `cd` into a separate "working" directory for the test to run commands in.
   mkdir "${BATS_TMPDIR}/work"
