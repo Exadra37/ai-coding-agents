@@ -12,4 +12,4 @@ jobs:
       - name: Initialize submodules
         run: git submodule update --init --recursive
       - name: Run tests
-        run: bash test/libs/bats-core/bin/bats test/ai-coding-agents.sh.bats
+        run: bash test/libs/bats-core/bin/bats test/ai-intent-driven-development.sh.bats
