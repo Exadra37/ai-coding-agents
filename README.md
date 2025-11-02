@@ -6,7 +6,7 @@ The main goal of this project is to provide **AI Intent Driven Development (IDD)
 
 An Intent is a self-contained document that describes a user request. It is composed of three main sections: **WHY** (the motivation), **WHAT** (the requirements, often in Gherkin language), and **HOW** (a detailed, step-by-step implementation plan defined with tasks). This approach ensures clarity and alignment before any code is written.
 
-This project delivers this guidance as a collection of markdown files that instruct AI agents to follow specific guidelines for architecture, development workflow, and more. It supports both language-agnostic and language-specific guidance. Currently, the project focuses on Elixir and Phoenix, with plans to support other BEAM languages and frameworks in the near future. Other programming languages and frameworks will also be supported.
+This project delivers this guidance as a collection of markdown files that instruct AI agents to follow specific guidelines for planning and creating Intents from user requests, with additional instructions on architecture, development workflow, code guidelines and more. It supports both language-agnostic and language-specific guidance. Currently, the project focuses on Elixir and Phoenix, with plans to support other BEAM languages and frameworks in the near future. Other programming languages and frameworks will also be supported.
 
 ## TOC
 
