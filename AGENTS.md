@@ -1,24 +1,23 @@
 # AGENTS
 
-This document provides guidance to AI coding agents, AI coding assistants and LLMs, often referred to as **you**, for when working in this project.
+This document provides guidance to AI coding agents, AI coding assistants and LLMs, often referred to as **you**, to use when working in this project.
 
-This instructions are **CRITICAL** and you **MUST** follow them without any exceptions:
+These instructions are **CRITICAL** and you **MUST** follow them without any exceptions:
 
-1. You **MUST** act as a Senior Software Engineer, with more then 10 years of experience:
-  1. You **MUST** use an Intent Driven Development approach to plan all the tasks and sub-tasks before writing a single line of code, as per the guidelines in the Intent Specification and the Intent Example.
+  1. You **MUST** act as a Senior Software Engineer, with more than 10 years of experience:  1. You **MUST** use an Intent Driven Development approach to plan all the tasks and sub-tasks before writing a single line of code, as per the guidelines in the Intent Specification and the Intent Example.
   2. You **MUST** adopt a TDD first approach with the red-green-refactor cycle as per the development workflow guidelines in this document.
   3. You **MUST** follow the architecture guidelines in this document about using the Domain Resource Action pattern.
   4. You **MUST** write code that is easy to read, reason about and change.
   5. You **MUST NOT** make assumptions and guesses. Instead you **MUST** always make informed decisions in this order:
-    1. Follow and strictly apply this file guidelines, without any exceptions. 
+    1. Follow and strictly apply the guidelines in this file, without any exceptions. 
     2. Read the project docs, like the README.md, doc blocks in code files, and files at `./docs` folder.
     3. Read the official docs for the tool, library, framework before proposing code changes. 
     4. If you are still in doubt, then ask the user. For example:
       - When reading this documentation you **MUST** ask the user in case you have questions about this documentation, like when something isn't clear or seems contradictory.
-      - When you are not sure what code to use to implement some functionality, like function names and parameters, then you **MUST NOT** make assumptions, guesses, invent function names based on module names, packages names, etc., or to just go on a trial and error approach. Instead you **MUST** read the official docs, search the web, and in last resort you **MUST** ask the user for guidance.
-2. When you read this file and concatenate/merge all referenced files into one single document you **MUST** ensure that it doesn't include the same file content multiple times, because some files are referenced more then once across the included documents. 
-3. For instructions that may conflict across the different files referenced by each point on this file, then each point as precedence over a point further down in the file. For example, architecture guidelines in point [1. Project Overview](#1-project-overview) will take precedence over the ones defined in point [2. Architecture Instructions](#2-architecture-instructions), likewise code guidelines from point [7. Coding Guidelines](#7-coding-guidelines) will take precedence over the ones defined in [8. Dependencies Usage Rules](#8-dependencies-usage-rules).
-4. This isn't an exhaustive list, you need to read and understand the entire document guidelines to plan and code effectively in this project.
+      - When you are not sure what code to use to implement some functionality, like function names and parameters, then you **MUST NOT** make assumptions, guesses, invent function names based on module names, package names, etc., or to just go on a trial and error approach. Instead you **MUST** read the official docs, search the web, and in last resort you **MUST** ask the user for guidance.
+2. When you read this file and concatenate/merge all referenced files into a single document you **MUST** ensure that it doesn't include the same file content multiple times, because some files are referenced more than once across the included documents. 
+3. For instructions that may conflict across the different files referenced by each point on this file, then each point has precedence over a point further down in the file. For example, architecture guidelines in point [1. Project Overview](#1-project-overview) will take precedence over the ones defined in point [2. Architecture Instructions](#2-architecture-instructions), likewise code guidelines from point [7. Coding Guidelines](#7-coding-guidelines) will take precedence over the ones defined in [8. Dependencies Usage Rules](#8-dependencies-usage-rules).
+4. This isn't an exhaustive list, you need to read and understand the entire document's guidelines to plan and code effectively in this project.
 
 
 ## 1. Project Overview
@@ -38,7 +37,7 @@ You **MUST** follow the detailed instructions at @./PLANNING.md to create Intent
 
 ## 4. Development Workflow
 
-You **MUST** use the detailed instructions at @./DEVELOPMENT_WORKFLOW.md to follow an **Incremental Code Generation Workflow** that adopts baby step-by-step to got through all Intents, their tasks and sub-tasks.
+You **MUST** use the detailed instructions at @./DEVELOPMENT_WORKFLOW.md to follow an **Incremental Code Generation Workflow** that adopts a baby-step approach to go through all Intents, their tasks and sub-tasks.
 
 ## 5. Phoenix Development
 
@@ -60,4 +59,4 @@ You **MUST** use the detailed instructions in @./DEPENDENCIES_USAGE_RULES.md to 
 
 ## 9. MCP Servers
 
-You **MUST** use the detailed instructions in @./MCP_SERVERS.md to add MCP servers enable AI Coding Agents, assistants and LLMs to better understand and work with your project.
+You **MUST** use the detailed instructions in @./MCP_SERVERS.md to add MCP servers to enable AI Coding Agents, assistants and LLMs to better understand and work with your project.
