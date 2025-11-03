@@ -2,7 +2,7 @@
 
 Phoenix ships with an [Authentication code generator](https://hexdocs.pm/phoenix/mix_phx_gen_auth.html), which will be the preferred to use in any project that requires authentication unless the user or the project README says otherwise.
 
-**IMPORTANT:** Before adding Authentication as instructed here, an Intent needs to be created with instruction from points 2. and 3. of this document, with user approval. The Intent **MUST** be created as specified by the INTENT_SPECIFICATION.md and exemplified by the INTENT_EXAMPLE.md.
+**IMPORTANT:** Before adding Authentication as instructed here, an Intent needs to be created with instructions from points 2. and 3. of this document, with user approval. The Intent **MUST** be created as specified by the INTENT_SPECIFICATION.md and exemplified by the INTENT_EXAMPLE.md.
 
 ## 1. Overview
 
@@ -11,19 +11,18 @@ The generator by default:
 * uses magic links, not email and password combo, but it can be enabled by the user after email confirmation.
 * adds the routes to `router.ex`.
 * adds the tests.
-* adds a [Scope](https://hexdocs.pm/phoenix/mix_phx_gen_auth.html#scopes) module since Phoenix 1.8. The `%Scope{}` is then passed calls to the business logic layer (`lib/my_app/*`) to prevent unauthorized access to other users resources.
+* adds a [Scope](https://hexdocs.pm/phoenix/mix_phx_gen_auth.html#scopes) module since Phoenix 1.8. The `%Scope{}` is then passed in calls to the business logic layer (`lib/my_app/*`) to prevent unauthorized access to other users resources.
 * doesn't include a production mailer.
 
 ## 2. How to Install
 
 1. Run `mix phx.gen.auth Accounts.Users User users --live --hashing-lib argon2 --web Accounts.Users`.
 2. Run `mix deps.get`.
-4. Run `mix ecto.migrate`.
-5. Run `mix ecto.migrate`.
+3. Run `mix ecto.migrate`.
 
 ## 3. How to Add Routes that Require Authentication
 
-For example, when you create a LiveView with `mix phx.gen.live Catalogs.Products Product products name:string desc:string --web Catalogs.Products` then it will ask you to add this routes:
+For example, when you create a LiveView with `mix phx.gen.live Catalogs.Products Product products name:string desc:string --web Catalogs.Products` then it will ask you to add these routes:
 
 ```elixir
 scope "/catalogs/products", MyAppWeb.Catalogs.Products do
@@ -53,15 +52,15 @@ scope "/catalogs/products", MyAppWeb.Catalogs.Products do
 end
 ```
 
-**CRITICAL:** For security reasons you **MUST** use always the `on_mount` with `:require_authenticated`. You **MUST NOT** use the `on_mount` with `:mount_current_scope` unless explicitly asked by the user. The use of `:mount_current_scope` will not protect the route at the router level when an attacker replays an authenticated request, instead it will crash somewhere else on the code base where the current scope needs to be used and it's `nil`, which can be at business layer level, before doing a database request. It's enough for the developer or AI agent to not use a scope in the query to make the attacker happy.
+**CRITICAL:** For security reasons you **MUST** always use the `on_mount` with `:require_authenticated`. You **MUST NOT** use the `on_mount` with `:mount_current_scope` unless explicitly asked by the user. The use of `:mount_current_scope` will not protect the route at the router level when an attacker replays an authenticated request, instead it will crash somewhere else in the code base where the current scope needs to be used and it's `nil`, which can be at the business layer level, before doing a database request. It's enough for the developer or AI agent to not use a scope in the query to make the attacker happy.
 
-The live session was named `:catalogs_products_require_authenticated_user`, as per the above pattern, which guarantees that it will be always unique in the router.
+The live session was named `:catalogs_products_require_authenticated_user`, as per the above pattern, which guarantees that it will always be unique in the router.
  
-Notice, that each live route had `products` removed from it, which its required when we use the option `--web` with the format `-web <DomainPlural>.<ResourcePlural>`, e.g. `--web Catalogs.Products`. This is because of a bug in the code generators that will create routes with the resource duplicated in the path, that in this case was `/catalogs/products/products/...`. 
+Notice, that each live route had `products` removed from it, which is required when we use the option `--web` with the format `-web <DomainPlural>.<ResourcePlural>`, e.g. `--web Catalogs.Products`. This is because of a bug in the code generators that will create routes with the resource duplicated in the path, that in this case was `/catalogs/products/products/...`. 
 
-Now its also required to fix all routes created by the code generator in other files, and to fix them:
+Now it's also required to fix all routes created by the code generator in other files, and to fix them:
 1. You **MUST** run `mix compile` to find all module files with routes to be fixed. 
-2. You **MUST** then create a list of files from the the output of `mix compile` that have routes to be fixed.
+2. You **MUST** then create a list of files from the output of `mix compile` that have routes to be fixed.
 3. You **MUST** feed the list of files to a **find and replace tool** (e.g. `find` in Linux), to fix all routes in only one pass. You **MUST NOT** try to fix one module at a time, because that will be an exhaustive and time consuming task. 
 
 ## 4. How to Add a Production Mailer
