@@ -1,12 +1,12 @@
 # Domain Resource Action Architecture
 
-The Domain Resource Action is an architecture pattern where each module for the Business Logic layer represents a single action possible on a Resource of a Domain or SubDomain of a Domain. This means that each module for a Resource Action is responsible for only one action, therefore it can only contain one public method, and when necessary it's bang version, the function name ending with `!`, e.g. `read/1` and `read!/1`.
+The Domain Resource Action is an architecture pattern where each module for the Business Logic layer represents a single action possible on a Resource of a Domain or SubDomain of a Domain. This means that each module for a Resource Action is responsible for only one action, therefore it can only contain one public method, and when necessary its bang version, the function name ending with `!`, e.g. `read/1` and `read!/1`.
 
-All modules inside a Resource Action can only be accessed through the Resource API module from the web layer (LiveViews, Controllers, etc.), from other Domain Resources or from the same Resource. This reduces accidental complexity by avoiding direct coupling between modules across boundaries. This also makes very easy to refactor later the code because anything consuming the Business Logic is only aware of the API module for the Resource.
+All modules inside a Resource Action can only be accessed through the Resource API module from the web layer (LiveViews, Controllers, etc.), from other Domain Resources or from the same Resource. This reduces accidental complexity by avoiding direct coupling between modules across boundaries. This also makes it very easy to refactor later the code because anything consuming the Business Logic is only aware of the API module for the Resource.
 
-Each Resource Action is unit tested and the Resource API it's only tested via its doc-tests to ensure docs examples are in sync with the code and that each function can be invoked.
+Each Resource Action is unit tested and the Resource API is only tested via its doc-tests to ensure docs examples are in sync with the code and that each function can be invoked.
 
-Any project following this DOMAIN_RESOURCE_ACTION_ARCHITECTURE.md MUST strictly adhere to [1. Folder Structure](#1-folder-structure) and implement [2. Milliseconds Timestamps](#2-milliseconds-timestamps)] and [3. Binary IDs](#3-binary-ids) without making assumptions, in doubt always ask to the user for clarifications.
+Any project following this DOMAIN_RESOURCE_ACTION_ARCHITECTURE.md MUST strictly adhere to [1. Folder Structure](#1-folder-structure) and implement [2. Milliseconds Timestamps](#2-milliseconds-timestamps) and [3. Binary IDs](#3-binary-ids) without making assumptions, when in doubt always ask the user for clarifications.
 
 ## 1. Folder Structure 
 
@@ -86,7 +86,7 @@ lib
 │   │   │   ├── change
 │   │   │   │   └── change_warehouse_stock.ex
 │   │   │   └── stock.ex
-│   │   └── wharehouses_stocks_api.ex
+│   │   └── warehouses_stocks_api.ex
 │   └── shared_domains_api.ex
 ├── my_app_web
 │   ├── live
@@ -115,10 +115,10 @@ Breaking down the partial folder structure example for an Online Shop:
 - Resources: `categories`, `products`, `stocks`  
 - Shared Folders: `shared_resources`, `shared_domains`
 - Actions: `subscribe`, `broadcast`, `list`, `get`, `create`, `update`, `delete`, `change`, `bulk_create`, `bulk_update`, `bulk_delete`
-- Resource APIs: `catalogs_categories_api.ex`, `catalogs_products_api.ex`, `wharehouses_stocks_api.ex`, `shared_resources_api.ex`, `shared_domains_api.ex`
+- Resource APIs: `catalogs_categories_api.ex`, `catalogs_products_api.ex`, `warehouses_stocks_api.ex`, `shared_resources_api.ex`, `shared_domains_api.ex`
 - Ecto Schemas: `category.ex`, `product.ex`, `stock.ex`
 
-NOTE: Both Domains and Resources may have a shared folder for actions that are shared or for other things that common to them. Shared folders don't have by default a schema, but they **MUST** have always the API module.
+NOTE: Both Domains and Resources may have a shared folder for actions that are shared or for other things that are common to them. Shared folders don't have a schema by default, but they **MUST** always have the API module.
 
 ### 1.2 Patterns to Create Files and Directories
 
@@ -127,7 +127,7 @@ NOTE: Both Domains and Resources may have a shared folder for actions that are s
 As per the folder structure:
 - Directory: `lib/my_app/<domain_plural>/`
 - File: `<domain_plural>_<resource_plural>_api.ex` (e.g., `lib/my_app/catalogs/catalogs_products_api.ex`)
-- Module: `MyApp.<DomainPlural>.<DomainPlural><ResourcePlural>API` (e.g., `MyApp.Catalogs.CatalogsProductsAPI`). Catalogs is the Domain, Categories the Resource, and API the Type of module.
+- Module: `MyApp.<DomainPlural>.<DomainPlural><ResourcePlural>API` (e.g., `MyApp.Catalogs.CatalogsProductsAPI`). Catalogs is the Domain, Products the Resource, and API the Type of module.
 
 #### 1.2.2 Domain Resource Schema
 
@@ -153,7 +153,7 @@ The Domain folder is located at `lib/my_app/<domain_plural>`, e.g. `lib/my_app/c
 
 Module types:
 
-- `API` - This files are the only way that Resources can be accessed, inclusive from inside the Resource itself. They define the public contract for each Resource on the Domain folder.
+- `API` - These files are the only way that Resources can be accessed, including from inside the Resource itself. They define the public contract for each Resource on the Domain folder.
 
 #### 1.3.2 Domain Resource Folder
 
@@ -161,17 +161,17 @@ The Domain Resource folder is located at `lib/my_app/<domain_plural>/<resource_p
 
 Module types:
 
-- `Ecto Schema` - This are the usual Ecto Schema module generated by the Phoenix code generators, e.g, `product.ex`.
+- `Ecto Schema` - These are the usual Ecto Schema module generated by the Phoenix code generators, e.g, `product.ex`.
 
 
 #### 1.3.3 Domain Resource Action Folder
 
-The Domain Resource folder is located at `lib/my_app/<domain_plural>/<resource_plural>/<action>`, e.g. `lib/my_app/catalogs/products/update`:
+The Domain Resource Action folder is located at
 
 Module Types:
 
-- For simple actions, like the ones generate by Phoenix code generators, a single module will suffice. For example: `update_category_product.ex`.
-- For complex actions it may be wise to separate in at least into three modules:
+- For simple actions, like the ones generated by Phoenix code generators, a single module will suffice. For example: `update_category_product.ex`.
+- For complex actions it may be wise to separate at least into three modules:
   - `Handler` - entrypoint module to coordinate the work being done.
   - `Core` - for pure business logic without side effects.
   - `Storage`, `Queues`, etc, - a dedicated module per type of communication with the external world.
@@ -184,15 +184,15 @@ Module Types:
 Example for the file `catalogs_products_api.ex` in the folder structure example.
 
 ```elixir
-# lib/my_app/catalog/catalogs_products_api.ex
+# lib/my_app/catalogs/catalogs_products_api.ex
 defmodule MyApp.Catalogs.CatalogProductApi do
   @moduledoc """
   The Product API for the Catalogs.
   """
   
-  alias MyApp.Catalogs.Products.Update.UpdateCatalogProductHandler
+  alias MyApp.Catalogs.Products.Update.UpdateCatalogProduct
   
-  # Not using defdelegate because we will loose the API contract
+  # Not using defdelegate because we will lose the API contract
   @doc """
   Updates a Product in the Catalogs.
 
@@ -214,7 +214,7 @@ end
 
 #### 1.4.3 Domain Resource Simple Action 
 
-For simple actions, like the ones generate by Phoenix code generators, a single module will suffice. For example: `update_category_product.ex`:
+For simple actions, like the ones generated by Phoenix code generators, a single module will suffice. For example: `update_category_product.ex`:
 
 
 ```elixir
@@ -277,7 +277,7 @@ defmodule MyApp.Catalogs.Products.Update.UpdateCatalogProductHandler do
       # An alternative is to trigger the reactions to this update with cross boundary calls via the Domain Resource API.
       # Using a cross boundary call to the Domain Resource API avoids direct coupling to the internal of the Domain.
       # This is soft coupling, which reduces accidental coupling and complexity.
-      MailerNotifierAPI.notify_users(scope, {:catalog_product_updated, catalogs_product}) # <-- MIDDLE GROUNG RECOMMENDATION
+      MailerNotifierAPI.notify_users(scope, {:catalog_product_updated, catalogs_product}) # <-- MIDDLE GROUND RECOMMENDATION
       
       # Bear in mind that by doing this approach of direct cross boundary calls we are coupling this module with anything we interact with.
       # This is often called accidental complexity via accidental coupling. 
@@ -290,13 +290,13 @@ defmodule MyApp.Catalogs.Products.Update.UpdateCatalogProductHandler do
 end
 ```
 
-Calls to core modules from a Domain Resource Action Handler aren't limited to one. This means we can have more than one Core module per action for whatever we need to do in therms of:
+Calls to core modules from a Domain Resource Action Handler aren't limited to one. This means we can have more than one Core module per action for whatever we need to do in terms of:
 - business rules validation
 - data transformation
 - data enrichment
-- anything else that as no side effects or communicates with the external world.
+- anything else that has no side effects or communicates with the external world.
 
-For example, the width clause on the above example would have some more calls to core modules:
+For example, the with clause on the above example would have some more calls to core modules:
 
 ```elixir
 with {:ok, _scope} <- CatalogsProductsAPI.allowed(scope, :update_catalog_product),
@@ -308,7 +308,7 @@ with {:ok, _scope} <- CatalogsProductsAPI.allowed(scope, :update_catalog_product
 end
 ```
 
-This split in several Core modules is useful in complex Business Domains, that have complex rules and data transformations/enrichment's and whatever else. When the Business Domain is straightforward and simple, then we may not even use a Core module if it doesn't make sense for the current Resource Action being handled.
+This split in several Core modules is useful in complex Business Domains, that have complex rules and data transformations/enrichments and whatever else. When the Business Domain is straightforward and simple, then we may not even use a Core module if it doesn't make sense for the current Resource Action being handled.
 
 ##### 1.4.4.2 Domain Resource Action Core Module Example
 
@@ -366,7 +366,7 @@ This approach to create the Phoenix commands is **MANDATORY** to generate code f
 
 #### 1.5.2 Fixing Routes with Domain and Resource
 
-Every-time a code generator is used, that supports the option `--web`, it must be used in the format `-web <DomainPlural>.<ResourcePlural>`, e.g. `--web Accounts.Users`. 
+Every time a code generator is used, that supports the option `--web`, it must be used in the format `-web <DomainPlural>.<ResourcePlural>`, e.g. `--web Accounts.Users`. 
 
 Unfortunately a small bug exists in the code generators and the routes will have the resource `users` duplicated, e.g. `http://example.com/accounts/users/users/register`, but instead it needs to be `http://example.com/accounts/users/register`. 
 
@@ -396,25 +396,25 @@ You **MUST** follow this steps:
 
 1. Rename `lib/my_app/catalogs/products.ex` to `lib/my_app/catalogs/catalogs_products_api.ex`
 2. Update the module definition from  `MyApp.Catalogs.Products` to `MyApp.Catalogs.CatalogsProductsAPI`.
-3. Extract each function body from the new module `MyApp.Catalogs.CatalogsProductsAPI` into it's own module with only one public function, named after the action, without the resource name, at `lib/my_app/catalogs/products/<action>/<action>_catalog_product.ex`. For example: `lib/my_app/catalogs/products/create/create_catalog_product.ex` with a function named `create`. The `CatalogsProductsAPI` function header is kept, but its body its now only calling the new action module function, but without using `defdelegate`, otherwise we loose the API contract. You **MUST** also extract private functions like for the `broadcast` action and make them public. Any access from a module to a Domain Resource Action module needs to got through the API module, direct access is **FORBIDDEN**.
+3. Extract each function body from the new module `MyApp.Catalogs.CatalogsProductsAPI` into its own module with only one public function, named after the action, without the resource name, at `lib/my_app/catalogs/products/<action>/<action>_catalog_product.ex`. For example: `lib/my_app/catalogs/products/create/create_catalog_product.ex` with a function named `create`. The `CatalogsProductsAPI` function header is kept, but its body is now only calling the new action module function, but without using `defdelegate`, otherwise we lose the API contract. You **MUST** also extract private functions like for the `broadcast` action and make them public. Any access from a module to a Domain Resource Action module needs to go through the API module, direct access is **FORBIDDEN**.
 4. Update the tests for the now refactored `MyApp.Catalogs.Products` context to test instead `MyApp.Catalogs.CatalogsProductsAPI`. Rename the test file, Module name, and then replace each call to the context with a call to new API module.
-5. Run `mix test` to ensure no test is broken after the refactor. If any test its broken fix it before proceeding.
+5. Run `mix test` to ensure no test is broken after the refactor. If any test is broken fix it before proceeding.
 
 #### 1.5.4 Accessing the Business Logic Layer from the Web Layer
 
-Calls from the web layer, like from a live view or controller are only allowed to a Domain Resource API, that in the folder structure example would be to one of the modules defined at `catalogs_categories_api.ex`, `catalogs_products_api.ex` and `wharehouse_stocks_api.ex`. This means that the usual calls to the context need to be replaced with calls to the Domain Resource API. For example, replacing `Catalogs.update_product` with `CatalogsProductsAPI.update_product`. The same needs to be done in the respective tests.
+Calls from the web layer, like from a live view or controller are only allowed to a Domain Resource API, that in the folder structure example would be to one of the modules defined at `catalogs_categories_api.ex`, `catalogs_products_api.ex` and `warehouse_stocks_api.ex`. This means that the usual calls to the context need to be replaced with calls to the Domain Resource API. For example, replacing `Catalogs.update_product` with `CatalogsProductsAPI.update_product`. The same needs to be done in the respective tests.
 
 Both a live view and a controller must only have logic to deal with web layer concerns, which usually consists in calling a Domain Resource API with the parameters of the request mapped to existing atoms, and deal with the returned result to decide if the web layers succeeds or fails the response it needs to send back.
 
 ##### 1.5.4.1 Atomized Attributes
 
-The use of atomized attributes its not required to be introduced to existing code, but its recommend that at some point to refactor the existing code to use them, if not already done.
+The use of atomized attributes is not required to be introduced to existing code, but it's recommended that at some point to refactor the existing code to use them, if not already done.
 
-When this Architecture pattern is analyzed for the first time by an AI Coding Agent its recommended for it to check if the project is already using atomized parameters to call the Business Logic layer, and if not then ask the developer if he wants to use PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** be created as specified by the INTENT_SPECIFICATION.md and exemplified by the INTENT_EXAMPLE.md.
+When this Architecture pattern is analyzed for the first time by an AI Coding Agent it's recommended for it to check if the project is already using atomized parameters to call the Business Logic layer, and if not then ask the developer if he wants to use PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** be created as specified by the INTENT_SPECIFICATION.md and exemplified by the INTENT_EXAMPLE.md.
 
 ##### 1.5.4.2 Example of calling the a Domain Resource API from LiveView
 
-LiveVew mode trimmed to show only the code for the `edit` handle event, that's enough to illustrate the call to the Domain Resource API with atomized attributes:
+LiveView mode trimmed to show only the code for the `edit` handle event, that's enough to illustrate the call to the Domain Resource API with atomized attributes:
 
 
 ```elixir
@@ -492,17 +492,17 @@ end
 
 ##### 1.5.4.4 Example to atomize and sanitize attributes
 
-A better approach would be to use a dedicated struct for each Domain Resource accept input from the external world that atomizes the request input parameters into existing atoms and sanitizes their values.
+A better approach would be to use a dedicated struct for each Domain Resource to accept input from the external world that atomizes the request input parameters into existing atoms and sanitizes their values.
 
 ```elixir
-defmodule MyAppWeb.Catalogs.Products.CatalogProductInputSanitezed do
+defmodule MyAppWeb.Catalogs.Products.CatalogProductInputSanitized do
   
   # Define here the struct. 
-  # THe struct **MUST** explicitly enforce the required attributes.
+  # The struct **MUST** explicitly enforce the required attributes.
 
   def sanitize_product_params(input_params) do
     # For each atom key in the struct we want to sanitize the input_params value
-    # present in the correspondent string key.
+    # present in the corresponding string key.
 
     # You may want to just let it crash if the required keys aren't all present.
     
@@ -514,7 +514,7 @@ end
 
 ## 2. Milliseconds Timestamps 
 
-By default Phoenix generates schemas and migration with timestamps in `:utc_datetime` which have a default precision of seconds, thus making impossible to order records in database queries by the insert or update times, because several records can be inserted or updated in the same second.
+By default Phoenix generates schemas and migrations with timestamps in `:utc_datetime` which have a default precision of seconds, thus making impossible to order records in database queries by the insert or update times, because several records can be inserted or updated in the same second.
 
 The solution is to modify in `config/config.exs`, the `generators` configuration to use `timestamp_type: :utc_datetime_usec` and the code generators will use them by default when creating migrations and schemas.
 
@@ -527,7 +527,7 @@ When this Architecture pattern is analyzed for the first time by an AI Coding Ag
 
 For security reasons this architecture requires that all migrations and schemas use binary IDs for the primary key and foreign keys. 
 
-UUIDV7 as binary IDS are strongly recommended because they can be sorted in database queries, once they are time based.
+UUIDV7 as binary IDs are strongly recommended because they can be sorted in database queries, once they are time based.
 
 When this Architecture pattern is analyzed for the first by an AI Coding Agent it **MUST** check `config/config.exs` to see if the project is already using binary IDs and if not then ask the developer if he wants to use PLANNING.md to create an Intent with the tasks to implement it, or if he wants to do it himself. The Intent **MUST** be created as specified by the INTENT_SPECIFICATION.md and exemplified by the INTENT_EXAMPLE.md.
 
