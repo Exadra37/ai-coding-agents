@@ -4,7 +4,7 @@ An Intent is a self-contained document that explains the user request in a markd
 
 **IMPORTANT: The intent document **MUST** strive to keep explanations brief, concise and straight to the point. Developers prefer communication that's as straightforward as possible. Start by the most important parts that need to be told, follow with some brief context, and only add details when it makes sense.**
 
-## 1. Intent Tile and Sections
+## 1. Intent Title and Sections
 
 ### 1.1 Required H1 Header Title
 
@@ -13,21 +13,21 @@ An Intent is a self-contained document that explains the user request in a markd
 
 ### 1.2 Required H2 Headers Sections
 
-* **WHY** the user as asked to do something, the intention.
+* **WHY** the user has asked to do something, the intention.
 * **WHAT** the user wants to build, which can be provided by the user as event modelling images, using the Gherkin language or as plain text. The AI Coding assistant can also help the user and infer the WHAT from the WHY (the intention), by asking relevant questions, if needed.  
 * **HOW** the step-by-step that the AI Coding Agent plans to follow to build WHAT the user requested, the tasks and sub-tasks.
 
 ### 1.3 Optional H2 Headers Sections
 
 * **TARGET AUDIENCE** The target audience for the request when makes sense.
-* **CONSTRAINS** If nay exist they must be listed and briefly explained in a concise way.
+* **CONSTRAINTS** If any exist they must be listed and briefly explained in a concise way.
 * **DESIGN DECISIONS** The key design decisions, their rationale and trade-offs.
 * **ALTERNATIVES CONSIDERED** Other approaches that were considered and why they weren't chosen.
 * **ARCHITECTURE** Architecture decisions, considerations and diagrams if applicable. By default the Domain Resource Action architecture pattern is used as per ARCHITECTURE.md.
 * **IMPLEMENTATION** Notes on expected implementation details, key decisions, the expected challenges, and their possible resolutions.
 * **TECHNICAL DETAILS** Specific technical details and considerations. For example what packages to use, and why they were chosen over other alternatives.
-* **CODE SNIPPETS AND EXAMPLES** Provide them when the problem is complex to guide and help the AI Code Agent to better resolve them as you whish.
-* **CHALLENGES & SOLUTIONS** Challenges encountered during implementation and how they were resolved. This only makes sense to add after the Intent is implemented, and didn't went as planned.
+* **CODE SNIPPETS AND EXAMPLES** Provide them when the problem is complex to guide and help the AI Code Agent to better resolve them as you wish.
+* **CHALLENGES & SOLUTIONS** Challenges encountered during implementation and how they were resolved. This only makes sense to add after the Intent is implemented, and didn't go as planned.
 
 ## 2. Intent Persistence Protocol
 
@@ -43,7 +43,7 @@ The `.intents/` directory will have the following folder structure to enable tra
 2. **work-in-progress** - To persist all Intents that are being worked on.
 3. **completed** - To persist all Intents with all tasks and sub-tasks completed.
 
-This folders **MUST** be created if they don't exist yet.
+These folders **MUST** be created if they don't exist yet.
 
 ### 2.2 Tracking Intent Progress Status
 
@@ -53,7 +53,7 @@ The Intent **MUST** be kept in the correct status folder on the `.intents/` dire
 2. **work-in-progress** - The Intent **MUST** be moved to the `completed` status folder once all tasks and sub-tasks on it are finished, and before git committing the changes.
 3. **completed** - Changes can only be committed after a `work-in-progress` Intent as been moved here.
 
-**CRITICAL:** When an Intent is created/updated/moved in any of the status folders, with the the user approval, it **MUST** be committed before proceeding with its implementation or anything else the user requests.
+**CRITICAL:** When an Intent is created/updated/moved in any of the status folders, with the user approval, it **MUST** be committed before proceeding with its implementation or anything else the user requests.
 
 ### 2.3 Tracking the Last Created Intent
 
@@ -67,7 +67,7 @@ If they don't exist yet, create the `.intents/*` directory, its folders (`todo`,
 
 **CRITICAL:** To propose, create or update and save the Intent the guidelines defined in the DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol. 
 
-1. Before proposing an Intent you must check the `.intents/todo` directory to see of one already exists to implement the user request. 
+1. Before proposing an Intent you must check the `.intents/todo` directory to see if one already exists to implement the user request. 
 2. If no Intent is found then you **MUST** also check the `.intents/work-in-progress` status folder to see if one exists with tasks to be completed for the user request.
 3. If an Intent is found in either of the status folders, then you **MUST** read it and see if needs to be updated to better align with the user request and the current project documentation guidelines. 
 4. If the Intent needs to be updated then you **MUST** propose such changes to the user for approval and save it to the `.intents/work-in-progress` status folder. 
@@ -80,7 +80,7 @@ If they don't exist yet, create the `.intents/*` directory, its folders (`todo`,
 
 In addition to Task implementation and completion protocols you **MUST** perform this steps to implement an Intent:
 
-1. You **MUST** check if the Intent already as Tasks marked as completed `[x]`, and id so then you **MUST**:
+1. You **MUST** check if the Intent already has Tasks marked as completed `[x]`, and if so then you **MUST**:
   1. Ensure it's in the correct status folder:
     - All tasks and sub-tasks not marked as completed yet `[ ]`, the Intent **MUST** be in the `todo` folder.
     - Some tasks or sub-tasks marked as completed `[x]`, the Intent **MUST** be in the `work-in-progress` folder.
@@ -88,10 +88,10 @@ In addition to Task implementation and completion protocols you **MUST** perform
   2. Ensure they are indeed done by checking the git history with `git log --stat`. In case the git history isn't conclusive search the project files for the expected modules with the implementation code. If a task or sub-task isn't implemented yet, then confirm with the user and uncheck `[ ]` it if the user says isn't implemented yet.
   3. Resume working on the Intent from the last confirmed completed task or sub-task, and ignore the next step.
 2. In the case you aren't resuming work on an Intent, then you **MUST** now move the Intent from the `todo` folder to the `work-in-progress` folder, but only commit this change when you complete the first task in the Intent.
-3. When you complete all tasks and tasks in an Intent `[x]`, then the Intent **MUST** be moved from the folder `work-in-progress` to `completed` folder, and changes committed as defined by the Task completion protocol.
+3. When you complete all tasks and sub-tasks in an Intent `[x]`, then the Intent **MUST** be moved from the folder `work-in-progress` to `completed` folder, and changes committed as defined by the Task completion protocol.
 
 **CRITICAL:** When working on an Intent task or sub-task and the instructions aren't correct, you **MUST** fix the Intent once you sort out the correct way of doing it.
 
 ## 5. Intent Example
 
-See the INTENT_EXAMPLE.md file to use as a reference when implementing Intents for users requests. In a real project this Intent example would be located at the root of the project on the `.intents/` folder, e.g., `./.intents/todo/54_feature_catalogs-products_add-crud-actions.md`.
+See the INTENT_EXAMPLE.md file to use as a reference when implementing Intents for user requests. In a real project this Intent example would be located at the root of the project on the `.intents/` folder, e.g., `./.intents/todo/54_feature_catalogs-products_add-crud-actions.md`.
