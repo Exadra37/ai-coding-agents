@@ -77,11 +77,21 @@ Add_All() {
   local _language="${2}"
   local _framework="${3}"
 
+  local agents_file_to_copy="${INSTALL_DIR}/${_agent_file}"
+
+  if [ -n "${_framework}" ] && [ -f "${INSTALL_DIR}/${_language}/${_framework}/${_agent_file}" ]; then
+    agents_file_to_copy="${INSTALL_DIR}/${_language}/${_framework}/${_agent_file}"
+  elif [ -n "${_language}" ] && [ -f "${INSTALL_DIR}/${_language}/${_agent_file}" ]; then
+    agents_file_to_copy="${INSTALL_DIR}/${_language}/${_agent_file}"
+  elif [ ! -f "${agents_file_to_copy}" ]; then
+    agents_file_to_copy="${INSTALL_DIR}/AGENTS.md"
+  fi
+
   echo "<!-- ai_agents:usage_rules:start -->" >> "${_agent_file}"
 
   echo -e "\n<!-- ai_agents:instructions_overview:start -->" >> "${_agent_file}"
-  cat "${INSTALL_DIR}/AGENTS.md" >> "${_agent_file}"
-  echo -e "<!-- ai_agents:instructions_overview:end -->" >> "${_agent_file}"
+  cat "${agents_file_to_copy}" >> "${_agent_file}"
+  echo "<!-- ai_agents:instructions_overview:end -->" >> "${_agent_file}"
 
   if [ -n "${_framework}" ] && [ -f "${INSTALL_DIR}/${_language}/${_framework}/DOMAIN_RESOURCE_ACTION_ARCHITECTURE.md" ]; then
       echo -e "\n<!-- ai_agents:${_language}:${_framework}:architecture:start -->" >> "${_agent_file}"
@@ -93,11 +103,11 @@ Add_All() {
   cat "${INSTALL_DIR}/PLANNING.md" >> "${_agent_file}"
   echo -e "\n<!-- ai_agents:planning:intent_specification:start -->" >> "${_agent_file}"
   cat "${INSTALL_DIR}/INTENT_SPECIFICATION.md" >> "${_agent_file}"
-  echo -e "<!-- ai_agents:planning:intent_specification:end -->" >> "${_agent_file}"
+  echo "<!-- ai_agents:planning:intent_specification:end -->" >> "${_agent_file}"
   echo -e "\n<!-- ai_agents:planning:intent_example:start -->" >> "${_agent_file}"
   cat "${INSTALL_DIR}/INTENT_EXAMPLE.md" >> "${_agent_file}"
-  echo -e "<!-- ai_agents:planning:intent_example:end -->" >> "${_agent_file}"
-  echo -e "<!-- ai_agents:planning:end -->" >> "${_agent_file}"
+  echo "<!-- ai_agents:planning:intent_example:end -->" >> "${_agent_file}"
+  echo "<!-- ai_agents:planning:end -->" >> "${_agent_file}"
 
   echo -e "\n<!-- ai_agents:development_workflow:start -->" >> "${_agent_file}"
   cat "${INSTALL_DIR}/DEVELOPMENT_WORKFLOW.md" >> "${_agent_file}"

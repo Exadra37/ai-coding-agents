@@ -8,7 +8,7 @@ setup() {
   BATS_TMPDIR="$(mktemp -d -t bats-test-XXXXXX)"
 
   # Define the path for our isolated project clone.
-  PROJECT_COPY_TEST_DIR="${BATS_TMPDIR}/ai-intent-driven-development-copy-test"
+  PROJECT_COPY_TEST_DIR="${BATS_TMPDIR}/ai-intent-driven-development-copy-for-test"
 
   # Copy the current state of the repository to the clone directory.
   cp -r "$PWD/" "$PROJECT_COPY_TEST_DIR"
@@ -20,8 +20,8 @@ setup() {
   SCRIPT_PATH="${PROJECT_COPY_TEST_DIR}/bin/ai-intent-driven-development.sh"
 
   # `cd` into a separate "working" directory for the test to run commands in.
-  mkdir "${BATS_TMPDIR}/work"
-  cd "${BATS_TMPDIR}/work"
+  mkdir "${BATS_TMPDIR}/workspace"
+  cd "${BATS_TMPDIR}/workspace"
 
   # Initialize this working directory as a git repo so the script's checks pass.
   git init &> /dev/null
@@ -70,6 +70,38 @@ teardown() {
 }
 
 # --- Test 'from-scratch' Command Permutations ---
+
+@test "from-scratch (elixir and phoenix with framework AGENTS.md)" {
+  cd "$PROJECT_COPY_TEST_DIR"
+  mkdir -p "elixir/phoenix"
+  echo "# FRAMEWORK AGENTS" > "elixir/phoenix/AGENTS.md"
+  git add "elixir/phoenix/AGENTS.md"
+  git commit -m 'agents file' &> /dev/null
+  cd -
+
+  run "$SCRIPT_PATH" from-scratch elixir phoenix
+  assert_success
+  assert [ -f "AGENTS.md" ]
+
+  run cat AGENTS.md
+  assert_output --partial "# FRAMEWORK AGENTS"
+}
+
+@test "from-scratch (elixir with language AGENTS.md)" {
+  cd "$PROJECT_COPY_TEST_DIR"
+  mkdir -p "elixir"
+  echo "# LANGUAGE AGENTS" > "elixir/AGENTS.md"
+  git add "elixir/AGENTS.md"
+  git commit -m 'agents file' &> /dev/null
+  cd -
+
+  run "$SCRIPT_PATH" from-scratch elixir
+  assert_success
+  assert [ -f "AGENTS.md" ]
+
+  run cat AGENTS.md
+  assert_output --partial "# LANGUAGE AGENTS"
+}
 
 @test "from-scratch (agnostic)" {
   run "$SCRIPT_PATH" from-scratch
