@@ -58,13 +58,13 @@ We recommend you to perform a global installation, but we also provide instructi
 On your terminal execute:
 
 ```shell
-git clone https://github.com/BEAM-Devs/ai-intent-driven-development.git ~/.local/share/ai-intent-driven-development
+git clone https://github.com/Exadra37/ai-intent-driven-development.git ~/.local/share/ai-intent-driven-development
 ```
 
 Go inside the installation directory:
 
 ```shell
-cd ai-intent-driven-development
+cd ~/.local/share/ai-intent-driven-development
 ```
 
 Add the `bin` folder to your path permanently. Replace `~/.bashrc` with the file for your shell, for example `~/.zshrc`:
@@ -103,7 +103,7 @@ On your terminal execute:
 
 ```shell
 mkdir .local
-git clone https://github.com/BEAM-Devs/ai-intent-driven-development.git .local/ai-intent-driven-development
+git clone https://github.com/Exadra37/ai-intent-driven-development.git .local/ai-intent-driven-development
 ```
 
 If you don't have a `.gitignore_global` yet, you can create one with:
