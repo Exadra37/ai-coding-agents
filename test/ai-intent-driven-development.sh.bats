@@ -13,6 +13,12 @@ setup() {
   # Copy the current state of the repository to the clone directory.
   cp -r "$PWD/" "$PROJECT_COPY_TEST_DIR"
 
+  # Required for the CI, since we introduced the agent file per programming language/framework
+  cd "$PROJECT_COPY_TEST_DIR"
+  git config user.email "test@example.com" &> /dev/null
+  git config user.name "Test" &> /dev/null
+  cd -
+
   # Set the INSTALL_DIR to our new clone. The script will use this as its root.
   export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR="$PROJECT_COPY_TEST_DIR"
 
