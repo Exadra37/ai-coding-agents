@@ -67,11 +67,21 @@ Go inside the installation directory:
 cd ~/.local/share/ai-intent-driven-development
 ```
 
-Add the `bin` folder to your path permanently. Replace `~/.bashrc` with the file for your shell, for example `~/.zshrc`:
+Add the `bin` folder to your path permanently in `~/.bashrc`, `~/.zshrc` or the file for your shell of preference.
+
+For `~/.bashrc`:
 
 ```shell
-echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=~/$(pwd)' >> ~/.bashrc
+echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=$(pwd)' >> ~/.bashrc
 echo 'export PATH=$PATH:${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin' >> ~/.bashrc
+echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driven-development.sh"'
+```
+
+For `~/.zshrc`:
+
+```shell
+echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=$(pwd)' >> ~/.zshrc
+echo 'export PATH=$PATH:${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin' >> ~/.zshrc
 echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driven-development.sh"'
 ```
 
