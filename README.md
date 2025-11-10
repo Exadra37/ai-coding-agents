@@ -74,7 +74,7 @@ For `~/.bashrc`:
 ```shell
 echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=$(pwd)' >> ~/.bashrc
 echo 'export PATH=$PATH:${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin' >> ~/.bashrc
-echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driven-development.sh"'
+echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driven-development.sh"' >> ~/.zshrc
 ```
 
 For `~/.zshrc`:
@@ -82,7 +82,7 @@ For `~/.zshrc`:
 ```shell
 echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=$(pwd)' >> ~/.zshrc
 echo 'export PATH=$PATH:${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin' >> ~/.zshrc
-echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driven-development.sh"'
+echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driven-development.sh"' >> ~/.zshrc
 ```
 
 > **IMPORTANT:** The environment variable `AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR` is required for the script to work properly.
