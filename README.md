@@ -72,7 +72,7 @@ Add the `bin` folder to your path permanently in `~/.bashrc`, `~/.zshrc` or the 
 For `~/.bashrc`:
 
 ```shell
-echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=$(pwd)' >> ~/.bashrc
+echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=~/.local/share/ai-intent-driven-development' >> ~/.bashrc
 echo 'export PATH=$PATH:${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin' >> ~/.bashrc
 echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driven-development.sh"' >> ~/.zshrc
 ```
@@ -80,7 +80,7 @@ echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driv
 For `~/.zshrc`:
 
 ```shell
-echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=$(pwd)' >> ~/.zshrc
+echo 'export AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR=~/.local/share/ai-intent-driven-development' >> ~/.zshrc
 echo 'export PATH=$PATH:${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin' >> ~/.zshrc
 echo 'alias aidd="${AI_INTENT_DRIVEN_DEVELOPMENT_INSTALL_DIR}/bin/ai-intent-driven-development.sh"' >> ~/.zshrc
 ```
