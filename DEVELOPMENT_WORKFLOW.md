@@ -1,12 +1,13 @@
 # Development Workflow
 
-This document provides guidance to AI coding agents, AI coding assistants and LLMs, often referred to as **you**, for the development workflow to use when working in this project. 
+This document provides guidance to AI coding agents, AI coding assistants and LLMs, often referred to as **you**, for the development workflow to use when working in this project.
 
+**CRITICAL: Don't get stuck in commands that require user interaction. Immediately abort and try to find if the command as a non-interactive flag that can be used. If not use the bash trick `yes | command` or similar.**
 
-## 1. Running Commands
+## 1. Intent Implementation
 
-**CRITICAL: Don't get stuck in commands that require user interaction. Immediately abort and try to find if the command has a non-interactive flag that can be used. If not use the bash trick `yes | command` or similar.**
-
+You **MUST** follow the INTENT_SPECIFICATION document for the protocol to implement an Intent, which can be found at `## 4. Intent Implementation Protocol`.
+u
 
 ## 2. TDD First
 

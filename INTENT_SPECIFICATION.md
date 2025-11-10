@@ -74,7 +74,7 @@ If they don't exist yet, create the `.intents/*` directory, its folders (`todo`,
 5. If the Intent is to be created then you **MUST** propose it as a code change for user approval and then you **MUST** save it to the `.intents/todo` status folder. 
 6. After the Intent is created or updated and saved into the respective status folder it **MUST** be committed before proceeding with its implementation or anything else the user requests.
 
-## 4. Intent Implementation
+## 4. Intent Implementation Protocol
 
 **CRITICAL:** The guidelines defined in the DEVELOPMENT_WORKFLOW.md **MUST** be followed, especially the ones for 1.2 Task Implementation Protocol and 1.3 Task Completion Protocol.
 
