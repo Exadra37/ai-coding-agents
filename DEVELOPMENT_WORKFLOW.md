@@ -29,13 +29,13 @@ These TDD steps **MUST** be used always to adhere to the TDD first approach and 
 1. First, create the Module for the application code with the public function, but no logic on it, only returning `:todo`.
 2. Next, create the test Module with only one test for the main success scenario.
 3. Then run `mix test module_test_file` and the test **MUST** fail (red), because the application code is returning `:todo`, as the application code logic to make it pass wasn't written yet. If the test fails because of any other reason (e.g. syntax errors, missing imports, compilation warnings or errors, etc.) then you **MUST** fix them before proceeding to the next step.
-4. Now, implement the minimal amount of application code to make the test pass (green). 
+4. Now, implement the minimal amount of application code to make the test pass (green).
 The code needs to be easy to understand, reason about, and change, just as a senior engineer with more than a decade of experience would write.
 5. If there is any opportunity to make the code being tested more easy to reason about, maintain, secure, testable, performant, etc., then ask the user if you can refactor it, and give the user a summary of what you plan to and why. Only proceed to propose code changes if the user accepts to refactor the code.
 6. Repeat these steps by going back to step 1. again. This **MUST** be repeated until the test suite covers:
   - all success scenarios.
   - all failure scenarios.
-  - all edge cases. 
+  - all edge cases.
   - all code paths.
 
 **IMPORTANT:** To translate this TDD first approach to tasks and sub-tasks, see the INTENT_EXAMPLE.md file to implement the CRUD actions for a Domain Resource in the business logic and web logic layers.
@@ -82,20 +82,16 @@ The following steps apply:
   2. **Only if all tests and checks pass**: Run `git add .` to stage all changes, otherwise go back and fix the tests and other issues reported by the precommit checks. Skip this step when creating an Intent.
   3. **Clean up**: Remove any temporary files and temporary code before committing.
   3. **Tasks Tracking**: Once all the sub-tasks are marked completed and before changes have been committed, mark the **parent task** as completed. Skip this step when creating an Intent.
-  4. **Git Commit**: Use a descriptive commit message that:
-    - Uses this type of git commit format: `Intent (domain-resource): Intent number - Intent title.`, `feature (domain-resource): message title. Intent: number - Task: number.`, `bug (domain-resource): message title. Intent: number - Task: number.`, `refactor (domain-resource): message title. Intent: number - Task: number.`, `enhancement (domain-resource): message title. Intent: number - Task: number.` etc.
-    - Except for when committing an Intent, the message title summarizes what was accomplished in the current task, followed by a reference to the Intent and Task number.
-    - The body of the message lists key changes and additions by the sub-tasks.
-    - **Formats the message as a single-line command using `-m` flags**, examples:
-      - To commit an Intent creation:
+  4. **Git commit the creation of an Intent**:
+        ```
+        git commit -m "Intent 15 Planning - Feature (checkout-payments): Add support for Visa Card payments." -m "Intent planned tasks:" -m "- List one task per -m flag without mentioning sub-tasks"
+        ```
+  5. **Git Commit Development Work**: Use a descriptive commit message that (except to create an Intent):
+    - Uses this type of git commit format: `feature (domain-resource): message title. Intent: number - Task: number.`, `bug (domain-resource): message title. Intent: number - Task: number.`, `refactor (domain-resource): message title. Intent: number - Task: number.`, `enhancement (domain-resource): message title. Intent: number - Task: number.` etc.
+    - The body of the message lists key changes and additions by the tasks by formatting the message as a single-line command using `-m` flags.
+    - Example to commit features, enhancement, bug, docs, chore, etc.:
+        ```
+        git commit -m "Feature (checkout-payments): Implemented payment validation logic. Intent: 15, Task: 2" -m "- Validates card type and expiry" -m "- Adds unit tests, including for edge cases"
+        ```
 
-      ```
-      git commit -m "intent (checkout-payments): Intent 15 Planning - Add support for Visa Card payments." -m "Intent planned tasks:" -m "- List one task per -m flag without mentioning sub-tasks"
-      ```
-
-      - To commit features, enhancement, bug, docs, chore, etc.:
-
-      ```
-      git commit -m "feature (checkout-payments): Implemented payment validation logic. Intent: 15, Task: 2" -m "- Validates card type and expiry" -m "- Adds unit tests, including for edge cases"
-      ```
 3. Skip this step when creating an Intent. Stop after each task, ask for user confirmation that they are satisfied with the implementation of all sub-tasks and that they want to go-ahead with the next task. You **MUST** wait for the user's affirmative reply before proceeding. This **MUST** be followed no matter how many sub-tasks are in the task, except when the only work to be executed by the sub-tasks are to, implicitly or explicitly, run tools, like `mix`, `git`, 'mkdir', 'cp', 'mv', 'ls', etc., because you always prompt the user to allow or disallow to execute any tool you know about.
