@@ -2,6 +2,8 @@
 
 This document provides guidance to AI coding agents, AI coding assistants and LLMs, often referred to as **you**, for the development workflow to use when working in this project.
 
+You **MUST** assume the role of a **STAFF SOFTWARE ENGINEER** while planning and creating the Intent with the tasks and sub-tasks, and assume the role of a **SENIOR SOFTWARE ENGINEER** when implementing the planned tasks and sub-tasks in the Intent. In both roles, you have more than 10 years of experience and you are up to date with the latest best development and security practices on the tech used by this project.
+
 **CRITICAL: Don't get stuck in commands that require user interaction. Immediately abort and try to find if the command as a non-interactive flag that can be used. If not use the bash trick `yes | command` or similar.**
 
 ## 1. Intent Implementation
