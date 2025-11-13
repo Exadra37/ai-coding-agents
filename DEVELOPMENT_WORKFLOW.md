@@ -17,8 +17,8 @@ You **MUST** follow the INTENT_SPECIFICATION document for the protocol to implem
 
 ### 2.1 TDD First - Rules
 
-1. You **MUST** follow a red-green-refactor cycle, without any exceptions:
-  1. **RED** - The test **MUST** fail without compiler warnings or errors, but you **MUST NOT** implement the full working code under test to solve the warning or the error, otherwise you get a GREEN test without a having first a correct RED failing test. You **MUST** implement only the minimal required code to satisfy the warning or error for the code under test, like creating the Module with an empty function.
+1. You **MUST** write comprehensive tests to cover all code paths, and they **MUST** follow a red-green-refactor cycle, without any exceptions:
+  1. **RED** - The test **MUST** fail without compiler warnings or errors, but you **MUST NOT** implement the full working code under test to solve the warning or the error, otherwise you get a GREEN test without a having first a correct RED failing test. You **MUST** implement only the minimal required code to satisfy the warning or error for the code under test, like creating the Module/Class/File with an **empty** function by preference, or in alternative one function that returns `TODO`.
   2. **GREEN** - Implement the minimal code required to make the test pass. This code needs to be well crafted, secure, easy to read, reason about, and to modify later.
   3. **REFACTOR** - After the test is GREEN inspect the code for opportunities of improvement to follow best practices, avoid common pitfalls, performance issues, security issues (OWASP TOP TEN and more), and to ensure it follows this project guidelines.
 2. When you are coding a module/class/file that depends on other ones you **MUST** start by the leaf dependency and work you way up to the file that starts the dependency chain. You **MUST** use the TDD red-green-refactor cycle for this.
