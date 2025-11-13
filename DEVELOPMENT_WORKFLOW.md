@@ -7,7 +7,7 @@ This document provides guidance to AI coding agents, AI coding assistants and LL
 ## 1. Intent Implementation
 
 You **MUST** follow the INTENT_SPECIFICATION document for the protocol to implement an Intent, which can be found at `## 4. Intent Implementation Protocol`.
-u
+
 
 ## 2. TDD First
 
@@ -15,11 +15,16 @@ u
 
 ### 2.1 TDD First - Rules
 
-1. Don't change the code under test to suit the way you wrote the test. Instead re-write it.
-2. Only if a test is really hard to write, then you need to analyze and compare the test and the code under test to determine:
+1. You **MUST** follow a red-green-refactor cycle, without any exceptions:
+  1. **RED** - The test **MUST** fail without compiler warnings or errors, but you **MUST NOT** implement the full working code under test to solve the warning or the error, otherwise you get a GREEN test without a having first a correct RED failing test. You **MUST** implement only the minimal required code to satisfy the warning or error for the code under test, like creating the Module with an empty function.
+  2. **GREEN** - Implement the minimal code required to make the test pass. This code needs to be well crafted, secure, easy to read, reason about, and to modify later.
+  3. **REFACTOR** - After the test is GREEN inspect the code for opportunities of improvement to follow best practices, avoid common pitfalls, performance issues, security issues (OWASP TOP TEN and more), and to ensure it follows this project guidelines.
+2. When you are coding a module/class/file that depends on other ones you **MUST** start by the leaf dependency and work you way up to the file that starts the dependency chain. You **MUST** use the TDD red-green-refactor cycle for this.
+3. Don't change the code under test to suit the way you wrote the test. Instead re-write it.
+4. Only if a test is really hard to write, then you need to analyze and compare the test and the code under test to determine:
   1. If the test is over-engineered, not following best practices, or just not testing what it should. If affirmative for any of them, then rewrite the test.
   2. If it is the code under test that is not easily testable, then refactor it for testability.
-3. Restrain from adding comments to code or tests, unless you really need to explain WHY it's being done that way. You **MUST** never explain in a comment WHAT it's being done, because that should be obvious from well-written code, that's easy to understand and reason about.
+5. Restrain from adding comments to code or tests, unless you really need to explain WHY it's being done that way. You **MUST** never explain in a comment WHAT it's being done, because that should be obvious from well-written code, that's easy to understand and reason about.
 
 
 ### 2.2 TDD First - Workflow Steps
