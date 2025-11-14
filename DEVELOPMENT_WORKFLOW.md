@@ -22,6 +22,7 @@ You **MUST** follow the INTENT_SPECIFICATION document for the protocol to implem
   2. **GREEN** - Implement the minimal code required to make the test pass. This code needs to be well crafted, secure, easy to read, reason about, and to modify later.
   3. **REFACTOR** - After the test is GREEN inspect the code for opportunities of improvement to follow best practices, avoid common pitfalls, performance issues, security issues (OWASP TOP TEN and more), and to ensure it follows this project guidelines.
   4. **TEST RUNNER** - During the red-green-refactor cycle you **MUST** run it only for the file being tested, and/or only for the function being tested when applicable.
+  5. **COMPILER AND LSP SERVER** - When tests are failing you **MUST** check first for the reason in the warnings and/or errors provided by the Compiler and/or LSP server. If they aren't the reason for the tests failure you **MUST** still fix them before you move on to the next task or sub-task.
 2. When you are coding a module/class/file that depends on other ones you **MUST** start by the leaf dependency and work you way up to the file that starts the dependency chain. You **MUST** use the TDD red-green-refactor cycle for this.
 3. Don't change the code under test to suit the way you wrote the test. Instead re-write it.
 4. Only if a test is really hard to write, then you need to analyze and compare the test and the code under test to determine:
